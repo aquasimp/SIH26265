@@ -105,3 +105,4 @@ export function MaturityLadderChart({ data }: MaturityLadderChartProps) {
     </div>
   );
 }
+

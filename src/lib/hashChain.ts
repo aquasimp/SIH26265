@@ -84,3 +84,4 @@ export function verifyAuditChain(chain: AuditLogEntry[]): AuditVerificationResul
     message: `Cryptographic integrity confirmed. All ${chain.length} blocks sequentially sealed with SHA-256.`,
   };
 }
+

@@ -109,3 +109,4 @@ export function LifecycleStepper({ status, releaseRequested }: LifecycleStepperP
     </div>
   );
 }
+

@@ -126,3 +126,4 @@ export interface Institution {
   fdrCount?: number;
   totalDepositSum?: number;
 }
+

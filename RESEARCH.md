@@ -92,3 +92,4 @@
   - Escalation idle window: Scrutiny Officer (5 days) -> Regional Officer (10 days) -> Bureau Head (15 days).
   - Attention Score weights: Days to maturity (40%), Open discrepancy severity (30%), Verification status (20%), Overdue renewal status (10%).
   - Mandatory minimum deposit tenure: Default **120 months (10 years)** for new institutions, editable per institution category.
+

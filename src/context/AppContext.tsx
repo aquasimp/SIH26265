@@ -56,6 +56,23 @@ const DICTIONARY: Record<string, Record<Language, string>> = {
   resolveFlag: { en: "Resolve Discrepancy", hi: "विसंगति का समाधान करें" },
   exportCsv: { en: "Export CSV", hi: "सीएसवी निर्यात" },
   exportPdf: { en: "Print Ledger", hi: "खाता प्रिंट करें" },
+
+  // KPI & Metric Cards
+  totalStatutoryReserve: { en: "Total Statutory Reserve", hi: "कुल सांविधिक आरक्षित निधि" },
+  expiringOverdue: { en: "Expiring / Overdue", hi: "समाप्त होने वाले / देय" },
+  openDiscrepancies: { en: "Open Discrepancies", hi: "सक्रिय विसंगतियां" },
+  verifiedCompliant: { en: "Verified & Compliant", hi: "सत्यापित एवं अनुपालन योग्य" },
+
+  // Statuses
+  ACTIVE: { en: "Active", hi: "सक्रिय" },
+  EXPIRING: { en: "Expiring", hi: "समाप्त हो रहा" },
+  MATURED: { en: "Matured", hi: "परिपक्व" },
+  DEFICIENT: { en: "Deficient", hi: "दोषपूर्ण / अपूर्ण" },
+  PENDING_VERIFICATION: { en: "Pending Verification", hi: "सत्यापन लंबित" },
+  RENEWED: { en: "Renewed", hi: "नवीनीकृत" },
+  RELEASE_REQUESTED: { en: "Release Requested", hi: "मुक्ति अनुरोधित" },
+  RELEASE_RECOMMENDED: { en: "RO Recommended", hi: "क्षेत्रीय अधिकारी अनुशंसित" },
+  RELEASED: { en: "Released", hi: "सफलतापूर्वक मुक्त" },
 };
 
 const AppContext = createContext<AppContextType | undefined>(undefined);
@@ -134,3 +151,4 @@ export function useApp() {
   }
   return context;
 }
+

@@ -11,3 +11,4 @@ export async function GET() {
     maturityLadder: ladder,
   });
 }
+

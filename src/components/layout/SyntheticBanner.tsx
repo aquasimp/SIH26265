@@ -21,3 +21,4 @@ export function SyntheticBanner() {
     </aside>
   );
 }
+

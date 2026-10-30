@@ -73,3 +73,4 @@ export function updateSystemConfig(newConfig: Partial<SystemConfig>): SystemConf
   };
   return activeConfig;
 }
+

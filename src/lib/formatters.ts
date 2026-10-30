@@ -122,3 +122,4 @@ export function getBankCodeFromIfsc(ifsc: string): string {
   if (!ifsc || ifsc.length < 4) return "";
   return ifsc.substring(0, 4).toUpperCase();
 }
+

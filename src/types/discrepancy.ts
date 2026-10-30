@@ -96,3 +96,4 @@ export const DISCREPANCY_CATALOG: Record<DiscrepancyRuleCode, RuleDefinition> = 
     remediationHint: "Advisory flag for officer review; compare scan visual typography against known bank templates.",
   },
 };
+

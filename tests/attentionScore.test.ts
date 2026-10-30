@@ -91,3 +91,4 @@ describe("Transparent Attention Score Engine", () => {
     expect(res.riskTier).toBe("CRITICAL");
   });
 });
+

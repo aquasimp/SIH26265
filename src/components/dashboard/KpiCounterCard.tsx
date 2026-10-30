@@ -72,3 +72,4 @@ export function KpiCounterCard({
     </div>
   );
 }
+

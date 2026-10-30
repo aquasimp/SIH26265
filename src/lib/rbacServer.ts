@@ -24,3 +24,4 @@ export function checkPermission(
 
   return { allowed: true, user };
 }
+

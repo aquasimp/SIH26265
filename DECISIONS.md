@@ -73,3 +73,4 @@ This document records key design, technical, and domain decisions made autonomou
 ## ADR-08: OCR-Assisted Intake Architecture
 - **Context**: Manual typing of FDR details is prone to clerical errors and takes days. We need demo-ready real OCR extraction with visual region mapping.
 - **Decision**: Provide client-side and API-based OCR parsing with pre-calibrated sample FDR templates for demo scenarios. Display an animated laser scanning sweep over the document, draw bounding boxes around detected regions, display confidence percentages per field, and mandate human confirmation before submission.
+

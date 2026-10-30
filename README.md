@@ -224,3 +224,4 @@ npm start
 ## 10. License & Intellectual Property
 
 Engineered for **Smart India Hackathon 2026** (Problem Statement SIH26265) in compliance with AICTE Regulation Bureau technical guidelines.
+
