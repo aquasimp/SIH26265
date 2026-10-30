@@ -115,31 +115,32 @@ export function DemoScenarioPlayer() {
   };
 
   return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/50 backdrop-blur-xs p-4">
-      <div className="w-full max-w-2xl bg-paper-50 border border-ink-border rounded shadow-ledger-elevated overflow-hidden animate-in fade-in zoom-in-95 duration-150">
-        <div className="flex items-center justify-between px-6 py-4 border-b border-ink-border bg-paper-100">
+    <div className="fixed inset-0 z-50 flex items-end sm:items-center justify-center bg-black/50 backdrop-blur-xs p-0 sm:p-4">
+      <div className="w-full max-w-2xl bg-paper-50 border border-ink-border rounded-t-2xl sm:rounded shadow-ledger-elevated overflow-hidden animate-in fade-in zoom-in-95 duration-150 max-h-[92dvh] flex flex-col">
+        <div className="flex items-center justify-between px-4 sm:px-6 py-3.5 sm:py-4 border-b border-ink-border bg-paper-100 shrink-0">
           <div className="flex items-center gap-2.5">
-            <div className="p-1.5 rounded bg-saffron text-white">
+            <div className="p-1.5 rounded bg-saffron text-white shrink-0">
               <Sparkles className="w-4 h-4" />
             </div>
             <div>
-              <h2 className="font-serif font-bold text-base text-ink-primary">
+              <h2 className="font-serif font-bold text-sm sm:text-base text-ink-primary">
                 SIH26265 Guided Demo Walkthrough
               </h2>
-              <p className="text-xs text-ink-muted">
+              <p className="text-[11px] sm:text-xs text-ink-muted">
                 Step-by-step verification of all regulatory problem statement requirements
               </p>
             </div>
           </div>
           <button
             onClick={() => setIsDemoModalOpen(false)}
-            className="p-1 text-ink-muted hover:text-ink-primary"
+            className="w-11 h-11 flex items-center justify-center text-ink-muted hover:text-ink-primary rounded-lg shrink-0"
+            aria-label="Close demo walkthrough"
           >
             <X className="w-5 h-5" />
           </button>
         </div>
 
-        <div className="p-6 space-y-6">
+        <div className="p-4 sm:p-6 space-y-4 sm:space-y-6 overflow-y-auto">
           {/* Step Progress Bar */}
           <div className="flex items-center justify-between text-xs font-mono text-ink-muted border-b border-ink-border pb-3">
             <span>
@@ -161,7 +162,7 @@ export function DemoScenarioPlayer() {
             <div className="flex items-center gap-2 pt-2">
               <button
                 onClick={handleExecuteStep}
-                className="px-4 py-2 bg-saffron hover:bg-saffron-hover text-white text-xs font-medium rounded flex items-center gap-2 transition-colors shadow-sm"
+                className="px-4 py-2 min-h-[44px] bg-saffron hover:bg-saffron-hover text-white text-xs font-medium rounded flex items-center gap-2 transition-colors shadow-sm"
               >
                 <span>{currentStep.actionText}</span>
                 <ArrowRight className="w-3.5 h-3.5" />
@@ -175,7 +176,7 @@ export function DemoScenarioPlayer() {
               <button
                 key={step.id}
                 onClick={() => setActiveStepIndex(idx)}
-                className={`w-full text-left px-3 py-2 text-xs rounded flex items-center justify-between transition-colors ${
+                className={`w-full text-left px-3 py-2 text-xs rounded flex items-center justify-between transition-colors min-h-[40px] ${
                   idx === activeStepIndex
                     ? "bg-paper-300 font-semibold text-ink-primary border border-ink-border"
                     : "text-ink-muted hover:bg-paper-200"
@@ -193,14 +194,14 @@ export function DemoScenarioPlayer() {
           </div>
 
           {/* Reset Action */}
-          <div className="flex items-center justify-between pt-3 border-t border-ink-border text-xs">
+          <div className="flex flex-col sm:flex-row items-stretch sm:items-center justify-between gap-3 pt-3 border-t border-ink-border text-xs">
             <span className="text-ink-muted text-[11px]">
               Want to start over with a fresh deterministic dataset?
             </span>
             <button
               onClick={handleResetLedger}
               disabled={isRunning}
-              className="flex items-center gap-1.5 text-xs text-ink-secondary hover:text-ink-primary font-mono px-2.5 py-1 rounded border border-ink-border hover:bg-paper-200 transition-colors"
+              className="flex items-center justify-center gap-1.5 text-xs text-ink-secondary hover:text-ink-primary font-mono px-3 py-2 min-h-[44px] rounded border border-ink-border hover:bg-paper-200 transition-colors"
             >
               <RotateCcw className={`w-3.5 h-3.5 ${isRunning ? "animate-spin" : ""}`} />
               <span>Reset Ledger to Seed</span>

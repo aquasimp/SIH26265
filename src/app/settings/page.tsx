@@ -70,11 +70,11 @@ export default function SettingsPage() {
   const isBureauHead = currentRole === "BUREAU_HEAD";
 
   return (
-    <div className="p-6 space-y-6 max-w-5xl mx-auto">
+    <div className="p-3 sm:p-6 space-y-4 sm:space-y-6 max-w-5xl mx-auto">
       {/* Page Header */}
       <div className="border-b border-ink-border pb-4 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
         <div>
-          <h2 className="font-serif font-bold text-xl text-ink-primary tracking-tight">
+          <h2 className="font-serif font-bold text-lg sm:text-xl text-ink-primary tracking-tight">
             Regulatory Policy Configuration & Thresholds
           </h2>
           <p className="text-xs text-ink-muted mt-0.5">
@@ -86,7 +86,7 @@ export default function SettingsPage() {
           <button
             onClick={handleSave}
             disabled={isSaving}
-            className="flex items-center gap-1.5 px-4 py-2 bg-saffron hover:bg-saffron-hover text-white text-xs font-semibold rounded shadow-sm transition-colors"
+            className="flex items-center justify-center gap-1.5 px-4 py-2 min-h-[44px] bg-saffron hover:bg-saffron-hover text-white text-xs font-semibold rounded shadow-sm transition-colors"
           >
             <Save className="w-3.5 h-3.5" />
             <span>{isSaving ? "Saving..." : "Save Policy Parameters"}</span>

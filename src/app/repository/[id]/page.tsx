@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useCallback } from "react";
 import Link from "next/link";
 import { useParams, useRouter } from "next/navigation";
 import { FdrInstrument, Institution } from "@/types/fdr";
@@ -48,7 +48,7 @@ export default function FdrDetailPage() {
   const [isReleasing, setIsReleasing] = useState(false);
   const [releaseError, setReleaseError] = useState<string | null>(null);
 
-  const fetchFdr = () => {
+  const fetchFdr = useCallback(() => {
     fetch(`/api/fdrs/${fdrId}`)
       .then((res) => res.json())
       .then((data) => {
@@ -58,11 +58,11 @@ export default function FdrDetailPage() {
         }
       })
       .finally(() => setLoading(false));
-  };
+  }, [fdrId]);
 
   useEffect(() => {
     fetchFdr();
-  }, [fdrId]);
+  }, [fetchFdr]);
 
   if (loading) {
     return (
@@ -159,9 +159,9 @@ export default function FdrDetailPage() {
   };
 
   return (
-    <div className="p-6 space-y-6 max-w-6xl mx-auto">
+    <div className="p-3 sm:p-6 space-y-4 sm:space-y-6 max-w-6xl mx-auto">
       {/* Back Navigation & Breadcrumb */}
-      <div className="flex items-center justify-between border-b border-ink-border pb-3">
+      <div className="flex flex-col sm:flex-row sm:items-center justify-between border-b border-ink-border pb-3 gap-2">
         <Link
           href="/repository"
           className="inline-flex items-center gap-1.5 text-xs text-ink-muted hover:text-ink-primary font-mono transition-colors"

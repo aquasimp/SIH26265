@@ -59,3 +59,4 @@ export function AnimatedCounter({
 
   return <span className={className}>{displayValue}</span>;
 }
+

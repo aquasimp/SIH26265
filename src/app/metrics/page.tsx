@@ -29,10 +29,10 @@ export default function MetricsPage() {
   };
 
   return (
-    <div className="p-6 space-y-6 max-w-6xl mx-auto">
+    <div className="p-3 sm:p-6 space-y-4 sm:space-y-6 max-w-6xl mx-auto">
       {/* Page Header */}
       <div className="border-b border-ink-border pb-4">
-        <h2 className="font-serif font-bold text-xl text-ink-primary tracking-tight">
+        <h2 className="font-serif font-bold text-lg sm:text-xl text-ink-primary tracking-tight">
           Simulated Regulatory Impact & Operational Benchmarks
         </h2>
         <p className="text-xs text-ink-muted mt-0.5">
@@ -104,13 +104,69 @@ export default function MetricsPage() {
 
       {/* Side-by-Side Detailed Comparative Breakdown */}
       <div className="border border-ink-border rounded bg-paper-50 shadow-ledger overflow-hidden">
-        <div className="px-5 py-3.5 bg-paper-100 border-b border-ink-border">
-          <h3 className="font-serif font-bold text-sm text-ink-primary">
+        <div className="px-4 sm:px-5 py-3.5 bg-paper-100 border-b border-ink-border">
+          <h3 className="font-serif font-bold text-xs sm:text-sm text-ink-primary">
             Operational Workflow Benchmark: Manual Baseline vs AICTE Streamlined Portal
           </h3>
         </div>
 
-        <div className="overflow-x-auto">
+        {/* Mobile Stacked Cards (below md) */}
+        <div className="block md:hidden divide-y divide-ink-border p-3 space-y-3">
+          {[
+            {
+              stage: "1. Instrument Intake & Indexing",
+              manual: "Physical courier receipt, manual clerical data entry into Excel, ~3–5 days backlog.",
+              automated: "OCR-assisted scan with confidence heatmap and automatic field mapping in < 30 seconds.",
+              gain: "98% Reduction",
+            },
+            {
+              stage: "2. Bank Lien Verification",
+              manual: "Physical postal confirmation letter sent to bank branch manager, taking 30–60 days.",
+              automated: "Direct API / SFMS gateway query returning Core Banking lien confirmation instantly.",
+              gain: "96% Reduction",
+            },
+            {
+              stage: "3. Discrepancy & Fraud Detection",
+              manual: "Prone to human fatigue; duplicate FDRs and IFSC prefix errors frequently overlooked.",
+              automated: "Deterministic 8-rule engine flagging temporal inversions, collisions, and amount variances.",
+              gain: "100% Coverage",
+            },
+            {
+              stage: "4. Maturity & Renewal Tracking",
+              manual: "Quarterly manual spreadsheet scans; risk of unmonitored mature deposits lapsing.",
+              automated: "Configurable 90/60/30/15/7 day automated alert notifications and multi-tier escalation.",
+              gain: "Automated",
+            },
+            {
+              stage: "5. Deposit Release Authorization",
+              manual: "Physical paper file routing through clerk, RO, and Bureau; vulnerable to lost documentation.",
+              automated: "Hard-gated digital workflow with cryptographic SHA-256 event chaining on every approval.",
+              gain: "Zero Tampering",
+            },
+          ].map((item, idx) => (
+            <div key={idx} className="pt-3 first:pt-0 space-y-2 text-xs">
+              <div className="flex items-center justify-between gap-2">
+                <span className="font-serif font-bold text-ink-primary text-xs">{item.stage}</span>
+                <span className="font-mono text-[10px] font-bold px-2 py-0.5 rounded bg-botanical-subtle text-botanical border border-botanical/20 shrink-0">
+                  {item.gain}
+                </span>
+              </div>
+              <div className="space-y-1.5 pl-1">
+                <div>
+                  <span className="font-mono text-[9px] uppercase tracking-wider text-ink-muted block">Traditional Manual:</span>
+                  <p className="text-[11px] text-ink-muted">{item.manual}</p>
+                </div>
+                <div>
+                  <span className="font-mono text-[9px] uppercase tracking-wider text-botanical block font-semibold">AICTE Automated Portal:</span>
+                  <p className="text-[11px] text-ink-primary font-medium">{item.automated}</p>
+                </div>
+              </div>
+            </div>
+          ))}
+        </div>
+
+        {/* Desktop Table (md and above) */}
+        <div className="hidden md:block overflow-x-auto">
           <table className="w-full text-xs text-left">
             <thead className="bg-paper-100 font-mono text-[10px] uppercase text-ink-muted border-b border-ink-border">
               <tr>

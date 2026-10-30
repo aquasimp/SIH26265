@@ -50,11 +50,11 @@ export default function AuditTrailPage() {
   });
 
   return (
-    <div className="p-6 space-y-6 max-w-6xl mx-auto">
+    <div className="p-3 sm:p-6 space-y-4 sm:space-y-6 max-w-6xl mx-auto">
       {/* Page Header */}
       <div className="border-b border-ink-border pb-4 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
         <div>
-          <h2 className="font-serif font-bold text-xl text-ink-primary tracking-tight">
+          <h2 className="font-serif font-bold text-lg sm:text-xl text-ink-primary tracking-tight">
             Tamper-Evident SHA-256 Cryptographic Audit Ledger
           </h2>
           <p className="text-xs text-ink-muted mt-0.5">
@@ -63,7 +63,7 @@ export default function AuditTrailPage() {
         </div>
         <button
           onClick={fetchLogs}
-          className="flex items-center gap-1.5 px-3 py-1.5 text-xs font-mono font-medium rounded border border-ink-border bg-paper-50 hover:bg-paper-200 text-ink-primary transition-colors"
+          className="flex items-center justify-center gap-1.5 px-3 py-2 min-h-[44px] text-xs font-mono font-medium rounded border border-ink-border bg-paper-50 hover:bg-paper-200 text-ink-primary transition-colors"
         >
           <RotateCcw className="w-3.5 h-3.5 text-ink-muted" />
           <span>Re-verify Chain</span>
@@ -153,11 +153,11 @@ export default function AuditTrailPage() {
                     Signatory: <strong className="text-ink-primary">{log.actorName}</strong> ({log.actorRole})
                   </span>
                 </div>
-                <div className="flex items-center gap-3 text-[9px] truncate">
-                  <span title={log.previousHash} className="truncate max-w-[200px]">
+                <div className="flex flex-wrap items-center gap-2 sm:gap-3 text-[9px] min-w-0">
+                  <span title={log.previousHash} className="truncate max-w-[180px] sm:max-w-[200px]">
                     Prev: {log.previousHash.slice(0, 16)}...
                   </span>
-                  <span title={log.currentHash} className="truncate max-w-[200px] text-saffron font-bold">
+                  <span title={log.currentHash} className="truncate max-w-[180px] sm:max-w-[200px] text-saffron font-bold">
                     Hash: {log.currentHash.slice(0, 16)}...
                   </span>
                 </div>

@@ -115,10 +115,10 @@ export default function OcrIntakePage() {
   };
 
   return (
-    <div className="p-6 space-y-6 max-w-6xl mx-auto">
+    <div className="p-3 sm:p-6 space-y-4 sm:space-y-6 max-w-6xl mx-auto">
       {/* Page Header */}
       <div className="border-b border-ink-border pb-4">
-        <h2 className="font-serif font-bold text-xl text-ink-primary tracking-tight">
+        <h2 className="font-serif font-bold text-lg sm:text-xl text-ink-primary tracking-tight">
           OCR-Assisted Fixed Deposit Intake & Validation
         </h2>
         <p className="text-xs text-ink-muted mt-0.5">
@@ -127,7 +127,7 @@ export default function OcrIntakePage() {
       </div>
 
       {/* Template & Preset Selector */}
-      <div className="p-4 bg-paper-50 border border-ink-border rounded shadow-ledger flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+      <div className="p-3.5 sm:p-4 bg-paper-50 border border-ink-border rounded-lg shadow-ledger flex flex-col sm:flex-row sm:items-center justify-between gap-3 sm:gap-4">
         <div className="space-y-0.5">
           <div className="text-xs font-semibold text-ink-primary">
             Select Test Sample Certificate (SIH Demo Presets)
@@ -137,13 +137,13 @@ export default function OcrIntakePage() {
           </div>
         </div>
 
-        <div className="flex items-center gap-2">
+        <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-2">
           <button
             onClick={() => {
               setSelectedTemplate("STANDARD_SBI");
               handleRunOcr("STANDARD_SBI");
             }}
-            className={`px-3 py-1.5 text-xs font-mono font-medium rounded border transition-colors ${
+            className={`px-3 py-2 sm:py-1.5 text-xs font-mono font-medium rounded-md border transition-colors min-h-[40px] sm:min-h-0 ${
               selectedTemplate === "STANDARD_SBI"
                 ? "bg-saffron text-white border-saffron shadow-sm"
                 : "bg-paper-100 text-ink-primary border-ink-border hover:bg-paper-200"
@@ -157,7 +157,7 @@ export default function OcrIntakePage() {
               setSelectedTemplate("MISMATCH_HDFC_IFSC");
               handleRunOcr("MISMATCH_HDFC_IFSC");
             }}
-            className={`px-3 py-1.5 text-xs font-mono font-medium rounded border transition-colors ${
+            className={`px-3 py-2 sm:py-1.5 text-xs font-mono font-medium rounded-md border transition-colors min-h-[40px] sm:min-h-0 ${
               selectedTemplate === "MISMATCH_HDFC_IFSC"
                 ? "bg-red-700 text-white border-red-700 shadow-sm"
                 : "bg-paper-100 text-ink-primary border-ink-border hover:bg-paper-200"
@@ -442,14 +442,14 @@ export default function OcrIntakePage() {
 
           {/* Commit Action Button */}
           {!submissionSuccess && (
-            <div className="flex items-center justify-between pt-2">
+            <div className="flex flex-col sm:flex-row items-stretch sm:items-center justify-between gap-3 pt-2">
               <span className="text-[11px] text-ink-muted font-mono">
                 RBAC Role: {currentRole}
               </span>
               <button
                 onClick={handleCommitLedger}
                 disabled={isSubmitting || !formFields.fdrNumber}
-                className="px-5 py-2.5 bg-saffron hover:bg-saffron-hover text-white text-xs font-semibold rounded shadow-sm flex items-center gap-2 transition-colors disabled:opacity-50"
+                className="px-5 py-2.5 min-h-[44px] bg-saffron hover:bg-saffron-hover text-white text-xs font-semibold rounded shadow-sm flex items-center justify-center gap-2 transition-colors disabled:opacity-50"
               >
                 <span>{isSubmitting ? "Committing to Ledger..." : "Commit Verified Record to Central Treasury"}</span>
                 <ArrowRight className="w-3.5 h-3.5" />

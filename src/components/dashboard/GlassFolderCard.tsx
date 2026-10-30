@@ -52,7 +52,8 @@ export const GlassFolderCard = React.forwardRef<HTMLButtonElement, GlassFolderCa
 
   // Intersection Observer to pause idle animation when offscreen
   useEffect(() => {
-    if (!cardRef.current || typeof IntersectionObserver === "undefined") return;
+    const el = cardRef.current;
+    if (!el || typeof IntersectionObserver === "undefined") return;
 
     const observer = new IntersectionObserver(
       ([entry]) => {
@@ -61,9 +62,9 @@ export const GlassFolderCard = React.forwardRef<HTMLButtonElement, GlassFolderCa
       { threshold: 0.1 }
     );
 
-    observer.observe(cardRef.current);
+    observer.observe(el);
     return () => observer.disconnect();
-  }, []);
+  }, [cardRef]);
 
   // Track cursor for specular highlight over the glass
   const handlePointerMove = useCallback(
@@ -75,7 +76,7 @@ export const GlassFolderCard = React.forwardRef<HTMLButtonElement, GlassFolderCa
       const y = ((e.clientY - rect.top) / rect.height) * 100;
       setMousePos({ x, y });
     },
-    [shouldReduceMotion]
+    [shouldReduceMotion, cardRef]
   );
 
   const handleClick = useCallback(() => {

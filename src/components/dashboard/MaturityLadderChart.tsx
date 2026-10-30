@@ -64,8 +64,8 @@ export function MaturityLadderChart({ data }: MaturityLadderChartProps) {
   };
 
   return (
-    <div className="p-4 bg-paper-50 border border-ink-border rounded shadow-ledger space-y-3">
-      <div className="flex items-center justify-between">
+    <div className="p-3 sm:p-4 bg-paper-50 border border-ink-border rounded-lg shadow-ledger space-y-3">
+      <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-1">
         <div>
           <h3 className="font-serif font-bold text-sm text-ink-primary">
             12-Month Regulatory Maturity Ladder
@@ -74,10 +74,10 @@ export function MaturityLadderChart({ data }: MaturityLadderChartProps) {
             Projected security deposit maturity schedule across all regional offices
           </p>
         </div>
-        <div className="font-mono text-xs text-ink-muted">Unit: ₹ Lakhs</div>
+        <div className="font-mono text-xs text-ink-muted shrink-0">Unit: ₹ Lakhs</div>
       </div>
 
-      <div className="h-56 w-full">
+      <div className="h-52 sm:h-56 w-full min-w-0">
         <ResponsiveContainer width="100%" height="100%">
           <BarChart data={chartData} margin={{ top: 10, right: 10, left: -10, bottom: 0 }}>
             <CartesianGrid strokeDasharray="3 3" vertical={false} stroke="var(--ink-border)" opacity={0.6} />
@@ -85,12 +85,13 @@ export function MaturityLadderChart({ data }: MaturityLadderChartProps) {
               dataKey="month"
               tickLine={false}
               axisLine={{ stroke: "var(--ink-border)" }}
-              tick={{ fill: "var(--ink-muted)", fontSize: 10, fontFamily: "var(--font-mono)" }}
+              tick={{ fill: "var(--ink-muted)", fontSize: 9, fontFamily: "var(--font-mono)" }}
+              interval="preserveStartEnd"
             />
             <YAxis
               tickLine={false}
               axisLine={{ stroke: "var(--ink-border)" }}
-              tick={{ fill: "var(--ink-muted)", fontSize: 10, fontFamily: "var(--font-mono)" }}
+              tick={{ fill: "var(--ink-muted)", fontSize: 9, fontFamily: "var(--font-mono)" }}
             />
             <Tooltip content={<CustomTooltip />} />
             <Bar

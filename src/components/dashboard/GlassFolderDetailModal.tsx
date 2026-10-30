@@ -93,7 +93,7 @@ export function GlassFolderDetailModal({
           role="dialog"
           aria-modal="true"
           aria-labelledby="folder-modal-title"
-          className="fixed inset-0 z-50 flex items-center justify-center p-4 sm:p-6 md:p-8"
+          className="fixed inset-0 z-50 flex items-end sm:items-center justify-center p-0 sm:p-6 md:p-8"
         >
           {/* Backdrop */}
           <motion.div
@@ -118,10 +118,10 @@ export function GlassFolderDetailModal({
               stiffness: 350,
               damping: 28,
             }}
-            className="relative w-full max-w-4xl max-h-[88vh] bg-paper-100 border border-ink-border rounded-3xl shadow-2xl flex flex-col overflow-hidden z-10"
+            className="relative w-full max-w-4xl max-h-[92dvh] sm:max-h-[88vh] bg-paper-100 border border-ink-border rounded-t-2xl sm:rounded-3xl shadow-2xl flex flex-col overflow-hidden z-10"
           >
             {/* Header: Marbled Fluid Texture Banner */}
-            <div className="relative h-44 overflow-hidden flex-shrink-0">
+            <div className="relative h-36 sm:h-44 overflow-hidden flex-shrink-0">
               <div
                 className="absolute inset-0 bg-cover bg-center"
                 style={{
@@ -131,9 +131,9 @@ export function GlassFolderDetailModal({
               <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent" />
 
               {/* Header Content */}
-              <div className="absolute inset-0 p-6 flex flex-col justify-between">
+              <div className="absolute inset-0 p-4 sm:p-6 flex flex-col justify-between">
                 <div className="flex items-center justify-between">
-                  <span className="px-3 py-1 rounded-full text-xs font-mono font-medium tracking-wide bg-white/20 text-white backdrop-blur-md border border-white/30 uppercase">
+                  <span className="px-2.5 sm:px-3 py-1 rounded-full text-[10px] sm:text-xs font-mono font-medium tracking-wide bg-white/20 text-white backdrop-blur-md border border-white/30 uppercase">
                     Regulatory Dossier Index · {variant}
                   </span>
 
@@ -143,7 +143,7 @@ export function GlassFolderDetailModal({
                     onClick={handleClose}
                     type="button"
                     aria-label="Close dossier view"
-                    className="w-10 h-10 rounded-xl bg-white/25 hover:bg-white/40 active:scale-95 text-white flex items-center justify-center backdrop-blur-md border border-white/40 transition-all outline-none focus-visible:ring-2 focus-visible:ring-white"
+                    className="w-11 h-11 rounded-xl bg-white/25 hover:bg-white/40 active:scale-95 text-white flex items-center justify-center backdrop-blur-md border border-white/40 transition-all outline-none focus-visible:ring-2 focus-visible:ring-white shrink-0"
                   >
                     <X className="w-5 h-5" />
                   </button>
@@ -153,11 +153,11 @@ export function GlassFolderDetailModal({
                   <div>
                     <h2
                       id="folder-modal-title"
-                      className="text-2xl sm:text-3xl font-bold text-white tracking-tight drop-shadow-md"
+                      className="text-xl sm:text-3xl font-bold text-white tracking-tight drop-shadow-md"
                     >
                       {title}
                     </h2>
-                    <p className="text-white/80 font-mono text-xs sm:text-sm mt-1">
+                    <p className="text-white/80 font-mono text-xs sm:text-sm mt-0.5 sm:mt-1">
                       {count} total records registered under sovereign custody
                     </p>
                   </div>
@@ -166,7 +166,7 @@ export function GlassFolderDetailModal({
             </div>
 
             {/* Controls Bar: Search & Quick Filter */}
-            <div className="p-4 border-b border-ink-border bg-paper-50 flex items-center gap-3">
+            <div className="p-3 sm:p-4 border-b border-ink-border bg-paper-50 flex items-center gap-3">
               <div className="relative flex-1">
                 <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-ink-muted" />
                 <input
@@ -174,7 +174,7 @@ export function GlassFolderDetailModal({
                   placeholder="Filter by FDR number, issuing bank, branch or IFSC..."
                   value={searchQuery}
                   onChange={(e) => setSearchQuery(e.target.value)}
-                  className="w-full pl-9 pr-4 py-2 text-xs font-mono rounded-lg bg-paper-100 border border-ink-border text-ink-primary placeholder:text-ink-muted focus:outline-none focus:ring-1 focus:ring-saffron"
+                  className="w-full pl-9 pr-4 py-2 text-sm sm:text-xs font-mono rounded-lg bg-paper-100 border border-ink-border text-ink-primary placeholder:text-ink-muted focus:outline-none focus:ring-1 focus:ring-saffron"
                 />
               </div>
               <span className="text-xs font-mono text-ink-muted hidden sm:inline">
@@ -273,3 +273,4 @@ export function GlassFolderDetailModal({
     </AnimatePresence>
   );
 }
+
