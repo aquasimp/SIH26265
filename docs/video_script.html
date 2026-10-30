@@ -1,0 +1,809 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>AICTE Central Treasury FDR Portal — 2-Minute YouTube Video Demo Script (SIH26265)</title>
+  <style>
+    @page {
+      size: A4 portrait;
+      margin: 12mm 14mm 12mm 14mm;
+    }
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+      color: #0F172A;
+      background: #FFFFFF;
+      font-size: 8.8pt;
+      line-height: 1.35;
+    }
+    .page {
+      page-break-after: always;
+      height: 273mm;
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+    .page:last-child {
+      page-break-after: avoid;
+    }
+    
+    /* Header Top Bar */
+    .top-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 2px solid #0F172A;
+      padding-bottom: 5px;
+      margin-bottom: 8px;
+    }
+    .top-header .brand {
+      font-size: 8pt;
+      font-weight: 800;
+      letter-spacing: 0.8px;
+      text-transform: uppercase;
+      color: #0369A1;
+    }
+    .top-header .badge {
+      background: #0F172A;
+      color: #FFFFFF;
+      font-size: 7.2pt;
+      font-weight: 700;
+      padding: 2px 7px;
+      border-radius: 3px;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+
+    /* Main Title Block */
+    .hero-title {
+      margin-bottom: 8px;
+    }
+    .hero-title h1 {
+      font-size: 17pt;
+      font-weight: 900;
+      color: #0F172A;
+      line-height: 1.15;
+      letter-spacing: -0.3px;
+    }
+    .hero-title .subtitle {
+      font-size: 9pt;
+      font-weight: 600;
+      color: #475569;
+      margin-top: 2px;
+    }
+
+    /* KPI Strip */
+    .kpi-strip {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 6px;
+      background: #F8FAFC;
+      border: 1px solid #E2E8F0;
+      border-radius: 5px;
+      padding: 6px 10px;
+      margin-bottom: 8px;
+    }
+    .kpi-item {
+      text-align: center;
+    }
+    .kpi-label {
+      font-size: 6.8pt;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      font-weight: 700;
+      color: #64748B;
+    }
+    .kpi-value {
+      font-size: 9.5pt;
+      font-weight: 800;
+      color: #0F172A;
+      margin-top: 1px;
+    }
+    .kpi-value.green {
+      color: #059669;
+    }
+
+    /* Two Objective Cards */
+    .objective-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 8px;
+      margin-bottom: 9px;
+    }
+    .obj-card {
+      background: #F1F5F9;
+      border-left: 3.5px solid #0284C7;
+      padding: 6px 8px;
+      border-radius: 0 4px 4px 0;
+    }
+    .obj-card.live {
+      border-left-color: #059669;
+      background: #F0FDF4;
+    }
+    .obj-card h4 {
+      font-size: 7.2pt;
+      text-transform: uppercase;
+      letter-spacing: 0.6px;
+      font-weight: 800;
+      color: #0369A1;
+      margin-bottom: 2px;
+    }
+    .obj-card.live h4 {
+      color: #15803D;
+    }
+    .obj-card p {
+      font-size: 7.8pt;
+      color: #1E293B;
+      line-height: 1.3;
+    }
+
+    /* Scene Container */
+    .scene-block {
+      margin-bottom: 8px;
+      border: 1px solid #CBD5E1;
+      border-radius: 5px;
+      overflow: hidden;
+    }
+    .scene-header {
+      background: #0F172A;
+      color: #FFFFFF;
+      padding: 4.5px 9px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .scene-title {
+      font-size: 8.4pt;
+      font-weight: 800;
+      letter-spacing: 0.2px;
+    }
+    .scene-timestamp {
+      background: #0284C7;
+      color: #FFFFFF;
+      font-size: 7pt;
+      font-weight: 800;
+      padding: 1.5px 6px;
+      border-radius: 3px;
+      letter-spacing: 0.4px;
+    }
+    
+    /* 3-Column Table */
+    table.scene-table {
+      width: 100%;
+      border-collapse: collapse;
+      table-layout: fixed;
+      background: #FFFFFF;
+    }
+    table.scene-table th {
+      background: #F8FAFC;
+      font-size: 6.8pt;
+      text-transform: uppercase;
+      letter-spacing: 0.6px;
+      font-weight: 800;
+      color: #475569;
+      padding: 4px 7px;
+      border-bottom: 1px solid #E2E8F0;
+      text-align: left;
+    }
+    table.scene-table td {
+      padding: 6px 8px;
+      vertical-align: top;
+      border-bottom: 1px solid #F1F5F9;
+      font-size: 8pt;
+      line-height: 1.33;
+    }
+    table.scene-table td:nth-child(1) {
+      width: 31%;
+      border-right: 1px solid #F1F5F9;
+      color: #1E293B;
+    }
+    table.scene-table td:nth-child(2) {
+      width: 47%;
+      border-right: 1px solid #F1F5F9;
+      color: #0F172A;
+    }
+    table.scene-table td:nth-child(3) {
+      width: 22%;
+      background: #FAFBFD;
+    }
+
+    .action-step {
+      margin-bottom: 3px;
+    }
+    .action-step strong {
+      color: #0284C7;
+      font-weight: 700;
+    }
+    .action-lead {
+      font-weight: 700;
+      color: #0F172A;
+      margin-bottom: 2px;
+      display: inline-block;
+    }
+
+    .script-tone {
+      font-size: 6.8pt;
+      font-weight: 800;
+      text-transform: uppercase;
+      color: #D97706;
+      letter-spacing: 0.5px;
+      margin-bottom: 3px;
+      display: block;
+    }
+    .script-text {
+      font-style: normal;
+      color: #0F172A;
+      font-weight: 500;
+    }
+
+    .cue-card {
+      background: #FFFFFF;
+      border: 1px solid #E2E8F0;
+      border-radius: 4px;
+      padding: 3px 5px;
+      margin-bottom: 3px;
+      box-shadow: 0 1px 2px rgba(0,0,0,0.03);
+    }
+    .cue-tag {
+      font-size: 6.2pt;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      display: block;
+      margin-bottom: 1px;
+    }
+    .cue-val {
+      font-size: 7.2pt;
+      font-weight: 700;
+      color: #0F172A;
+    }
+    .tag-blue { color: #0284C7; }
+    .tag-green { color: #059669; }
+    .tag-red { color: #DC2626; }
+    .tag-orange { color: #D97706; }
+    .tag-purple { color: #7C3AED; }
+
+    /* Footer */
+    .page-footer {
+      border-top: 1px solid #CBD5E1;
+      padding-top: 4px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 6.8pt;
+      color: #64748B;
+      font-weight: 600;
+    }
+    .page-footer .left-text {
+      letter-spacing: 0.3px;
+    }
+
+    /* Page 4 Directives & Metadata */
+    .directive-card {
+      border: 1px solid #CBD5E1;
+      border-radius: 5px;
+      padding: 8px 10px;
+      background: #F8FAFC;
+      margin-bottom: 8px;
+    }
+    .directive-card h3 {
+      font-size: 8.5pt;
+      font-weight: 800;
+      text-transform: uppercase;
+      color: #0F172A;
+      letter-spacing: 0.5px;
+      margin-bottom: 5px;
+      border-bottom: 1px solid #E2E8F0;
+      padding-bottom: 3px;
+    }
+    .directive-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 8px;
+    }
+    .directive-item {
+      font-size: 7.6pt;
+      line-height: 1.35;
+      color: #334155;
+    }
+    .directive-item strong {
+      color: #0F172A;
+    }
+    
+    .meta-box {
+      background: #0F172A;
+      color: #E2E8F0;
+      border-radius: 5px;
+      padding: 8px 10px;
+      font-size: 7.4pt;
+      line-height: 1.38;
+      font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+    }
+    .meta-box h3 {
+      color: #38BDF8;
+      font-size: 8.2pt;
+      font-weight: 800;
+      text-transform: uppercase;
+      margin-bottom: 4px;
+      letter-spacing: 0.5px;
+    }
+    .meta-box .meta-title {
+      color: #FFFFFF;
+      font-weight: bold;
+      margin-bottom: 4px;
+    }
+    .meta-box .meta-desc {
+      color: #94A3B8;
+      margin-bottom: 6px;
+    }
+    .meta-box .meta-chapters {
+      color: #FCD34D;
+      white-space: pre-line;
+      margin-bottom: 6px;
+    }
+    .meta-box .meta-tags {
+      color: #34D399;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ==================== PAGE 1 ==================== -->
+  <div class="page">
+    <div>
+      <div class="top-header">
+        <span class="brand">AICTE Central Treasury FDR Portal • Regulation Bureau</span>
+        <span class="badge">SIH26265 • Official Demo Script</span>
+      </div>
+
+      <div class="hero-title">
+        <h1>2-Minute YouTube Video Demo Script</h1>
+        <div class="subtitle">Complete Production, Visual Choreography &amp; Spoken Narration Guide • Smart India Hackathon 2026</div>
+      </div>
+
+      <div class="kpi-strip">
+        <div class="kpi-item">
+          <div class="kpi-label">Target Duration</div>
+          <div class="kpi-value">120s (2:00)</div>
+        </div>
+        <div class="kpi-item">
+          <div class="kpi-label">Narration Pace</div>
+          <div class="kpi-value">140 WPM</div>
+        </div>
+        <div class="kpi-item">
+          <div class="kpi-label">Spoken Word Count</div>
+          <div class="kpi-value">282 Words</div>
+        </div>
+        <div class="kpi-item">
+          <div class="kpi-label">Production Status</div>
+          <div class="kpi-value green">● Verified Production-Ready</div>
+        </div>
+      </div>
+
+      <div class="objective-grid">
+        <div class="obj-card">
+          <h4>Core Demo Objective</h4>
+          <p>Demonstrate end-to-end statutory security deposit governance: automated OCR intake, dual-source CBS provenance matching, 8-rule discrepancy detection, 100-pt attention scoring, hard release gate, and cryptographic SHA-256 audit logs in under 2 minutes.</p>
+        </div>
+        <div class="obj-card live">
+          <h4>Live Production Workstation Target</h4>
+          <p><strong>https://aicte-treasury-portal.vercel.app</strong> — Dual English/Hindi bilingual toggle, multi-role switcher (Institution, Scrutiny Officer, Regional Officer, Bureau Head, Auditor), zero developer jargon, high-density regulatory terminal.</p>
+        </div>
+      </div>
+
+      <!-- Scene 1 -->
+      <div class="scene-block">
+        <div class="scene-header">
+          <span class="scene-title">Scene 1: Hook &amp; The Statutory Treasury Challenge</span>
+          <span class="scene-timestamp">0:00 – 0:18 (18 sec)</span>
+        </div>
+        <table class="scene-table">
+          <thead>
+            <tr>
+              <th>Visual &amp; Screen Action</th>
+              <th>Voiceover / Spoken Script</th>
+              <th>On-Screen Telemetry &amp; SFX</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>
+                <span class="action-lead">Sovereign Terminal Hook</span><br>
+                1. Start full-screen on <code>aicte-treasury-portal.vercel.app</code> in clean light mode.<br>
+                2. Smooth pan across the executive header: <strong>"Regulation Bureau Command Console"</strong>.<br>
+                3. Highlight KPI strip: <strong>₹42.50 Cr Total Statutory Reserve</strong>, 140 Instruments, 3 Deficient Holds.<br>
+                4. Demonstrate <strong>Bilingual Toggle</strong> (EN / हिंदी).
+              </td>
+              <td>
+                <span class="script-tone">[Tone: Urgent, authoritative, institutional]</span>
+                <span class="script-text">"Every year, thousands of technical institutions pledge mandatory Fixed Deposit Receipts to the AICTE under statutory lock-in norms. But reliance on physical certificates and forty-five-day postal bank inquiries exposes over four hundred crores in educational reserves to forgery, duplicate pledging, and lapsed tenures. Introducing the AICTE Central Treasury FDR Regulatory Portal."</span>
+              </td>
+              <td>
+                <div class="cue-card">
+                  <span class="cue-tag tag-blue">Lower-Third</span>
+                  <span class="cue-val">AICTE Central Treasury FDR Portal</span>
+                </div>
+                <div class="cue-card">
+                  <span class="cue-tag tag-purple">KPI Strip</span>
+                  <span class="cue-val">₹400+ Cr Statutory Reserves</span>
+                </div>
+                <div class="cue-card">
+                  <span class="cue-tag tag-green">SFX</span>
+                  <span class="cue-val">Cinematic bass swell &amp; whoosh</span>
+                </div>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <!-- Scene 2 -->
+      <div class="scene-block">
+        <div class="scene-header">
+          <span class="scene-title">Scene 2: Treasury Command Console, 3D Dossiers &amp; Maturity Ladder</span>
+          <span class="scene-timestamp">0:18 – 0:40 (22 sec)</span>
+        </div>
+        <table class="scene-table">
+          <thead>
+            <tr>
+              <th>Visual &amp; Screen Action</th>
+              <th>Voiceover / Spoken Script</th>
+              <th>On-Screen Telemetry &amp; SFX</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>
+                <span class="action-lead">Interactive Portfolio Triage</span><br>
+                1. Smooth zoom onto <strong>3 Glass Regulatory Dossiers</strong> (Fatal Forgeries, EVC Shortfalls, Approved EoA) showing 3D hover sheen.<br>
+                2. Scroll to the <strong>12-Month Liquidity Maturity Ladder</strong> (Recharts SVG bar chart).<br>
+                3. Click Attention Score on <code>fdr-ec-01-expiring-soon</code> to trigger the <strong>100-pt Formula Breakdown Modal</strong>.
+              </td>
+              <td>
+                <span class="script-tone">[Tone: Confident, fast-paced, analytical]</span>
+                <span class="script-text">"Our sovereign command console provides real-time portfolio triage across all eight regional bureaus. Interactive 3D Regulatory Dossiers isolate high-risk holdings, while an automated twelve-month maturity ladder forecasts upcoming expiries. A transparent, hundred-point Attention Score ranks officer queues mathematically, eliminating arbitrary pile processing."</span>
+              </td>
+              <td>
+                <div class="cue-card">
+                  <span class="cue-tag tag-blue">3D Vaults</span>
+                  <span class="cue-val">Glass Dossiers with Specular Sheen</span>
+                </div>
+                <div class="cue-card">
+                  <span class="cue-tag tag-purple">Chart</span>
+                  <span class="cue-val">12-Month Liquidity Ladder</span>
+                </div>
+                <div class="cue-card">
+                  <span class="cue-tag tag-orange">Math Modal</span>
+                  <span class="cue-val">100-pt Attention Score Formula</span>
+                </div>
+                <div class="cue-card">
+                  <span class="cue-tag tag-green">SFX</span>
+                  <span class="cue-val">Soft glass hover chime</span>
+                </div>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <div class="page-footer">
+      <span class="left-text">AICTE Central Treasury FDR Portal (SIH26265) • Regulation Bureau, AICTE New Delhi</span>
+      <span>Page 1 of 4</span>
+    </div>
+  </div>
+
+  <!-- ==================== PAGE 2 ==================== -->
+  <div class="page">
+    <div>
+      <div class="top-header">
+        <span class="brand">AICTE Central Treasury FDR Portal • Regulation Bureau</span>
+        <span class="badge">SIH26265 • Official Demo Script</span>
+      </div>
+
+      <!-- Scene 3 -->
+      <div class="scene-block">
+        <div class="scene-header">
+          <span class="scene-title">Scene 3: OCR-Assisted Laser Document Intake &amp; Field Telemetry</span>
+          <span class="scene-timestamp">0:40 – 1:04 (24 sec)</span>
+        </div>
+        <table class="scene-table">
+          <thead>
+            <tr>
+              <th>Visual &amp; Screen Action</th>
+              <th>Voiceover / Spoken Script</th>
+              <th>On-Screen Telemetry &amp; SFX</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>
+                <span class="action-lead">Collegiate Intake &amp; Scanner</span><br>
+                1. Switch role to <strong>INSTITUTION_USER</strong> and navigate to <code>/intake</code>.<br>
+                2. Select <strong>Sample 2: Mismatch HDFC IFSC (Tampered)</strong>.<br>
+                3. Demonstrate <strong>Animated Laser Sweep Line</strong> scanning vertically down the certificate.<br>
+                4. Highlight visual SVG <strong>Bounding Box Coordinate Overlays</strong>.<br>
+                5. Show live per-field confidence meters (98.4% Bank, 95.1% IFSC, 99.2% Amount).<br>
+                6. Click <strong>Commit Verified Record</strong>.
+              </td>
+              <td>
+                <span class="script-tone">[Tone: Forensic, technical, crisp]</span>
+                <span class="script-text">"For college onboarding, our OCR Intake Engine digitizes physical certificates in seconds. An animated laser sweep maps coordinate bounding boxes across key deposit fields, streaming per-field confidence metrics with human-in-the-loop review. Pre-submission schema validation catches OCR anomalies instantly, cutting manual clerical entry by over ninety percent."</span>
+              </td>
+              <td>
+                <div class="cue-card">
+                  <span class="cue-tag tag-blue">Intake Tool</span>
+                  <span class="cue-val">Animated Laser Scanner Active</span>
+                </div>
+                <div class="cue-card">
+                  <span class="cue-tag tag-green">Telemetry</span>
+                  <span class="cue-val">Field Confidence: 98.4%</span>
+                </div>
+                <div class="cue-card">
+                  <span class="cue-tag tag-purple">Visual ROI</span>
+                  <span class="cue-val">SVG Coordinate Bounding Boxes</span>
+                </div>
+                <div class="cue-card">
+                  <span class="cue-tag tag-orange">SFX</span>
+                  <span class="cue-val">Digital laser sweep hum &amp; commit chirp</span>
+                </div>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <!-- Scene 4 -->
+      <div class="scene-block">
+        <div class="scene-header">
+          <span class="scene-title">Scene 4: Dual-Source Provenance &amp; Cross-Trust Duplicate Collision</span>
+          <span class="scene-timestamp">1:04 – 1:26 (22 sec)</span>
+        </div>
+        <table class="scene-table">
+          <thead>
+            <tr>
+              <th>Visual &amp; Screen Action</th>
+              <th>Voiceover / Spoken Script</th>
+              <th>On-Screen Telemetry &amp; SFX</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>
+                <span class="action-lead">Deep Regulatory Scrutiny</span><br>
+                1. Switch role to <strong>SCRUTINY_OFFICER</strong> and open <code>/repository/fdr-ec-04-ifsc-mismatch</code>.<br>
+                2. Display <strong>Dual-Source Provenance Matrix</strong>: "Submitted by Institution" vs "Confirmed by Bank (MOCK CBS)".<br>
+                3. Point cursor to bold red conflict: Declared <em>State Bank of India</em> vs IFSC prefix <em>HDFC0001234</em>.<br>
+                4. Click <strong>"Query Core Banking (MOCK)"</strong> with live latency spinner.<br>
+                5. Pivot to <code>fdr-ec-03-dup-a</code> showing cross-college collision alert on <code>FDR-2024-COLLISION-991</code>.
+              </td>
+              <td>
+                <span class="script-tone">[Tone: Sharp, investigative, decisive]</span>
+                <span class="script-text">"Inside the Deep Inspection Dossier, officers review dual-source provenance side-by-side: declared collegiate data against live Core Banking records. Here, our eight-rule engine flags a critical mismatch: an applicant claiming State Bank of India with an HDFC IFSC prefix. Simultaneously, pan-India collision scans detect duplicate deposits pledged across multiple colleges."</span>
+              </td>
+              <td>
+                <div class="cue-card">
+                  <span class="cue-tag tag-red">Deterministic Flag</span>
+                  <span class="cue-val">IFSC Prefix vs Bank Conflict</span>
+                </div>
+                <div class="cue-card">
+                  <span class="cue-tag tag-blue">Provenance</span>
+                  <span class="cue-val">Dual-Source Matrix Matcher</span>
+                </div>
+                <div class="cue-card">
+                  <span class="cue-tag tag-red">Fraud Intercept</span>
+                  <span class="cue-val">Cross-Trust Duplicate Collision</span>
+                </div>
+                <div class="cue-card">
+                  <span class="cue-tag tag-orange">SFX</span>
+                  <span class="cue-val">Discrepancy alert ping</span>
+                </div>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <div class="page-footer">
+      <span class="left-text">AICTE Central Treasury FDR Portal (SIH26265) • Regulation Bureau, AICTE New Delhi</span>
+      <span>Page 2 of 4</span>
+    </div>
+  </div>
+
+  <!-- ==================== PAGE 3 ==================== -->
+  <div class="page">
+    <div>
+      <div class="top-header">
+        <span class="brand">AICTE Central Treasury FDR Portal • Regulation Bureau</span>
+        <span class="badge">SIH26265 • Official Demo Script</span>
+      </div>
+
+      <!-- Scene 5 -->
+      <div class="scene-block">
+        <div class="scene-header">
+          <span class="scene-title">Scene 5: Automated Hard Release Gate &amp; Bureau Head Sanction</span>
+          <span class="scene-timestamp">1:26 – 1:46 (20 sec)</span>
+        </div>
+        <table class="scene-table">
+          <thead>
+            <tr>
+              <th>Visual &amp; Screen Action</th>
+              <th>Voiceover / Spoken Script</th>
+              <th>On-Screen Telemetry &amp; SFX</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>
+                <span class="action-lead">Gated Discharge &amp; Sanction</span><br>
+                1. Switch role to <strong>REGIONAL_OFFICER</strong> and visit <code>/repository/fdr-ec-05-release-blocked</code>.<br>
+                2. Click <strong>"Initiate Release"</strong>.<br>
+                3. Demonstrate the strict <strong>HTTP 422 Hard Release Gate Modal</strong> popping up in crimson red blocking discharge due to open unverified lien.<br>
+                4. Switch role to <strong>BUREAU_HEAD</strong>, visit <code>/release-workflow</code>.<br>
+                5. On compliant instrument <code>fdr-ec-06-release-ready</code>, click <strong>"Sanction Release"</strong>.<br>
+                6. Display auto-generated <strong>AICTE Sanction Order Ref: AICTE/REG/FDR-REL/2026/0892</strong>.
+              </td>
+              <td>
+                <span class="script-tone">[Tone: Authoritative, secure, celebratory]</span>
+                <span class="script-text">"To prevent illegal premature refunds, the portal enforces an unyielding Hard Release Gate. If unverified liens or open vigilance flags exist, release is cryptographically blocked with an explicit four-twenty-two error. Once fully compliant, the Bureau Head sanctions discharge with one click, generating a tamper-proof statutory order."</span>
+              </td>
+              <td>
+                <div class="cue-card">
+                  <span class="cue-tag tag-red">Security Gate</span>
+                  <span class="cue-val">HTTP 422: Hard Gate Block Enforced</span>
+                </div>
+                <div class="cue-card">
+                  <span class="cue-tag tag-green">Competent Authority</span>
+                  <span class="cue-val">Sanction Order Ref Issued</span>
+                </div>
+                <div class="cue-card">
+                  <span class="cue-tag tag-purple">Statutory Norm</span>
+                  <span class="cue-val">APH 2024–27 &amp; GFR Rule 171</span>
+                </div>
+                <div class="cue-card">
+                  <span class="cue-tag tag-orange">SFX</span>
+                  <span class="cue-val">Heavy gate block clunk &amp; seal click</span>
+                </div>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <!-- Scene 6 -->
+      <div class="scene-block">
+        <div class="scene-header">
+          <span class="scene-title">Scene 6: Cryptographic SHA-256 Ledger &amp; Grand Finale</span>
+          <span class="scene-timestamp">1:46 – 2:00 (14 sec)</span>
+        </div>
+        <table class="scene-table">
+          <thead>
+            <tr>
+              <th>Visual &amp; Screen Action</th>
+              <th>Voiceover / Spoken Script</th>
+              <th>On-Screen Telemetry &amp; SFX</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>
+                <span class="action-lead">Audit Ledger &amp; Closing URL</span><br>
+                1. Switch role to <strong>AUDITOR</strong> and open <code>/audit-trail</code>.<br>
+                2. Show immutable block cards with actor, timestamp, previous hash, and current SHA-256 hash.<br>
+                3. Click <strong>"Re-verify Chain"</strong> showing live recalculation and green <strong>"Chain Integrity: 100% Cryptographic Match"</strong> seal.<br>
+                4. Highlight DPDP Act compliant masked account numbers.<br>
+                5. Hero frame showing Government of India &amp; AICTE emblem, team name <strong>Legacy Coderz</strong>, and live demo URL.
+              </td>
+              <td>
+                <span class="script-tone">[Tone: Inspiring, climactic, definitive]</span>
+                <span class="script-text">"For statutory oversight, every regulatory event is sealed onto an immutable SHA-256 audit ledger with DPDP-compliant privacy masking. Cutting bank verification from forty-five days to thirty-six hours, and safeguarding four hundred crores in educational capital. Experience sovereign regulatory governance live at aicte-treasury-portal.vercel.app."</span>
+              </td>
+              <td>
+                <div class="cue-card">
+                  <span class="cue-tag tag-green">Audit Proof</span>
+                  <span class="cue-val">SHA-256 Chain 100% Validated</span>
+                </div>
+                <div class="cue-card">
+                  <span class="cue-tag tag-blue">Compliance</span>
+                  <span class="cue-val">DPDP Act 2023 Masked Views</span>
+                </div>
+                <div class="cue-card">
+                  <span class="cue-tag tag-purple">Production Live</span>
+                  <span class="cue-val">aicte-treasury-portal.vercel.app</span>
+                </div>
+                <div class="cue-card">
+                  <span class="cue-tag tag-green">SFX</span>
+                  <span class="cue-val">Uplifting orchestral crescendo</span>
+                </div>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <div class="page-footer">
+      <span class="left-text">AICTE Central Treasury FDR Portal (SIH26265) • Regulation Bureau, AICTE New Delhi</span>
+      <span>Page 3 of 4</span>
+    </div>
+  </div>
+
+  <!-- ==================== PAGE 4 ==================== -->
+  <div class="page">
+    <div>
+      <div class="top-header">
+        <span class="brand">AICTE Central Treasury FDR Portal • Regulation Bureau</span>
+        <span class="badge">SIH26265 • Official Demo Script</span>
+      </div>
+
+      <div class="directive-card">
+        <h3>Video Production &amp; Screen-Recording Directives</h3>
+        <div class="directive-grid">
+          <div class="directive-item">
+            <strong>Recommended Capture Setup:</strong><br>
+            • <strong>Resolution:</strong> 1920×1080 (1080p 60fps) or 3840×2160 (4K 60fps) in 16:9 widescreen.<br>
+            • <strong>Browser:</strong> Chrome / Edge in clean profile (no extensions or bookmark bar, F11 full-screen).<br>
+            • <strong>Cursor:</strong> High-visibility smooth cursor with subtle click ring highlight.<br>
+            • <strong>Zoom Level:</strong> 100% browser zoom (all high-density data tables and cards are pre-calibrated).
+          </div>
+          <div class="directive-item">
+            <strong>Key Interactive Moments to Hit:</strong><br>
+            • <strong>3D Glass Dossiers:</strong> Show cursor hover tilt and specular lighting on Fatal Forgery folder.<br>
+            • <strong>Attention Score Modal:</strong> Click score badge on <code>fdr-ec-01-expiring-soon</code> for formula popup.<br>
+            • <strong>Laser OCR Intake:</strong> Trigger Sample 2 to capture animated vertical laser scanning line.<br>
+            • <strong>Hard Gate Block:</strong> Attempt release on <code>fdr-ec-05</code> to capture vivid crimson HTTP 422 block.<br>
+            • <strong>Cryptographic Re-verify:</strong> Click Re-verify Chain on <code>/audit-trail</code> to show green integrity seal.
+          </div>
+        </div>
+      </div>
+
+      <div class="directive-card">
+        <h3>Speech &amp; Audio Pacing Directives</h3>
+        <div class="directive-grid">
+          <div class="directive-item">
+            • <strong>Voice Pacing:</strong> Speak at an energetic, authoritative 140 WPM. Pause 0.5s after scene transitions.<br>
+            • <strong>Pronunciation:</strong> AICTE ("A-I-C-T-E"), FDR ("F-D-R"), CBS ("Core Banking Solution"), SHA-256 ("S-H-A two-fifty-six"), APH ("Approval Process Handbook").
+          </div>
+          <div class="directive-item">
+            • <strong>Background Music:</strong> Modern low-tempo corporate-tech underscore at -24 dB; duck audio by 4 dB during narration.<br>
+            • <strong>SFX Cues:</strong> Subtle UI clicks, scanner sweep hum, and heavy block clunk synchronized to on-screen actions.
+          </div>
+        </div>
+      </div>
+
+      <div class="meta-box">
+        <h3>YouTube Video Description, Timestamps &amp; Metadata</h3>
+        <div class="meta-title">Title: AICTE Central Treasury FDR Portal — Sovereign Regulatory Terminal | SIH 2026 (SIH26265)</div>
+        <div class="meta-desc">Description:
+AICTE Central Treasury FDR Regulatory Portal delivers end-to-end digital lifecycle governance, dual-source CBS provenance verification, and cryptographic compliance for over ₹400+ Cr in technical education security deposits. Built for Smart India Hackathon 2026 (Problem Statement SIH26265) for AICTE Regulation Bureau.
+
+🔗 Live Web Application: https://aicte-treasury-portal.vercel.app
+💻 GitHub Repository: https://github.com/aquasimp/SIH26265
+🏛 Target Bureau: All India Council for Technical Education (AICTE), Regulation Bureau, New Delhi
+👥 Team: Legacy Coderz (SIH 2026)</div>
+        <div class="meta-chapters">⏱ VIDEO CHAPTERS:
+0:00 - Introduction & The Statutory Treasury Challenge
+0:18 - Treasury Command Console, 3D Dossiers & Maturity Ladder
+0:40 - OCR-Assisted Laser Document Intake & Field Telemetry
+1:04 - Dual-Source Provenance & Cross-Trust Duplicate Collision
+1:26 - Automated Hard Release Gate & Bureau Head Sanction
+1:46 - Cryptographic SHA-256 Ledger & Production Live Link</div>
+        <div class="meta-tags">#AICTE #SmartIndiaHackathon #SIH2026 #SIH26265 #GovTech #NextJS14 #TreasuryGovernance #FinTech #CyberSecurity #SHA256</div>
+      </div>
+    </div>
+
+    <div class="page-footer">
+      <span class="left-text">AICTE Central Treasury FDR Portal (SIH26265) • Regulation Bureau, AICTE New Delhi</span>
+      <span>Page 4 of 4</span>
+    </div>
+  </div>
+
+</body>
+</html>
+

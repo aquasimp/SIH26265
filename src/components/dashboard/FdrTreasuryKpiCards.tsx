@@ -30,11 +30,11 @@ export function FdrTreasuryKpiCards({ metrics }: FdrTreasuryKpiCardsProps) {
   const deficitReserve = targetReserve - totalSum;
 
   return (
-    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 select-none">
+    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-5 select-none">
       {/* =========================================================================
-          CARD 1: TOTAL STATUTORY RESERVE (AMBER TOP ACCENT)
+          CARD 1: TOTAL STATUTORY RESERVE
           ========================================================================= */}
-      <div className="bg-white dark:bg-slate-900 border border-slate-200/90 dark:border-slate-800 rounded-2xl p-4 shadow-xs border-t-[3.5px] border-t-amber-400 flex flex-col justify-between transition-all hover:shadow-md">
+      <div className="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-2xl p-4 sm:p-5 shadow-xs flex flex-col justify-between transition-all hover:shadow-md hover:border-slate-300 dark:hover:border-slate-700">
         <div>
           <div className="text-[11px] font-bold tracking-wider text-slate-500 dark:text-slate-400 uppercase">
             TOTAL STATUTORY RESERVE
@@ -65,9 +65,9 @@ export function FdrTreasuryKpiCards({ metrics }: FdrTreasuryKpiCardsProps) {
       </div>
 
       {/* =========================================================================
-          CARD 2: EXPIRING & OVERDUE INSTRUMENTS (ROSE TOP ACCENT)
+          CARD 2: EXPIRING & OVERDUE INSTRUMENTS
           ========================================================================= */}
-      <div className="bg-white dark:bg-slate-900 border border-slate-200/90 dark:border-slate-800 rounded-2xl p-4 shadow-xs border-t-[3.5px] border-t-rose-500 flex flex-col justify-between transition-all hover:shadow-md">
+      <div className="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-2xl p-4 sm:p-5 shadow-xs flex flex-col justify-between transition-all hover:shadow-md hover:border-slate-300 dark:hover:border-slate-700">
         <div>
           <div className="text-[11px] font-bold tracking-wider text-slate-500 dark:text-slate-400 uppercase">
             EXPIRING / LAPSED LIENS
@@ -98,9 +98,9 @@ export function FdrTreasuryKpiCards({ metrics }: FdrTreasuryKpiCardsProps) {
       </div>
 
       {/* =========================================================================
-          CARD 3: CBS VERIFICATION ACCURACY (INDIGO TOP ACCENT)
+          CARD 3: CBS VERIFICATION ACCURACY
           ========================================================================= */}
-      <div className="bg-white dark:bg-slate-900 border border-slate-200/90 dark:border-slate-800 rounded-2xl p-4 shadow-xs border-t-[3.5px] border-t-indigo-500 flex flex-col justify-between transition-all hover:shadow-md">
+      <div className="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-2xl p-4 sm:p-5 shadow-xs flex flex-col justify-between transition-all hover:shadow-md hover:border-slate-300 dark:hover:border-slate-700">
         <div>
           <div className="text-[11px] font-bold tracking-wider text-slate-500 dark:text-slate-400 uppercase">
             CORE BANKING RECONCILIATION
@@ -128,9 +128,9 @@ export function FdrTreasuryKpiCards({ metrics }: FdrTreasuryKpiCardsProps) {
       </div>
 
       {/* =========================================================================
-          CARD 4: REGULATORY LIEN COMPLIANCE (EMERALD TOP ACCENT)
+          CARD 4: REGULATORY LIEN COMPLIANCE
           ========================================================================= */}
-      <div className="bg-white dark:bg-slate-900 border border-slate-200/90 dark:border-slate-800 rounded-2xl p-4 shadow-xs border-t-[3.5px] border-t-emerald-500 flex flex-col justify-between transition-all hover:shadow-md">
+      <div className="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-2xl p-4 sm:p-5 shadow-xs flex flex-col justify-between transition-all hover:shadow-md hover:border-slate-300 dark:hover:border-slate-700">
         <div>
           <div className="text-[11px] font-bold tracking-wider text-slate-500 dark:text-slate-400 uppercase">
             STATUTORY LIEN COMPLIANCE

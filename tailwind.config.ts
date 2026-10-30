@@ -10,6 +10,19 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
+        gov: {
+          blue: "#2773E1",
+          blueDark: "#0D5BB8",
+          navy: "#15213B",
+          bg: "#F5F8FC",
+          card: "#FFFFFF",
+          text: "#162033",
+          secondary: "#66758B",
+          border: "#E2E8F0",
+          success: "#16A36A",
+          warning: "#E6A23C",
+          danger: "#DC4545",
+        },
         paper: {
           50: "var(--paper-50)",
           100: "var(--paper-100)",

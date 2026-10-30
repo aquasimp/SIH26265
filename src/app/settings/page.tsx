@@ -61,7 +61,7 @@ export default function SettingsPage() {
 
   if (loading || !config) {
     return (
-      <div className="p-8 text-center text-xs font-mono text-ink-muted">
+      <div className="p-8 text-center text-xs text-slate-500 animate-pulse">
         Loading regulatory parameters...
       </div>
     );
@@ -70,79 +70,85 @@ export default function SettingsPage() {
   const isBureauHead = currentRole === "BUREAU_HEAD";
 
   return (
-    <div className="space-y-5 sm:space-y-6 max-w-5xl mx-auto">
-      {/* Page Header */}
-      <div className="liquid-glass-card rounded-[22px] p-4.5 sm:p-5 shadow-xs flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
-        <div>
-          <h2 className="font-serif font-bold text-lg sm:text-xl text-ink-primary tracking-tight">
-            Regulatory Policy Configuration & Thresholds
-          </h2>
-          <p className="text-xs text-ink-muted mt-0.5">
-            Configurable governance parameters: reminder schedule, idle escalation rules, and discipline deposit norms
-          </p>
+    <div className="space-y-6 max-w-6xl mx-auto">
+      {/* Header */}
+      <div>
+        <div className="text-[11px] font-semibold text-blue-600 tracking-wider uppercase mb-1">
+          REGULATION BUREAU · SYSTEM GOVERNANCE
         </div>
+        <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3">
+          <div>
+            <h1 className="text-2xl sm:text-3xl font-bold text-slate-900 tracking-tight">
+              Rules & Regulatory Settings
+            </h1>
+            <p className="text-xs sm:text-sm text-slate-500 mt-1">
+              Configurable statutory parameters: maturity reminder schedule, idle case auto-escalation thresholds, and discipline deposit norms.
+            </p>
+          </div>
 
-        {isBureauHead ? (
-          <button
-            onClick={handleSave}
-            disabled={isSaving}
-            className="flex items-center justify-center gap-1.5 px-4 py-2 min-h-[44px] bg-saffron hover:bg-saffron-hover text-white text-xs font-semibold rounded shadow-sm transition-colors"
-          >
-            <Save className="w-3.5 h-3.5" />
-            <span>{isSaving ? "Saving..." : "Save Policy Parameters"}</span>
-          </button>
-        ) : (
-          <span className="font-mono text-xs px-2.5 py-1 rounded bg-paper-200 border border-ink-border text-ink-muted">
-            Read-Only (Modifiable by Bureau Head only)
-          </span>
-        )}
+          {isBureauHead ? (
+            <button
+              type="button"
+              onClick={handleSave}
+              disabled={isSaving}
+              className="flex items-center justify-center gap-2 px-4 py-2 bg-blue-600 hover:bg-blue-700 text-white text-xs font-semibold rounded-xl shadow-xs transition-colors cursor-pointer"
+            >
+              <Save className="w-4 h-4" />
+              <span>{isSaving ? "Saving..." : "Save Policy Parameters"}</span>
+            </button>
+          ) : (
+            <span className="text-xs px-3 py-1.5 rounded-xl bg-slate-100 border border-slate-200 text-slate-600 font-medium self-start sm:self-auto">
+              Read-Only (Modifiable by Bureau Head only)
+            </span>
+          )}
+        </div>
       </div>
 
       {saveSuccess && (
-        <div className="p-3 bg-botanical-subtle border border-botanical/30 rounded text-xs text-botanical font-mono flex items-center gap-2">
-          <CheckCircle2 className="w-4 h-4" />
-          <span>System configuration updated and logged to audit trail.</span>
+        <div className="p-4 bg-emerald-50 border border-emerald-200 rounded-xl text-xs text-emerald-800 font-medium flex items-center gap-2">
+          <CheckCircle2 className="w-4 h-4 text-emerald-600" />
+          <span>System configuration updated successfully and logged to the SHA-256 audit trail.</span>
         </div>
       )}
 
       {/* Section 1: Validity Reminder Intervals */}
-      <div className="p-5 sm:p-6 liquid-glass-card rounded-[22px] shadow-xs space-y-4">
-        <div className="border-b border-ink-border pb-2.5">
-          <h3 className="font-serif font-bold text-sm text-ink-primary">
+      <div className="bg-white rounded-2xl border border-slate-200 p-6 shadow-xs space-y-4">
+        <div className="border-b border-slate-100 pb-3">
+          <h3 className="font-bold text-sm text-slate-900">
             1. Maturity Reminder Schedule (Days Prior to Lapsing)
           </h3>
-          <p className="text-xs text-ink-muted">
-            Automated notifications issued to applicant institution and regional scrutiny cell
+          <p className="text-xs text-slate-500 mt-0.5">
+            Automated alerts dispatched to institution dean and regional scrutiny officer.
           </p>
         </div>
 
-        <div className="grid grid-cols-2 sm:grid-cols-5 gap-3 font-mono text-xs">
+        <div className="grid grid-cols-2 sm:grid-cols-5 gap-3 text-xs">
           {config.reminderDaysTiers.map((days, idx) => (
-            <div key={idx} className="p-3 bg-paper-100 border border-ink-border rounded space-y-1">
-              <label className="text-[10px] uppercase text-ink-muted font-bold">
+            <div key={idx} className="p-3.5 bg-slate-50 rounded-xl border border-slate-200/80 space-y-1">
+              <label className="text-[10px] uppercase text-slate-400 font-bold">
                 Tier {idx + 1} Alert
               </label>
-              <div className="text-base font-bold text-ink-primary">{days} Days</div>
-              <div className="text-[9px] text-ink-muted">Advance notice</div>
+              <div className="text-xl font-bold text-slate-900 font-mono">{days} Days</div>
+              <div className="text-[11px] text-slate-500">Advance notice</div>
             </div>
           ))}
         </div>
       </div>
 
       {/* Section 2: Escalation Idle Thresholds */}
-      <div className="p-5 sm:p-6 liquid-glass-card rounded-[22px] shadow-xs space-y-4">
-        <div className="border-b border-ink-border pb-2.5">
-          <h3 className="font-serif font-bold text-sm text-ink-primary">
+      <div className="bg-white rounded-2xl border border-slate-200 p-6 shadow-xs space-y-4">
+        <div className="border-b border-slate-100 pb-3">
+          <h3 className="font-bold text-sm text-slate-900">
             2. Inaction & Idle Alert Auto-Escalation Thresholds
           </h3>
-          <p className="text-xs text-ink-muted">
-            Defines permissible idle review windows before case is automatically promoted to higher administrative authority
+          <p className="text-xs text-slate-500 mt-0.5">
+            Permissible idle review windows before unaddressed cases are escalated up the hierarchy.
           </p>
         </div>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 font-mono text-xs">
-          <div className="p-4 bg-paper-100 border border-ink-border rounded space-y-2">
-            <label className="text-[11px] font-semibold text-ink-primary uppercase">
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 text-xs">
+          <div className="p-4 bg-slate-50 rounded-xl border border-slate-200/80 space-y-2">
+            <label className="text-xs font-semibold text-slate-800">
               Scrutiny Cell → Regional Officer Escalation
             </label>
             <div className="flex items-center gap-3">
@@ -159,14 +165,14 @@ export default function SettingsPage() {
                     },
                   })
                 }
-                className="w-24 p-2 bg-paper-50 border border-ink-border rounded font-bold text-ink-primary text-sm"
+                className="w-24 p-2 bg-white border border-slate-200 rounded-lg font-mono font-bold text-slate-900 text-sm focus:outline-none"
               />
-              <span className="text-ink-secondary text-xs">Days idle in Scrutiny Cell</span>
+              <span className="text-slate-500 text-xs">Days idle in Scrutiny Cell</span>
             </div>
           </div>
 
-          <div className="p-4 bg-paper-100 border border-ink-border rounded space-y-2">
-            <label className="text-[11px] font-semibold text-ink-primary uppercase">
+          <div className="p-4 bg-slate-50 rounded-xl border border-slate-200/80 space-y-2">
+            <label className="text-xs font-semibold text-slate-800">
               Regional Officer → Bureau Head Escalation
             </label>
             <div className="flex items-center gap-3">
@@ -183,35 +189,35 @@ export default function SettingsPage() {
                     },
                   })
                 }
-                className="w-24 p-2 bg-paper-50 border border-ink-border rounded font-bold text-ink-primary text-sm"
+                className="w-24 p-2 bg-white border border-slate-200 rounded-lg font-mono font-bold text-slate-900 text-sm focus:outline-none"
               />
-              <span className="text-ink-secondary text-xs">Days unresolved in Region</span>
+              <span className="text-slate-500 text-xs">Days unresolved in Region</span>
             </div>
           </div>
         </div>
       </div>
 
       {/* Section 3: Statutory Deposit Slabs by Discipline */}
-      <div className="p-5 sm:p-6 liquid-glass-card rounded-[22px] shadow-xs space-y-4">
-        <div className="border-b border-ink-border pb-2.5">
-          <h3 className="font-serif font-bold text-sm text-ink-primary">
+      <div className="bg-white rounded-2xl border border-slate-200 p-6 shadow-xs space-y-4">
+        <div className="border-b border-slate-100 pb-3">
+          <h3 className="font-bold text-sm text-slate-900">
             3. Statutory Security Deposit Norms by Technical Discipline
           </h3>
-          <p className="text-xs text-ink-muted">
-            Prescribed minimum corpus required per AICTE Approval Process Handbook (APH)
+          <p className="text-xs text-slate-500 mt-0.5">
+            Prescribed minimum corpus required per AICTE Approval Process Handbook (APH 2024–27).
           </p>
         </div>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-3 font-mono text-xs">
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-3 text-xs">
           {Object.entries(config.depositNormsByDiscipline).map(([disc, amt]) => (
-            <div key={disc} className="p-3 bg-paper-100 border border-ink-border rounded space-y-1">
-              <div className="font-semibold text-ink-primary text-[11px] truncate font-sans">
+            <div key={disc} className="p-3.5 bg-slate-50 rounded-xl border border-slate-200/80 space-y-1">
+              <div className="font-semibold text-slate-800 text-xs truncate">
                 {disc}
               </div>
-              <div className="font-bold text-saffron text-sm">
+              <div className="font-bold text-blue-600 text-sm font-mono">
                 {formatIndianCurrency(amt)}
               </div>
-              <div className="text-[10px] text-ink-muted">10-Year Joint FDR</div>
+              <div className="text-[11px] text-slate-400">10-Year Joint Term Deposit</div>
             </div>
           ))}
         </div>
@@ -219,4 +225,3 @@ export default function SettingsPage() {
     </div>
   );
 }
-

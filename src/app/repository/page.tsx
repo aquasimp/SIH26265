@@ -7,11 +7,6 @@ import { formatIndianCurrency, formatIndianDate, formatRemainingTenure, maskSens
 import { CircularValidityRing } from "@/components/fdr/CircularValidityRing";
 import { useApp } from "@/context/AppContext";
 import {
-  SEVERITY_CONFIG,
-  mapFlagSeverityToTier,
-  mapUrgencyToTier,
-} from "@/lib/severity";
-import {
   Search,
   Download,
   Printer,
@@ -19,6 +14,12 @@ import {
   CheckCircle2,
   Building2,
   ArrowRight,
+  Filter,
+  FileSpreadsheet,
+  ChevronRight,
+  ShieldCheck,
+  RotateCcw,
+  Plus,
 } from "lucide-react";
 
 export default function RepositoryPage() {
@@ -33,15 +34,20 @@ export default function RepositoryPage() {
   const [discrepancyFilter, setDiscrepancyFilter] = useState("ALL");
   const [sortBy, setSortBy] = useState<"attention" | "maturity" | "amount" | "issue">("attention");
 
-  useEffect(() => {
+  const fetchData = () => {
+    setLoading(true);
     fetch("/api/fdrs")
       .then((res) => res.json())
       .then((data) => {
         if (data.success) {
-          setFdrs(data.data);
+          setFdrs(data.data || []);
         }
       })
       .finally(() => setLoading(false));
+  };
+
+  useEffect(() => {
+    fetchData();
   }, []);
 
   const banks = [
@@ -100,47 +106,41 @@ export default function RepositoryPage() {
     if (sortBy === "attention") {
       return (b.attentionScore || 0) - (a.attentionScore || 0);
     }
+    if (sortBy === "amount") {
+      return (b.amount || 0) - (a.amount || 0);
+    }
     if (sortBy === "maturity") {
       return new Date(a.maturityDate).getTime() - new Date(b.maturityDate).getTime();
     }
-    if (sortBy === "amount") {
-      return b.amount - a.amount;
-    }
-    if (sortBy === "issue") {
-      return new Date(b.issueDate).getTime() - new Date(a.issueDate).getTime();
-    }
-    return 0;
+    return new Date(b.issueDate).getTime() - new Date(a.issueDate).getTime();
   });
 
-  // Export CSV
   const handleExportCsv = () => {
     const headers = [
       "FDR Number",
-      "Bank Name",
-      "Branch",
-      "IFSC Code",
-      "Institution ID",
       "Institution Name",
-      "Amount (INR)",
+      "AICTE ID",
+      "Bank",
+      "IFSC",
+      "Principal Amount (INR)",
       "Issue Date",
       "Maturity Date",
       "Status",
-      "Lien Marked",
+      "Verification Status",
       "Attention Score",
     ];
 
     const rows = sorted.map((f) => [
       f.fdrNumber,
+      `"${f.institutionName || f.institutionId}"`,
+      f.institutionAicteId || "N/A",
       `"${f.bankName}"`,
-      `"${f.branchName}"`,
       f.ifscCode,
-      f.institutionId,
-      `"${f.institutionName || ""}"`,
       f.amount,
       f.issueDate,
       f.maturityDate,
       f.status,
-      f.lienMarked ? "YES" : "NO",
+      f.verificationStatus,
       f.attentionScore,
     ]);
 
@@ -153,7 +153,7 @@ export default function RepositoryPage() {
     link.setAttribute("href", encodedUri);
     link.setAttribute(
       "download",
-      `AICTE_FDR_Treasury_Export_${new Date().toISOString().split("T")[0]}.csv`
+      `AICTE_FDR_Register_Export_${new Date().toISOString().split("T")[0]}.csv`
     );
     document.body.appendChild(link);
     link.click();
@@ -163,50 +163,60 @@ export default function RepositoryPage() {
   const isAuditor = currentRole === "AUDITOR";
 
   return (
-    <div className="space-y-5 sm:space-y-6 max-w-full">
+    <div className="space-y-6 select-none animate-glass-in pb-12">
       {/* Top Header Bar */}
-      <div className="liquid-glass-card rounded-[22px] p-4.5 sm:p-5 shadow-xs flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3">
+      <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 pb-2 border-b border-slate-200/80">
         <div>
-          <h2 className="font-serif font-bold text-lg sm:text-xl text-ink-primary tracking-tight">
-            Central Statutory Deposit Repository
-          </h2>
-          <p className="text-xs text-ink-muted mt-0.5">
-            Master register of technical education security deposits & encumbrance certificates
+          <div className="text-[11px] font-bold uppercase tracking-wider text-blue-600">
+            FDR MANAGEMENT · REPOSITORY
+          </div>
+          <h1 className="text-2xl font-extrabold text-slate-900 tracking-tight">
+            FDR Register
+          </h1>
+          <p className="text-xs text-slate-500 mt-0.5">
+            Central repository of all technical institution security deposits and tripartite lien instruments.
           </p>
         </div>
 
         {/* Action Buttons */}
         <div className="flex items-center gap-2 flex-wrap">
+          <Link
+            href="/intake"
+            className="flex items-center gap-1.5 px-3.5 py-2 bg-[#2773E1] hover:bg-[#0D5BB8] text-white rounded-xl text-xs font-semibold shadow-2xs transition-colors"
+          >
+            <Plus className="w-3.5 h-3.5" />
+            <span>Submit New FDR</span>
+          </Link>
           <button
             type="button"
             onClick={handleExportCsv}
-            className="flex items-center gap-1.5 px-3 py-2 sm:py-1.5 text-xs font-mono font-medium rounded-md border border-ink-border bg-paper-50 hover:bg-paper-200 text-ink-primary transition-colors min-h-[40px] sm:min-h-0"
+            className="flex items-center gap-1.5 px-3 py-2 text-xs font-semibold rounded-xl border border-slate-200 bg-white hover:bg-slate-50 text-slate-700 transition-colors shadow-2xs cursor-pointer"
           >
-            <Download className="w-3.5 h-3.5 text-ink-muted" />
+            <Download className="w-3.5 h-3.5 text-slate-400" />
             <span>Export CSV</span>
           </button>
           <button
             type="button"
             onClick={() => window.print()}
-            className="flex items-center gap-1.5 px-3 py-2 sm:py-1.5 text-xs font-mono font-medium rounded-md border border-ink-border bg-paper-50 hover:bg-paper-200 text-ink-primary transition-colors min-h-[40px] sm:min-h-0"
+            className="flex items-center gap-1.5 px-3 py-2 text-xs font-semibold rounded-xl border border-slate-200 bg-white hover:bg-slate-50 text-slate-700 transition-colors shadow-2xs cursor-pointer"
           >
-            <Printer className="w-3.5 h-3.5 text-ink-muted" />
+            <Printer className="w-3.5 h-3.5 text-slate-400" />
             <span>Print Ledger</span>
           </button>
         </div>
       </div>
 
-      {/* Filter Bar */}
-      <div className="p-3.5 sm:p-4 liquid-glass-card rounded-[20px] shadow-xs space-y-3">
+      {/* Filter Toolbar */}
+      <div className="p-4 bg-white border border-slate-200/90 rounded-2xl shadow-xs space-y-3">
         <div className="flex flex-col md:flex-row md:items-center gap-3">
           <div className="relative flex-1">
-            <Search className="w-4 h-4 text-ink-muted absolute left-3 top-1/2 -translate-y-1/2" />
+            <Search className="w-4 h-4 text-slate-400 absolute left-3.5 top-1/2 -translate-y-1/2" />
             <input
               type="text"
               value={searchTerm}
               onChange={(e) => setSearchTerm(e.target.value)}
               placeholder="Filter by FDR No, Bank, IFSC, Institution..."
-              className="w-full pl-9 pr-3 py-2 sm:py-1.5 text-sm sm:text-xs bg-paper-100 border border-ink-border rounded-md text-ink-primary placeholder:text-ink-muted focus:outline-none focus:border-ink-secondary"
+              className="w-full pl-9 pr-3 py-2 text-xs bg-slate-50 border border-slate-200 rounded-xl text-slate-900 placeholder:text-slate-400 focus:outline-hidden focus:border-blue-400"
             />
           </div>
 
@@ -215,7 +225,7 @@ export default function RepositoryPage() {
             <select
               value={selectedBank}
               onChange={(e) => setSelectedBank(e.target.value)}
-              className="px-2.5 py-2 sm:py-1.5 bg-paper-100 border border-ink-border rounded-md text-ink-primary text-xs focus:outline-none min-h-[40px] sm:min-h-0"
+              className="px-3 py-2 bg-slate-50 border border-slate-200 rounded-xl text-slate-800 text-xs focus:outline-hidden"
             >
               <option value="ALL">All Issuing Banks</option>
               {banks.map((b) => (
@@ -229,7 +239,7 @@ export default function RepositoryPage() {
             <select
               value={selectedStatus}
               onChange={(e) => setSelectedStatus(e.target.value)}
-              className="px-2.5 py-2 sm:py-1.5 bg-paper-100 border border-ink-border rounded-md text-ink-primary text-xs focus:outline-none min-h-[40px] sm:min-h-0"
+              className="px-3 py-2 bg-slate-50 border border-slate-200 rounded-xl text-slate-800 text-xs focus:outline-hidden"
             >
               <option value="ALL">All Statuses</option>
               {statuses.map((s) => (
@@ -243,7 +253,7 @@ export default function RepositoryPage() {
             <select
               value={discrepancyFilter}
               onChange={(e) => setDiscrepancyFilter(e.target.value)}
-              className="px-2.5 py-2 sm:py-1.5 bg-paper-100 border border-ink-border rounded-md text-ink-primary text-xs focus:outline-none min-h-[40px] sm:min-h-0"
+              className="px-3 py-2 bg-slate-50 border border-slate-200 rounded-xl text-slate-800 text-xs focus:outline-hidden"
             >
               <option value="ALL">All Compliance States</option>
               <option value="WITH_DISCREPANCIES">Open Discrepancies Only</option>
@@ -254,246 +264,139 @@ export default function RepositoryPage() {
             <select
               value={sortBy}
               onChange={(e) => setSortBy(e.target.value as any)}
-              className="px-2.5 py-2 sm:py-1.5 bg-paper-100 border border-ink-border rounded-md text-ink-primary text-xs focus:outline-none min-h-[40px] sm:min-h-0"
+              className="px-3 py-2 bg-slate-50 border border-slate-200 rounded-xl text-slate-800 text-xs focus:outline-hidden"
             >
-              <option value="attention">Sort: Risk / Attention Score</option>
+              <option value="attention">Sort: Attention Score</option>
               <option value="maturity">Sort: Maturity Date</option>
               <option value="amount">Sort: Amount (High to Low)</option>
-              <option value="issue">Sort: Issue Date (Newest)</option>
+              <option value="issue">Sort: Issue Date</option>
             </select>
           </div>
         </div>
 
-        <div className="flex items-center justify-between text-xs text-ink-muted pt-2 border-t border-ink-border/60 font-mono">
+        <div className="flex items-center justify-between text-xs text-slate-500 pt-1">
           <span>
-            Displaying {sorted.length} of {fdrs.length} sovereign instruments
+            Displaying <strong>{sorted.length}</strong> of {fdrs.length} records in repository
           </span>
-          {discrepancyFilter !== "ALL" && (
-            <span className="text-saffron font-medium">Filter active</span>
-          )}
+          {discrepancyFilter !== "ALL" || selectedBank !== "ALL" || selectedStatus !== "ALL" ? (
+            <button
+              type="button"
+              onClick={() => {
+                setSelectedBank("ALL");
+                setSelectedStatus("ALL");
+                setDiscrepancyFilter("ALL");
+                setSearchTerm("");
+              }}
+              className="text-blue-600 hover:underline font-semibold"
+            >
+              Reset Filters
+            </button>
+          ) : null}
         </div>
       </div>
 
-      {/* Main Ledger View: Stacked Cards on Mobile (< 768px), Table on Desktop (>= 768px) */}
-      <div className="liquid-glass-card rounded-[22px] overflow-hidden shadow-xs">
-        {loading ? (
-          <div className="p-8 text-center text-xs font-mono text-ink-muted animate-pulse">
-            Loading sovereign repository records...
-          </div>
-        ) : sorted.length === 0 ? (
-          <div className="p-8 text-center text-xs text-ink-muted">
-            No instruments match the selected search and filter criteria.
-          </div>
-        ) : (
-          <>
-            {/* Desktop Table View */}
-            <div className="hidden md:block overflow-x-auto">
-              <table className="w-full text-xs text-left">
-                <thead className="bg-paper-100 font-mono text-[10px] uppercase text-ink-muted border-b border-ink-border">
-                  <tr>
-                    <th className="py-2.5 px-4 font-semibold w-40">Validity</th>
-                    <th className="py-2.5 px-4 font-semibold">FDR Ref / Bank</th>
-                    <th className="py-2.5 px-4 font-semibold">Institution Details</th>
-                    <th className="py-2.5 px-4 font-semibold whitespace-nowrap">Statutory Sum</th>
-                    <th className="py-2.5 px-4 font-semibold">Lien State</th>
-                    <th className="py-2.5 px-4 font-semibold">Status & Flags</th>
-                    <th className="py-2.5 px-4 font-semibold text-right">Action</th>
-                  </tr>
-                </thead>
-                <tbody className="divide-y divide-ink-border">
-                  {sorted.map((fdr) => {
-                    const tenure = formatRemainingTenure(fdr.maturityDate);
-                    const openFlags = (fdr.discrepancies || []).filter((d) => !d.resolved);
-                    const displayFdrNumber = isAuditor ? maskSensitiveId(fdr.fdrNumber) : fdr.fdrNumber;
-                    const tenureSeverity = mapUrgencyToTier(tenure.urgency);
-                    const tenureStyle = SEVERITY_CONFIG[tenureSeverity];
+      {/* Main Table View */}
+      <div className="bg-white border border-slate-200/90 rounded-2xl shadow-xs overflow-hidden">
+        <div className="overflow-x-auto">
+          <table className="w-full text-left text-xs">
+            <thead className="bg-slate-50 border-b border-slate-200/80 text-slate-500 uppercase tracking-wider text-[11px] font-semibold">
+              <tr>
+                <th className="py-3 px-4">FDR Number</th>
+                <th className="py-3 px-3">Institution</th>
+                <th className="py-3 px-3">Bank & Branch</th>
+                <th className="py-3 px-3">Deposit Amount</th>
+                <th className="py-3 px-3">Maturity Date</th>
+                <th className="py-3 px-3">Lien Status</th>
+                <th className="py-3 px-3">Status</th>
+                <th className="py-3 px-4 text-right">Action</th>
+              </tr>
+            </thead>
+            <tbody className="divide-y divide-slate-100 text-slate-700">
+              {sorted.length > 0 ? (
+                sorted.map((fdr) => {
+                  const hasDiscrepancy = (fdr.discrepancies || []).some((d) => !d.resolved);
+                  const displayNum = isAuditor ? maskSensitiveId(fdr.fdrNumber) : fdr.fdrNumber;
 
-                    return (
-                      <tr key={fdr.id} className="hover:bg-paper-100/60 transition-colors">
-                        <td className="py-2.5 px-4">
-                          <div className="flex items-center gap-2.5">
-                            <CircularValidityRing maturityDate={fdr.maturityDate} size={38} strokeWidth={3} />
-                            <div>
-                              <div className="font-mono text-[11px] font-semibold text-ink-primary whitespace-nowrap">
-                                {formatIndianDate(fdr.maturityDate)}
-                              </div>
-                              <div className={`text-[9px] font-mono whitespace-nowrap ${tenureStyle.chipText}`}>
-                                {tenure.label}
-                              </div>
-                            </div>
-                          </div>
-                        </td>
-
-                        <td className="py-2.5 px-4">
-                          <div className="font-mono font-bold text-ink-primary">
-                            {displayFdrNumber}
-                          </div>
-                          <div className="text-[11px] text-ink-muted mt-0.5">
-                            {fdr.bankName} • {fdr.ifscCode}
-                          </div>
-                        </td>
-
-                        <td className="py-2.5 px-4 font-sans text-ink-secondary">
-                          <div className="font-medium text-ink-primary truncate max-w-[240px]" title={fdr.institutionName}>
-                            {fdr.institutionName || fdr.institutionId}
-                          </div>
-                          <div className="text-[10px] font-mono text-ink-muted">
-                            AICTE ID: {fdr.institutionAicteId || fdr.institutionId}
-                          </div>
-                        </td>
-
-                        <td className="py-2.5 px-4 font-mono font-medium text-ink-primary whitespace-nowrap tabular-nums">
-                          {formatIndianCurrency(fdr.amount)}
-                        </td>
-
-                        <td className="py-2.5 px-4 whitespace-nowrap">
-                          {fdr.lienMarked ? (
-                            <span className="inline-flex items-center gap-1 text-[10px] font-mono text-emerald-700 dark:text-emerald-400 font-medium">
-                              <CheckCircle2 className="w-3 h-3 text-emerald-600" />
-                              <span>Lien Pledged</span>
-                            </span>
-                          ) : (
-                            <span className="inline-flex items-center gap-1 text-[10px] font-mono text-red-600 font-bold">
-                              <AlertTriangle className="w-3 h-3" />
-                              <span>UNMARKED</span>
-                            </span>
-                          )}
-                        </td>
-
-                        <td className="py-2.5 px-4">
-                          <div className="flex items-center gap-2 flex-wrap">
-                            <span className="font-mono text-[10px] px-1.5 py-0.5 rounded bg-paper-200 border border-ink-border text-ink-primary font-medium">
-                              {fdr.status}
-                            </span>
-                            {openFlags.length > 0 && (
-                              <span
-                                className="inline-flex items-center gap-1 text-[10px] font-mono px-1.5 py-0.5 rounded bg-red-100 text-red-700 dark:bg-red-950 dark:text-red-300 border border-red-300 font-medium"
-                                title={`${openFlags.length} open discrepancy flags`}
-                              >
-                                <AlertTriangle className="w-2.5 h-2.5 shrink-0" />
-                                <span>{openFlags.length} Flags</span>
-                              </span>
-                            )}
-                          </div>
-                        </td>
-
-                        <td className="py-2.5 px-4 text-right whitespace-nowrap">
-                          <Link
-                            href={`/repository/${fdr.id}`}
-                            className="inline-flex items-center gap-1 px-2.5 py-1 text-xs font-medium rounded-md border border-ink-border bg-paper-50 hover:bg-paper-200 text-ink-primary transition-colors focus:ring-2 focus:ring-saffron"
-                          >
-                            <span>Details</span>
-                            <ArrowRight className="w-3 h-3 text-ink-muted" />
-                          </Link>
-                        </td>
-                      </tr>
-                    );
-                  })}
-                </tbody>
-              </table>
-            </div>
-
-            {/* Mobile Stacked Card View */}
-            <div className="block md:hidden divide-y divide-ink-border p-2 sm:p-3 space-y-3">
-              {sorted.map((fdr) => {
-                const tenure = formatRemainingTenure(fdr.maturityDate);
-                const openFlags = (fdr.discrepancies || []).filter((d) => !d.resolved);
-                const displayFdrNumber = isAuditor ? maskSensitiveId(fdr.fdrNumber) : fdr.fdrNumber;
-                const tenureSeverity = mapUrgencyToTier(tenure.urgency);
-                const tenureStyle = SEVERITY_CONFIG[tenureSeverity];
-
-                return (
-                  <article
-                    key={fdr.id}
-                    className="bg-paper-100/70 border border-ink-border rounded-lg p-3.5 space-y-3 shadow-xs"
-                  >
-                    {/* Top Row: Validity & Amount */}
-                    <div className="flex items-start justify-between gap-2">
-                      <div className="flex items-center gap-2.5">
-                        <CircularValidityRing maturityDate={fdr.maturityDate} size={42} strokeWidth={3.5} />
-                        <div>
-                          <div className="font-mono text-xs font-bold text-ink-primary">
-                            {formatIndianDate(fdr.maturityDate)}
-                          </div>
-                          <div className={`text-[10px] font-mono ${tenureStyle.chipText}`}>
-                            {tenure.label}
-                          </div>
+                  return (
+                    <tr key={fdr.id} className="hover:bg-slate-50/80 transition-colors">
+                      <td className="py-3.5 px-4 font-mono font-bold text-slate-900 whitespace-nowrap">
+                        <Link
+                          href={`/repository/${fdr.id}`}
+                          className="hover:text-blue-600 transition-colors"
+                        >
+                          {displayNum}
+                        </Link>
+                      </td>
+                      <td className="py-3.5 px-3 min-w-[200px]">
+                        <div className="font-semibold text-slate-800 truncate max-w-[240px]">
+                          {fdr.institutionName || fdr.institutionId}
                         </div>
-                      </div>
-
-                      <div className="text-right shrink-0">
-                        <div className="font-mono text-xs font-bold text-ink-primary tabular-nums">
-                          {formatIndianCurrency(fdr.amount)}
+                        <div className="text-[10.5px] text-slate-400 font-mono">
+                          {fdr.institutionAicteId}
                         </div>
-                        <div className="text-[10px] font-mono text-ink-muted mt-0.5">
-                          Score: {fdr.attentionScore}/100
-                        </div>
-                      </div>
-                    </div>
-
-                    {/* Middle: Instrument & Bank & Institution */}
-                    <div className="pt-2 border-t border-ink-border/60">
-                      <div className="font-mono font-bold text-xs text-ink-primary">
-                        {displayFdrNumber}
-                      </div>
-                      <div className="text-[11px] text-ink-muted mt-0.5">
-                        {fdr.bankName} • {fdr.ifscCode}
-                      </div>
-
-                      <div className="text-[10px] text-ink-secondary mt-1 flex items-start gap-1">
-                        <Building2 className="w-3.5 h-3.5 text-ink-muted shrink-0 mt-0.5" />
-                        <div>
-                          <span className="font-medium text-ink-primary">
-                            {fdr.institutionName || fdr.institutionId}
-                          </span>
-                          {fdr.institutionAicteId && (
-                            <span className="font-mono text-ink-muted text-[9px] ml-1">
-                              ({fdr.institutionAicteId})
-                            </span>
-                          )}
-                        </div>
-                      </div>
-                    </div>
-
-                    {/* Bottom: Flags, Lien, & Action */}
-                    <div className="pt-2 border-t border-ink-border/60 flex items-center justify-between gap-2 flex-wrap">
-                      <div className="flex items-center gap-1.5 flex-wrap">
-                        <span className="font-mono text-[10px] px-1.5 py-0.5 rounded bg-paper-200 border border-ink-border text-ink-primary font-medium">
-                          {fdr.status}
-                        </span>
+                      </td>
+                      <td className="py-3.5 px-3 whitespace-nowrap">
+                        <div className="font-medium text-slate-800">{fdr.bankName}</div>
+                        <div className="font-mono text-[10.5px] text-slate-400">{fdr.ifscCode}</div>
+                      </td>
+                      <td className="py-3.5 px-3 font-bold text-slate-900 whitespace-nowrap">
+                        ₹{(fdr.amount / 100000).toFixed(2)} Lakhs
+                      </td>
+                      <td className="py-3.5 px-3 text-slate-600 whitespace-nowrap">
+                        {formatIndianDate(fdr.maturityDate)}
+                      </td>
+                      <td className="py-3.5 px-3 whitespace-nowrap">
                         {fdr.lienMarked ? (
-                          <span className="inline-flex items-center gap-1 text-[10px] font-mono text-emerald-700 dark:text-emerald-400 font-medium">
-                            <CheckCircle2 className="w-3 h-3 text-emerald-600" />
-                            <span>Lien Pledged</span>
+                          <span className="inline-flex items-center gap-1 text-[11px] font-semibold text-emerald-700">
+                            <CheckCircle2 className="w-3.5 h-3.5 text-emerald-600" />
+                            <span>Marked</span>
                           </span>
                         ) : (
-                          <span className="inline-flex items-center gap-1 text-[10px] font-mono text-red-600 font-bold">
-                            <AlertTriangle className="w-3 h-3" />
-                            <span>UNMARKED</span>
+                          <span className="inline-flex items-center gap-1 text-[11px] font-semibold text-red-600">
+                            <AlertTriangle className="w-3.5 h-3.5 text-red-600" />
+                            <span>Unmarked</span>
                           </span>
                         )}
-                        {openFlags.length > 0 && (
-                          <span className="inline-flex items-center gap-1 text-[10px] font-mono px-1.5 py-0.5 rounded bg-red-100 text-red-700 dark:bg-red-950 dark:text-red-300 border border-red-300 font-medium">
-                            <AlertTriangle className="w-2.5 h-2.5 shrink-0" />
-                            <span>{openFlags.length} Flags</span>
-                          </span>
-                        )}
-                      </div>
-
-                      <Link
-                        href={`/repository/${fdr.id}`}
-                        className="inline-flex items-center justify-center gap-1.5 min-h-[44px] px-4 text-xs font-semibold rounded-md border border-ink-border bg-paper-50 hover:bg-paper-200 text-ink-primary shrink-0 transition-colors focus:ring-2 focus:ring-saffron"
-                      >
-                        <span>Details</span>
-                        <ArrowRight className="w-3.5 h-3.5 text-ink-muted" />
-                      </Link>
-                    </div>
-                  </article>
-                );
-              })}
-            </div>
-          </>
-        )}
+                      </td>
+                      <td className="py-3.5 px-3 whitespace-nowrap">
+                        <span
+                          className={`inline-flex items-center px-2 py-0.5 rounded-full text-[10.5px] font-semibold border ${
+                            fdr.status === "ACTIVE"
+                              ? "bg-emerald-50 text-emerald-700 border-emerald-200"
+                              : fdr.status === "DEFICIENT"
+                              ? "bg-red-50 text-red-700 border-red-200"
+                              : fdr.status === "EXPIRING"
+                              ? "bg-amber-50 text-amber-700 border-amber-200"
+                              : fdr.status === "MATURED"
+                              ? "bg-rose-50 text-rose-700 border-rose-200"
+                              : "bg-blue-50 text-blue-700 border-blue-200"
+                          }`}
+                        >
+                          {fdr.status.replace("_", " ")}
+                        </span>
+                      </td>
+                      <td className="py-3.5 px-4 text-right whitespace-nowrap">
+                        <Link
+                          href={`/repository/${fdr.id}`}
+                          className="px-3 py-1.5 text-xs font-semibold rounded-lg bg-blue-50 text-blue-600 hover:bg-blue-100 transition-colors inline-flex items-center gap-1"
+                        >
+                          <span>Dossier</span>
+                          <ChevronRight className="w-3.5 h-3.5" />
+                        </Link>
+                      </td>
+                    </tr>
+                  );
+                })
+              ) : (
+                <tr>
+                  <td colSpan={8} className="py-8 text-center text-slate-400">
+                    No instruments match the selected filter parameters.
+                  </td>
+                </tr>
+              )}
+            </tbody>
+          </table>
+        </div>
       </div>
     </div>
   );

@@ -27,7 +27,7 @@ export function CommandPalette() {
             setResults(data.data.slice(0, 8));
           }
         })
-        .catch(() => {});
+        .catch(() => { });
     }, 150);
 
     return () => clearTimeout(timer);
