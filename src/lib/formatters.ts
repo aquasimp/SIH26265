@@ -4,11 +4,11 @@
  */
 export function formatIndianCurrency(amount: number, includeSymbol: boolean = true): string {
   if (isNaN(amount)) return "—";
-  
+
   const isNegative = amount < 0;
   const absAmount = Math.abs(Math.round(amount));
   const str = absAmount.toString();
-  
+
   let formatted = "";
   if (str.length <= 3) {
     formatted = str;

@@ -144,3 +144,4 @@ export function mapUrgencyToTier(urgency: string): SeverityTier {
 export function getSeverityStyles(tier: SeverityTier): SeverityStyle {
   return SEVERITY_CONFIG[tier] || SEVERITY_CONFIG.low;
 }
+

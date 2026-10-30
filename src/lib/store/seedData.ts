@@ -537,7 +537,7 @@ export function generateSeedData(): {
     const inst = institutions[i % institutions.length];
     const bank = banks[i % banks.length];
     const tenureMonths = 120; // 10 years
-    
+
     // Spread maturities over past, near future, and long future
     // Distribution:
     // 15% expiring in 1-90 days

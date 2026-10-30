@@ -57,3 +57,4 @@ if (action === 'captureElement') {
 }
 
 module.exports = { getBrowser, captureElement, capturePage };
+

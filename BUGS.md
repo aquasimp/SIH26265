@@ -297,3 +297,4 @@ Tested using Puppeteer Chrome across all 12 responsive breakpoints:
 - **ESLint**: 0 warnings, 0 errors (`npm run lint`).
 - **Production Build**: 17 static routes generated successfully (`npm run build`).
 - **Console Errors**: 0 console errors logged across all crawled screens and viewports.
+
