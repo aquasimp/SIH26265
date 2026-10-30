@@ -7,9 +7,21 @@
 
 [![Next.js 14](https://img.shields.io/badge/Next.js-14.2-black?logo=next.js)](https://nextjs.org/)
 [![TypeScript](https://img.shields.io/badge/TypeScript-Strict-blue?logo=typescript)](https://www.typescriptlang.org/)
-[![Vitest](https://img.shields.io/badge/Vitest-19%20Passed-brightgreen?logo=vitest)](https://vitest.dev/)
+[![Vitest](https://img.shields.io/badge/Vitest-35%20Passed-brightgreen?logo=vitest)](https://vitest.dev/)
 [![Tailwind CSS](https://img.shields.io/badge/Tailwind-3.4-38bdf8?logo=tailwindcss)](https://tailwindcss.com/)
+[![Vercel Production](https://img.shields.io/badge/Vercel-aicte--treasury--portal.vercel.app-black?logo=vercel)](https://aicte-treasury-portal.vercel.app)
 [![SHA-256 Ledger](https://img.shields.io/badge/Audit-SHA--256%20Hash%20Chained-emerald)](#)
+
+---
+
+### 🌐 Live Production Deployment
+
+- **Official Demo URL**: [https://aicte-treasury-portal.vercel.app](https://aicte-treasury-portal.vercel.app)
+- **GitHub Repository**: [https://github.com/aquasimp/SIH26265](https://github.com/aquasimp/SIH26265)
+- **Vercel Project**: `legacy-coderz1/aicte-treasury-portal`
+- **Deployment Status**: Production Ready (Serverless in-memory deterministic fallback active)
+
+---
 
 ---
 
