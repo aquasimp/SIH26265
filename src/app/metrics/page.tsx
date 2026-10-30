@@ -29,9 +29,9 @@ export default function MetricsPage() {
   };
 
   return (
-    <div className="p-3 sm:p-6 space-y-4 sm:space-y-6 max-w-6xl mx-auto">
+    <div className="space-y-5 sm:space-y-6 max-w-6xl mx-auto">
       {/* Page Header */}
-      <div className="border-b border-ink-border pb-4">
+      <div className="liquid-glass-card rounded-[22px] p-4.5 sm:p-5 shadow-xs">
         <h2 className="font-serif font-bold text-lg sm:text-xl text-ink-primary tracking-tight">
           Simulated Regulatory Impact & Operational Benchmarks
         </h2>
@@ -53,7 +53,7 @@ export default function MetricsPage() {
 
       {/* High-Impact Comparative Counters */}
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
-        <div className="p-4 bg-paper-50 border border-ink-border rounded shadow-ledger space-y-1">
+        <div className="p-4.5 liquid-glass-card rounded-[20px] shadow-xs space-y-1">
           <span className="text-[10px] font-mono uppercase text-ink-muted">
             Verification Turnaround
           </span>
@@ -65,7 +65,7 @@ export default function MetricsPage() {
           </div>
         </div>
 
-        <div className="p-4 bg-paper-50 border border-ink-border rounded shadow-ledger space-y-1">
+        <div className="p-4.5 liquid-glass-card rounded-[20px] shadow-xs space-y-1">
           <span className="text-[10px] font-mono uppercase text-ink-muted">
             Regulatory Discrepancy Intercept
           </span>
@@ -77,7 +77,7 @@ export default function MetricsPage() {
           </div>
         </div>
 
-        <div className="p-4 bg-paper-50 border border-ink-border rounded shadow-ledger space-y-1">
+        <div className="p-4.5 liquid-glass-card rounded-[20px] shadow-xs space-y-1">
           <span className="text-[10px] font-mono uppercase text-ink-muted">
             Prevented Unsafe Releases
           </span>
@@ -89,7 +89,7 @@ export default function MetricsPage() {
           </div>
         </div>
 
-        <div className="p-4 bg-paper-50 border border-ink-border rounded shadow-ledger space-y-1">
+        <div className="p-4.5 liquid-glass-card rounded-[20px] shadow-xs space-y-1">
           <span className="text-[10px] font-mono uppercase text-ink-muted">
             Officer Hours Saved
           </span>
@@ -103,7 +103,7 @@ export default function MetricsPage() {
       </div>
 
       {/* Side-by-Side Detailed Comparative Breakdown */}
-      <div className="border border-ink-border rounded bg-paper-50 shadow-ledger overflow-hidden">
+      <div className="liquid-glass-card rounded-[22px] overflow-hidden shadow-xs">
         <div className="px-4 sm:px-5 py-3.5 bg-paper-100 border-b border-ink-border">
           <h3 className="font-serif font-bold text-xs sm:text-sm text-ink-primary">
             Operational Workflow Benchmark: Manual Baseline vs AICTE Streamlined Portal

@@ -118,7 +118,7 @@ export function GlassFolderDetailModal({
               stiffness: 350,
               damping: 28,
             }}
-            className="relative w-full max-w-4xl max-h-[92dvh] sm:max-h-[88vh] bg-paper-100 border border-ink-border rounded-t-2xl sm:rounded-3xl shadow-2xl flex flex-col overflow-hidden z-10"
+            className="relative w-full max-w-4xl max-h-[92dvh] sm:max-h-[88vh] liquid-glass-card border border-ink-border rounded-t-[28px] sm:rounded-[28px] shadow-2xl flex flex-col overflow-hidden z-10"
           >
             {/* Header: Marbled Fluid Texture Banner */}
             <div className="relative h-36 sm:h-44 overflow-hidden flex-shrink-0">
@@ -166,7 +166,7 @@ export function GlassFolderDetailModal({
             </div>
 
             {/* Controls Bar: Search & Quick Filter */}
-            <div className="p-3 sm:p-4 border-b border-ink-border bg-paper-50 flex items-center gap-3">
+            <div className="p-3 sm:p-4 border-b border-ink-border glass-well flex items-center gap-3">
               <div className="relative flex-1">
                 <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-ink-muted" />
                 <input
@@ -174,7 +174,7 @@ export function GlassFolderDetailModal({
                   placeholder="Filter by FDR number, issuing bank, branch or IFSC..."
                   value={searchQuery}
                   onChange={(e) => setSearchQuery(e.target.value)}
-                  className="w-full pl-9 pr-4 py-2 text-sm sm:text-xs font-mono rounded-lg bg-paper-100 border border-ink-border text-ink-primary placeholder:text-ink-muted focus:outline-none focus:ring-1 focus:ring-saffron"
+                  className="w-full pl-9 pr-4 py-2 text-sm sm:text-xs font-mono rounded-xl bg-black/5 dark:bg-white/5 border border-ink-border text-ink-primary placeholder:text-ink-muted focus:outline-none focus:ring-1 focus:ring-saffron"
                 />
               </div>
               <span className="text-xs font-mono text-ink-muted hidden sm:inline">
@@ -192,7 +192,7 @@ export function GlassFolderDetailModal({
                 filteredItems.map((fdr) => (
                   <div
                     key={fdr.id}
-                    className="p-4 rounded-xl bg-paper-50 border border-ink-border hover:border-ink-secondary/30 transition-all shadow-sm flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3"
+                    className="p-4 rounded-2xl glass-well border border-ink-border hover:border-ink-secondary/30 transition-all shadow-xs flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3"
                   >
                     <div className="space-y-1.5 flex-1 min-w-0">
                       <div className="flex items-center gap-2 flex-wrap">

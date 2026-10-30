@@ -1,0 +1,225 @@
+[
+  {
+    "id": 1,
+    "key": "aicte-aph-2024",
+    "organization": "All India Council for Technical Education (AICTE)",
+    "title": "Approval Process Handbook (APH 2024-2027): Norms and Procedures for Technical Institutions",
+    "year": 2024,
+    "url": "https://www.aicte-india.org/sites/default/files/APH%202024-27.pdf",
+    "accessDate": "2026-10-30",
+    "type": "Statutory Regulation",
+    "statutoryBasis": "Chapter I & II, Appendix 8",
+    "keyTakeaways": [
+      "Mandates creation of a Security Deposit in the joint name of the Trust/Society and the Regional Officer, AICTE.",
+      "Lock-in period is statutorily fixed (typically 8 to 10 years / 120 months) as a performance guarantee.",
+      "Release requires permanent site establishment, zero vigilance/student dues, and official inspection clearance.",
+      "Final sanction is reserved strictly for the Competent Authority (Head of Regulation Bureau / Member Secretary)."
+    ],
+    "designImplementation": "Modeled default lock-in tenure of 120 months, joint holding data fields, three-tier release workflow, and Competent Authority sanction requirement."
+  },
+  {
+    "id": 2,
+    "key": "sih-2026-sih26265",
+    "organization": "Smart India Hackathon 2026 / AICTE Regulation Bureau",
+    "title": "Problem Statement SIH26265: Streamline of Security Deposit / FDR Portal",
+    "year": 2026,
+    "url": "https://www.sih.gov.in",
+    "accessDate": "2026-10-30",
+    "type": "Official Challenge Statement",
+    "statutoryBasis": "SIH26265 / Software / Smart Automation",
+    "keyTakeaways": [
+      "Target organization: AICTE Regulation Bureau.",
+      "Theme: Smart Automation & Digital Treasury Governance.",
+      "Mandates end-to-end digital lifecycle governance for FDR security deposits: intake, validity tracking, automated renewal alerts, discrepancy detection, and authorized release."
+    ],
+    "designImplementation": "Core product scope, 10-point traceability matrix, role-based workflows, and automated triage queue."
+  },
+  {
+    "id": 3,
+    "key": "aicte-fdr-release-notices",
+    "organization": "All India Council for Technical Education (AICTE)",
+    "title": "Public Notices and Guidelines for Release of Fixed Deposit Receipts (FDRs) / National Electronic Funds Transfer Refunds",
+    "year": 2023,
+    "url": "https://www.aicte-india.org/bulletins/circulars",
+    "accessDate": "2026-10-30",
+    "type": "Regulatory Circular",
+    "statutoryBasis": "Regulation Bureau Circular F.No. AICTE/AB/FDR/2023",
+    "keyTakeaways": [
+      "Requires online application submission via AICTE portal with scanned copies of original FDR receipt.",
+      "Mandates notarized affidavit, bank verification letter with lien cancellation status, and regional inspection report.",
+      "Prohibits release if any vigilance inquiry, legal litigation, or show-cause notice is active."
+    ],
+    "designImplementation": "Hard release gate in `src/app/api/fdrs/[id]/release/route.ts` returning HTTP 422 whenever open discrepancies exist."
+  },
+  {
+    "id": 4,
+    "key": "rbi-deposit-directions-2016",
+    "organization": "Reserve Bank of India (RBI)",
+    "title": "Master Direction – Reserve Bank of India (Interest Rate on Deposits) Directions, 2016 (Updated 2025)",
+    "year": 2025,
+    "url": "https://www.rbi.org.in/Scripts/BS_ViewMasDirections.aspx?id=10294",
+    "accessDate": "2026-10-30",
+    "type": "Central Bank Direction",
+    "statutoryBasis": "RBI/DBR/2015-16/19 Master Direction DBR.Dir.No.84/13.03.00/2015-16",
+    "keyTakeaways": [
+      "Defines term deposits, minimum and maximum tenures, premature withdrawal guidelines, and interest on overdue deposits.",
+      "Authorizes bank Boards to frame rules for collateral lien marking and right of set-off on domestic term deposits.",
+      "Regulates auto-renewal of term deposits and mandate requirements for joint depositors."
+    ],
+    "designImplementation": "Informed tenure validation, auto-renewal eligibility logic, and CBS lien confirmation verification fields in `src/lib/mockBankService.ts`."
+  },
+  {
+    "id": 5,
+    "key": "rbi-ifsc-directory",
+    "organization": "Reserve Bank of India (RBI)",
+    "title": "Indian Financial System Code (IFSC) Structure and Master Branch Directory",
+    "year": 2026,
+    "url": "https://www.rbi.org.in/Scripts/IFSCMICRDetails.aspx",
+    "accessDate": "2026-10-30",
+    "type": "Technical Banking Standard",
+    "statutoryBasis": "National Payments Corporation of India (NPCI) & RBI NEFT/RTGS Standards",
+    "keyTakeaways": [
+      "IFSC is an 11-character alphanumeric code: 4 characters bank code, 5th character '0', last 6 characters branch code.",
+      "State Bank of India uses 'SBIN', Punjab National Bank uses 'PUNB', Canara Bank uses 'CNRB', HDFC uses 'HDFC', etc.",
+      "Any discrepancy between issuing bank entity and the 4-character IFSC prefix is a fatal routing conflict."
+    ],
+    "designImplementation": "Rule 4 (`BANK_IFSC_MISMATCH`) in `src/lib/rules/discrepancyRules.ts` with lookup table `BANK_IFSC_MAP`."
+  },
+  {
+    "id": 6,
+    "key": "gfr-2017-rule171",
+    "organization": "Ministry of Finance, Department of Expenditure, Government of India",
+    "title": "General Financial Rules (GFR) 2017: Rule 170 (Bid Security) and Rule 171 (Performance Security)",
+    "year": 2017,
+    "url": "https://doe.gov.in/files/gfr-2017",
+    "accessDate": "2026-10-30",
+    "type": "Government Financial Rule",
+    "statutoryBasis": "GFR 2017 Chapter 6 (Procurement of Goods and Services)",
+    "keyTakeaways": [
+      "Rule 171 explicitly recognizes Fixed Deposit Receipts (FDR) from commercial banks as valid performance securities.",
+      "Requires security to be pledged in favour of the government purchaser/authority.",
+      "Mandates validity to extend at least 60 days beyond completion of all contractual/statutory obligations."
+    ],
+    "designImplementation": "Informed regulatory deposit validity calculation, 60-day expiry threshold warning in Attention Score, and statutory lock-in checks."
+  },
+  {
+    "id": 7,
+    "key": "dpdp-act-2023",
+    "organization": "Ministry of Law and Justice / MeitY, Government of India",
+    "title": "The Digital Personal Data Protection Act, 2023 (Act No. 22 of 2023)",
+    "year": 2023,
+    "url": "https://www.meity.gov.in/content/digital-personal-data-protection-act-2023",
+    "accessDate": "2026-10-30",
+    "type": "National Legislation",
+    "statutoryBasis": "Section 8(5) & Section 9",
+    "keyTakeaways": [
+      "Section 8(5) mandates Data Fiduciaries to implement reasonable security safeguards to prevent personal data breaches.",
+      "Explicitly emphasizes data masking, tokenization, role-based access management, and secure logging.",
+      "Severe financial penalties (up to ₹250 crore) for failure to implement security safeguards."
+    ],
+    "designImplementation": "Implemented selective masking of FDR numbers (`maskSensitiveId`) for unprivileged roles (e.g. AUDITOR), strict server-side RBAC guard, and zero plain-text storage of credentials."
+  },
+  {
+    "id": 8,
+    "key": "gigw-3-2023",
+    "organization": "National Informatics Centre (NIC) & MeitY, Government of India",
+    "title": "Guidelines for Indian Government Websites and Apps (GIGW 3.0)",
+    "year": 2023,
+    "url": "https://guidelines.india.gov.in",
+    "accessDate": "2026-10-30",
+    "type": "Government Design & Accessibility Standard",
+    "statutoryBasis": "MeitY/NIC/STQC/CERT-In Joint Framework 2023",
+    "keyTakeaways": [
+      "Mandates compliance with WCAG 2.1 Level AA accessibility standards.",
+      "Requires full keyboard navigability, contrast ratios >= 4.5:1 for text, minimum 44x44px touch targets on mobile, and screen-reader accessibility.",
+      "Mandates responsive presentation without horizontal overflow and bilingual language support (Hindi / English)."
+    ],
+    "designImplementation": "Audited in `BUGS.md` across 12 viewports (320px to 1440px), keyboard shortcuts (`⌘K`, `Esc`), bilingual toggle (EN / हि), and high-contrast semantic severity tokens in `src/lib/severity.ts`."
+  },
+  {
+    "id": 9,
+    "key": "cert-in-directions-2022",
+    "organization": "Indian Computer Emergency Response Team (CERT-In)",
+    "title": "Cyber Security Directions under Section 70B(6) of the Information Technology Act, 2000 (Direction No. 20(3)/2022-CERT-In)",
+    "year": 2022,
+    "url": "https://www.cert-in.org.in/Directions2022.jsp",
+    "accessDate": "2026-10-30",
+    "type": "Cybersecurity Mandate",
+    "statutoryBasis": "Section 70B(6) of IT Act, 2000",
+    "keyTakeaways": [
+      "Mandates all government and corporate entities to maintain secure ICT application and system event logs for a rolling period of 180 days.",
+      "Requires logs to be securely stored within Indian jurisdiction.",
+      "Mandates synchronization of all system clocks with NTP servers of NIC or National Physical Laboratory (NPL)."
+    ],
+    "designImplementation": "Informed immutable audit log retention, timezone-safe UTC timestamp serialization in `src/lib/formatters.ts`, and SHA-256 event chaining."
+  },
+  {
+    "id": 10,
+    "key": "rfc-6962-audit-transparency",
+    "organization": "Internet Engineering Task Force (IETF)",
+    "title": "RFC 6962: Certificate Transparency (Cryptographic Append-Only Merkle Logs)",
+    "year": 2013,
+    "url": "https://datatracker.ietf.org/doc/html/rfc6962",
+    "accessDate": "2026-10-30",
+    "type": "Technical Standard",
+    "statutoryBasis": "IETF RFC 6962 / RFC 9162",
+    "keyTakeaways": [
+      "Establishes the architectural model of append-only, tamper-evident cryptographic event chains.",
+      "Proves mathematical integrity: changing a single bit in any historical record invalidates the root/head hash.",
+      "Provides cryptographic transparency and auditability without the consensus overhead, gas fees, or latency of distributed blockchains."
+    ],
+    "designImplementation": "Directly implemented in `src/lib/hashChain.ts` (`calculateBlockHash`, `verifyAuditChain`) and visualized on `/audit-trail`."
+  },
+  {
+    "id": 11,
+    "key": "sfms-swift-mt760",
+    "organization": "Institute for Development and Research in Banking Technology (IDRBT) & RBI",
+    "title": "Structured Financial Messaging System (SFMS): Message Implementation Guidelines for Bank Guarantees and Term Deposits (MT760/MT767)",
+    "year": 2021,
+    "url": "https://www.idrbt.ac.in/sfms.html",
+    "accessDate": "2026-10-30",
+    "type": "Interbank Messaging Standard",
+    "statutoryBasis": "SFMS Domestic Messaging Architecture",
+    "keyTakeaways": [
+      "SFMS provides secure bank-to-treasury messaging across Indian commercial banks.",
+      "MT760/MT767 messaging transmits legally binding guarantees and lien endorsements electronically.",
+      "Eliminates 30 to 90 day postal mail verification lags and intercepts counterfeit paper deposit receipts."
+    ],
+    "designImplementation": "Architectural target for CBS Gateway adapter in `src/lib/mockBankService.ts` and basis for 1.5-day simulated turnaround outcome."
+  },
+  {
+    "id": 12,
+    "key": "nesl-ebg-study",
+    "organization": "National E-Governance Services Limited (NeSL)",
+    "title": "Digital Document Execution and Electronic Bank Guarantee (e-BG) Turnaround Analysis",
+    "year": 2023,
+    "url": "https://nesl.co.in/electronic-bank-guarantee/",
+    "accessDate": "2026-10-30",
+    "type": "Industry Benchmark Study",
+    "statutoryBasis": "Information Utility under Insolvency & Bankruptcy Code 2016",
+    "keyTakeaways": [
+      "Empirical documentation that manual paper guarantee processing takes 3 to 5 business days (or up to 45 days in postal government verification).",
+      "End-to-end digital transmission via API reduces processing and delivery turnaround to under 2 minutes.",
+      "Completely eliminates paper forgery, wet-ink signature fraud, and un-lien-marked deposits."
+    ],
+    "designImplementation": "Source for empirical comparative benchmarks in `/metrics` (traditional 45 days vs automated 1.5 days)."
+  },
+  {
+    "id": 13,
+    "key": "idp-ocr-benchmarks",
+    "organization": "Intelligent Document Processing (IDP) & Financial Vision Research",
+    "title": "Field-Level vs Character-Level Accuracy and Confidence Thresholds in Administrative Financial Document OCR",
+    "year": 2024,
+    "url": "https://arxiv.org/abs/2105.01848",
+    "accessDate": "2026-10-30",
+    "type": "Technical Research & Industry Benchmark",
+    "statutoryBasis": "IEEE / IDP Standards",
+    "keyTakeaways": [
+      "Character recognition accuracy does not guarantee field extraction correctness ('confident and wrong' paradox).",
+      "Best practices require field-level confidence scoring with visual bounding box feedback for human-in-the-loop validation.",
+      "Critical financial parameters (amount, account number, maturity date) mandate deterministic post-OCR arithmetic and chronology validation."
+    ],
+    "designImplementation": "Implemented in `/api/ocr-extract` with per-field confidence meters, bounding boxes, and mandatory officer confirmation before ledger commit."
+  }
+]
+

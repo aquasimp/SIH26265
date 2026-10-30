@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700;800&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700;800&family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600;700&display=swap');
 
 @tailwind base;
 @tailwind components;
@@ -9,7 +9,10 @@
   --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
   --font-mono: 'JetBrains Mono', monospace;
 
-  /* Warm Paper Palette (Calm, Dense, Sovereign Treasury) */
+  /* =========================================================================
+     LIGHT MODE DESIGN SYSTEM (Enterprise Regulatory Precision + Liquid Glass)
+     ========================================================================= */
+  --bg-canvas: #F4F6FA;
   --paper-50: #FFFFFF;
   --paper-100: #FAF8F5;
   --paper-200: #F3EFEA;
@@ -17,52 +20,75 @@
   --paper-400: #DDD5C7;
 
   /* Ink Text */
-  --ink-primary: #1A1A1E;
-  --ink-secondary: #484852;
-  --ink-muted: #747480;
-  --ink-border: #E0DDD5;
-  --ink-subtle: #ECE8E0;
+  --ink-primary: #0F172A;
+  --ink-secondary: #334155;
+  --ink-muted: #64748B;
+  --ink-border: #E2E8F0;
+  --ink-subtle: #F1F5F9;
 
-  /* Restrained Sovereign Saffron & Botanical Green */
-  --saffron-primary: #B85300;
-  --saffron-hover: #9E4500;
-  --saffron-subtle: #FDF3E7;
+  /* Sovereign Saffron & Botanical Green */
+  --saffron-primary: #C25E00;
+  --saffron-hover: #A04A00;
+  --saffron-subtle: #FFF7ED;
 
-  --botanical-primary: #185E2E;
-  --botanical-hover: #134C24;
-  --botanical-subtle: #EAF4EE;
+  --botanical-primary: #15803D;
+  --botanical-hover: #166534;
+  --botanical-subtle: #F0FDF4;
 
   /* Semantic Status */
-  --status-verified: #185E2E;
-  --status-verified-bg: #EAF4EE;
-  --status-pending: #8C5B00;
-  --status-pending-bg: #FCF4E6;
-  --status-warning: #944000;
-  --status-warning-bg: #FEEFE6;
-  --status-danger: #991B1B;
-  --status-danger-bg: #FEF2F2;
+  --status-verified: #15803D;
+  --status-verified-bg: #DCFCE7;
+  --status-pending: #B45309;
+  --status-pending-bg: #FEF3C7;
+  --status-warning: #C2410C;
+  --status-warning-bg: #FFEDD5;
+  --status-danger: #B91C1C;
+  --status-danger-bg: #FEE2E2;
+
+  /* Crisp Structural Liquid Glass (Light Mode) */
+  --glass-bg: rgba(255, 255, 255, 0.88);
+  --glass-bg-hover: rgba(255, 255, 255, 0.98);
+  --glass-border: rgba(226, 232, 240, 0.95);
+  --glass-border-strong: rgba(203, 213, 225, 0.95);
+  --glass-shadow:
+    inset 0 1px 0 0 rgba(255, 255, 255, 1),
+    0 1px 3px rgba(15, 23, 42, 0.04),
+    0 8px 24px -6px rgba(15, 23, 42, 0.06);
+  --glass-shadow-hover:
+    inset 0 1px 0 0 rgba(255, 255, 255, 1),
+    0 4px 14px -2px rgba(15, 23, 42, 0.07),
+    0 16px 32px -8px rgba(15, 23, 42, 0.09);
+
+  /* Inner Recessed Well (Light Mode) */
+  --well-bg: #F8FAFC;
+  --well-border: rgba(226, 232, 240, 0.9);
+  --well-shadow: inset 0 1px 2px rgba(15, 23, 42, 0.035), 0 1px 0 rgba(255, 255, 255, 0.9);
 }
 
 .dark {
-  --paper-50: #131417;
-  --paper-100: #18191E;
-  --paper-200: #202228;
-  --paper-300: #2C2E37;
-  --paper-400: #393C47;
+  /* =========================================================================
+     DARK MODE DESIGN SYSTEM (True Obsidian OLED & Liquid Glass)
+     ========================================================================= */
+  --bg-canvas: #0B0F17;
+  --paper-50: #111827;
+  --paper-100: #0B0F17;
+  --paper-200: #182032;
+  --paper-300: #232E47;
+  --paper-400: #334155;
 
-  --ink-primary: #F3F4F6;
-  --ink-secondary: #D1D5DB;
-  --ink-muted: #9CA3AF;
-  --ink-border: #2C2E37;
-  --ink-subtle: #202228;
+  --ink-primary: #F8FAFC;
+  --ink-secondary: #CBD5E1;
+  --ink-muted: #94A3B8;
+  --ink-border: rgba(255, 255, 255, 0.1);
+  --ink-subtle: #141C2E;
 
-  --saffron-primary: #E0731A;
-  --saffron-hover: #F2862E;
-  --saffron-subtle: #331F0F;
+  --saffron-primary: #F59E0B;
+  --saffron-hover: #D97706;
+  --saffron-subtle: #451A03;
 
-  --botanical-primary: #2BA055;
-  --botanical-hover: #36B864;
-  --botanical-subtle: #11281A;
+  --botanical-primary: #10B981;
+  --botanical-hover: #059669;
+  --botanical-subtle: #064E3B;
 
   --status-verified: #34D399;
   --status-verified-bg: #064E3B;
@@ -72,6 +98,29 @@
   --status-warning-bg: #431407;
   --status-danger: #F87171;
   --status-danger-bg: #450A0A;
+
+  /* Smoked Obsidian Liquid Glass Surface */
+  --glass-bg: linear-gradient(180deg, rgba(19, 27, 44, 0.82) 0%, rgba(13, 19, 32, 0.92) 100%);
+  --glass-bg-hover: linear-gradient(180deg, rgba(26, 37, 60, 0.88) 0%, rgba(18, 25, 42, 0.95) 100%);
+  --glass-border: rgba(255, 255, 255, 0.1);
+  --glass-border-strong: rgba(255, 255, 255, 0.18);
+  --glass-shadow:
+    inset 0 1px 0 0 rgba(255, 255, 255, 0.1),
+    inset 0 0 0 1px rgba(255, 255, 255, 0.02),
+    0 4px 14px rgba(0, 0, 0, 0.5),
+    0 18px 40px -8px rgba(0, 0, 0, 0.75);
+  --glass-shadow-hover:
+    inset 0 1px 0 0 rgba(255, 255, 255, 0.18),
+    inset 0 0 0 1px rgba(255, 255, 255, 0.04),
+    0 6px 20px rgba(0, 0, 0, 0.6),
+    0 24px 50px -8px rgba(0, 0, 0, 0.85);
+
+  /* Recessed Carbon & Navy Well */
+  --well-bg: #0D131F;
+  --well-border: rgba(255, 255, 255, 0.08);
+  --well-shadow:
+    inset 0 2px 4px rgba(0, 0, 0, 0.5),
+    0 1px 0 rgba(255, 255, 255, 0.03);
 }
 
 html, body {
@@ -80,31 +129,190 @@ html, body {
 }
 
 body {
-  background-color: var(--paper-100);
+  background-color: var(--bg-canvas);
   color: var(--ink-primary);
   font-family: var(--font-sans);
   font-feature-settings: "tnum" 1, "cv02" 1, "cv03" 1, "cv04" 1;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  background-image:
+    radial-gradient(ellipse 80% 40% at 50% 0%, rgba(37, 99, 235, 0.04), transparent 70%),
+    radial-gradient(rgba(148, 163, 184, 0.15) 1px, transparent 1px);
+  background-size: 100% 100%, 24px 24px;
+  background-attachment: fixed;
 }
 
-/* Custom Scrollbars for High-Density Ledger Tables */
+.dark body {
+  background-color: #0B0F17;
+  background-image:
+    radial-gradient(ellipse 80% 35% at 50% -5%, rgba(56, 189, 248, 0.04), transparent 70%),
+    radial-gradient(ellipse 50% 25% at 85% 0%, rgba(99, 102, 241, 0.035), transparent 65%),
+    radial-gradient(rgba(255, 255, 255, 0.04) 1px, transparent 1px);
+  background-size: 100% 100%, 100% 100%, 24px 24px;
+}
+
+/* Disable fixed background attachment on mobile for smooth GPU scrolling */
+@media (max-width: 1024px) {
+  body, .dark body {
+    background-attachment: scroll !important;
+  }
+}
+
+/* =========================================================================
+   VISIONOS LIQUID GLASS SYSTEM UTILITIES
+   ========================================================================= */
+
+/* Primary Structural Glass Card */
+.liquid-glass-card {
+  background: var(--glass-bg);
+  backdrop-filter: blur(14px) saturate(140%);
+  -webkit-backdrop-filter: blur(14px) saturate(140%);
+  border: 1px solid var(--glass-border);
+  box-shadow: var(--glass-shadow);
+  transform: translateZ(0);
+  transition: border-color 160ms ease, box-shadow 160ms ease, background 160ms ease;
+}
+
+@media (max-width: 768px) {
+  .liquid-glass-card {
+    backdrop-filter: blur(8px) saturate(120%);
+    -webkit-backdrop-filter: blur(8px) saturate(120%);
+  }
+}
+
+/* Interactive Glass Card with Hover Elevation */
+.glass-interactive {
+  background: var(--glass-bg);
+  backdrop-filter: blur(14px) saturate(140%);
+  -webkit-backdrop-filter: blur(14px) saturate(140%);
+  border: 1px solid var(--glass-border);
+  box-shadow: var(--glass-shadow);
+  transition:
+    transform 160ms cubic-bezier(0.16, 1, 0.3, 1),
+    box-shadow 160ms cubic-bezier(0.16, 1, 0.3, 1),
+    border-color 160ms ease,
+    background 160ms ease;
+}
+
+.glass-interactive:hover {
+  background: var(--glass-bg-hover);
+  border-color: var(--glass-border-strong);
+  box-shadow: var(--glass-shadow-hover);
+  transform: translateY(-1px);
+}
+
+/* Inner Recessed Well for High-Legibility Ledger Data */
+.glass-well {
+  background: var(--well-bg);
+  border: 1px solid var(--well-border);
+  box-shadow: var(--well-shadow);
+}
+
+/* Primary Liquid Action Button */
+.btn-liquid-primary {
+  background: #0F172A;
+  color: #FFFFFF;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  box-shadow: inset 0 1px 0 0 rgba(255, 255, 255, 0.18), 0 1px 3px rgba(15, 23, 42, 0.12);
+  transition: all 160ms cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.btn-liquid-primary:hover {
+  transform: translateY(-1px);
+  background: #1E293B;
+  box-shadow: inset 0 1px 0 0 rgba(255, 255, 255, 0.25), 0 3px 8px rgba(15, 23, 42, 0.18);
+}
+
+.dark .btn-liquid-primary {
+  background: linear-gradient(180deg, #C25E00 0%, #9A4A00 100%);
+  color: #FFFFFF;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  box-shadow:
+    inset 0 1px 0 0 rgba(255, 255, 255, 0.25),
+    0 2px 8px rgba(194, 94, 0, 0.3),
+    0 6px 16px -2px rgba(0, 0, 0, 0.5);
+}
+
+.dark .btn-liquid-primary:hover {
+  background: linear-gradient(180deg, #E0731A 0%, #C25E00 100%);
+  transform: translateY(-1px);
+}
+
+/* Secondary Liquid Action Button */
+.btn-liquid-secondary {
+  background: var(--well-bg);
+  color: var(--ink-primary);
+  border: 1px solid var(--ink-border);
+  box-shadow: inset 0 1px 0 0 rgba(255, 255, 255, 0.8), 0 1px 2px rgba(15, 23, 42, 0.04);
+  transition: all 160ms cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.btn-liquid-secondary:hover {
+  background: var(--paper-50);
+  border-color: var(--ink-secondary);
+  transform: translateY(-1px);
+}
+
+.dark .btn-liquid-secondary {
+  background: #141C2E;
+  color: #F8FAFC;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow:
+    inset 0 1px 0 0 rgba(255, 255, 255, 0.08),
+    0 2px 6px rgba(0, 0, 0, 0.4);
+}
+
+.dark .btn-liquid-secondary:hover {
+  background: #1B253D;
+  border-color: rgba(255, 255, 255, 0.2);
+  transform: translateY(-1px);
+}
+
+/* Status Pills */
+.pill-fatal {
+  background: var(--status-danger-bg);
+  color: var(--status-danger);
+  border: 1px solid rgba(185, 28, 28, 0.25);
+}
+
+.pill-deficiency {
+  background: var(--status-warning-bg);
+  color: var(--status-warning);
+  border: 1px solid rgba(194, 65, 12, 0.25);
+}
+
+.pill-verified {
+  background: var(--status-verified-bg);
+  color: var(--status-verified);
+  border: 1px solid rgba(21, 128, 61, 0.25);
+}
+
+@keyframes glassFadeUp {
+  from { opacity: 0; transform: translateY(4px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.animate-glass-in {
+  animation: glassFadeUp 200ms cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+/* Custom Scrollbars */
 ::-webkit-scrollbar {
   width: 6px;
   height: 6px;
 }
 ::-webkit-scrollbar-track {
-  background: var(--paper-100);
+  background: transparent;
 }
 ::-webkit-scrollbar-thumb {
-  background: var(--paper-300);
+  background: var(--ink-border);
   border-radius: 3px;
 }
 ::-webkit-scrollbar-thumb:hover {
   background: var(--ink-muted);
 }
 
-/* Prevent auto-zoom on iOS inputs while keeping high density on desktop */
+/* Prevent auto-zoom on iOS inputs */
 @media screen and (max-width: 767px) {
   input[type="text"],
   input[type="number"],
@@ -116,7 +324,7 @@ body {
   }
 }
 
-/* Animation Utilities respecting reduced motion */
+/* Respect reduced motion */
 @media (prefers-reduced-motion: reduce) {
   *, ::before, ::after {
     animation-delay: -1ms !important;
@@ -132,7 +340,7 @@ body {
 /* Official Government Treasury Print Stylesheet */
 @media print {
   aside,
-  header button,
+  header,
   .no-print,
   button {
     display: none !important;
@@ -164,11 +372,6 @@ body {
     background-color: #f0f0f0 !important;
     color: #000000 !important;
     font-weight: bold !important;
-  }
-
-  .shadow-ledger,
-  .shadow-ledger-elevated {
-    box-shadow: none !important;
   }
 
   @page {

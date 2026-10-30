@@ -10,6 +10,7 @@ interface KpiCounterCardProps {
   icon: LucideIcon;
   formatAsCurrency?: boolean;
   accentColor?: "saffron" | "botanical" | "danger" | "neutral";
+  className?: string;
 }
 
 export function KpiCounterCard({
@@ -19,6 +20,7 @@ export function KpiCounterCard({
   icon: Icon,
   formatAsCurrency = false,
   accentColor = "neutral",
+  className = "",
 }: KpiCounterCardProps) {
   const [displayValue, setDisplayValue] = useState(0);
 
@@ -47,29 +49,34 @@ export function KpiCounterCard({
     : displayValue.toLocaleString("en-IN");
 
   const colorStyles = {
-    saffron: "text-saffron bg-saffron-subtle border-saffron/20",
-    botanical: "text-botanical bg-botanical-subtle border-botanical/20",
-    danger: "text-red-700 bg-red-50 dark:bg-red-950 dark:text-red-300 border-red-200",
-    neutral: "text-ink-secondary bg-paper-200 border-ink-border",
+    saffron: "text-amber-600 bg-amber-500/10 border-amber-500/25",
+    botanical: "text-emerald-600 bg-emerald-500/10 border-emerald-500/25",
+    danger: "text-rose-600 bg-rose-500/10 border-rose-500/25",
+    neutral: "text-ink-secondary glass-well",
   }[accentColor];
 
   return (
-    <div className="p-4 bg-paper-50 border border-ink-border rounded shadow-ledger flex items-start justify-between">
-      <div className="space-y-1">
-        <span className="text-[11px] font-mono uppercase tracking-wider text-ink-muted">
+    <div
+      className={`liquid-glass-card rounded-[20px] p-4.5 sm:p-5 flex items-start justify-between shadow-xs hover:border-amber-500/35 transition-all select-none ${className}`}
+    >
+      <div className="space-y-1 min-w-0">
+        <span className="text-[11px] font-mono uppercase tracking-wider text-ink-muted font-bold">
           {label}
         </span>
-        <div className="font-mono text-2xl font-bold text-ink-primary tabular-nums tracking-tight">
+        <div className="font-mono text-2xl sm:text-[26px] font-extrabold text-ink-primary tabular-nums tracking-tight">
           {formattedDisplay}
         </div>
         {subtitle && (
-          <div className="text-[11px] text-ink-muted font-sans">{subtitle}</div>
+          <div className="text-[11.5px] text-ink-muted truncate max-w-[240px]">
+            {subtitle}
+          </div>
         )}
       </div>
-      <div className={`p-2 rounded border ${colorStyles} shrink-0`}>
+      <div className={`p-2.5 rounded-xl border ${colorStyles} shrink-0 ml-3 shadow-2xs`}>
         <Icon className="w-4 h-4" />
       </div>
     </div>
   );
 }
 
+export default KpiCounterCard;

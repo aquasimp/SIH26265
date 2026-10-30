@@ -177,7 +177,7 @@ export default function FdrDetailPage() {
       </div>
 
       {/* Main Header Card with Validity Ring & Key Badges */}
-      <div className="p-5 bg-paper-50 border border-ink-border rounded shadow-ledger flex flex-col md:flex-row md:items-center justify-between gap-6">
+      <div className="p-5 sm:p-6 liquid-glass-card rounded-[22px] shadow-xs flex flex-col md:flex-row md:items-center justify-between gap-6">
         <div className="flex items-start gap-4">
           <CircularValidityRing maturityDate={fdr.maturityDate} size={72} strokeWidth={6} />
           <div className="space-y-1">
@@ -220,7 +220,7 @@ export default function FdrDetailPage() {
 
           <button
             onClick={() => setSelectedScore(scoreBreakdown)}
-            className="p-2.5 rounded bg-paper-100 border border-ink-border hover:border-saffron text-left transition-colors"
+            className="p-3 rounded-2xl glass-well border border-ink-border hover:border-amber-500/50 text-left transition-all cursor-pointer"
             title="Inspect transparent scoring model"
           >
             <div className="text-[9px] uppercase font-mono text-ink-muted">
@@ -295,7 +295,7 @@ export default function FdrDetailPage() {
       />
 
       {/* Release & Refund Governance Section */}
-      <div className="p-5 bg-paper-50 border border-ink-border rounded shadow-ledger space-y-4">
+      <div className="p-5 sm:p-6 liquid-glass-card rounded-[22px] shadow-xs space-y-4">
         <div className="flex items-center justify-between border-b border-ink-border pb-3">
           <div>
             <h3 className="font-serif font-bold text-sm text-ink-primary">
@@ -381,7 +381,7 @@ export default function FdrDetailPage() {
       </div>
 
       {/* Document Vault */}
-      <div className="p-5 bg-paper-50 border border-ink-border rounded shadow-ledger space-y-3">
+      <div className="p-5 sm:p-6 liquid-glass-card rounded-[22px] shadow-xs space-y-3">
         <h3 className="font-serif font-bold text-sm text-ink-primary">
           Digital Document Vault & Audit Certificates
         </h3>
@@ -423,7 +423,7 @@ export default function FdrDetailPage() {
       {/* Discrepancy Resolution Modal */}
       {resolvingFlagId && (
         <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/40 backdrop-blur-xs p-4">
-          <div className="w-full max-w-md bg-paper-50 border border-ink-border rounded shadow-ledger-elevated p-5 space-y-4">
+          <div className="w-full max-w-md liquid-glass-card rounded-[24px] shadow-2xl p-5 space-y-4">
             <h4 className="font-serif font-bold text-sm text-ink-primary">
               Resolve Regulatory Discrepancy Flag
             </h4>

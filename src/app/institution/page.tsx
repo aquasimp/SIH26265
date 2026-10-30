@@ -123,9 +123,9 @@ export default function InstitutionDeskPage() {
   );
 
   return (
-    <div className="p-3 sm:p-6 space-y-4 sm:space-y-6 max-w-5xl mx-auto">
+    <div className="space-y-5 sm:space-y-6 max-w-5xl mx-auto">
       {/* Institution Master Header */}
-      <div className="p-4 sm:p-5 bg-paper-50 border border-ink-border rounded-lg shadow-ledger flex flex-col md:flex-row md:items-center justify-between gap-4">
+      <div className="p-4 sm:p-5 liquid-glass-card rounded-[22px] shadow-xs flex flex-col md:flex-row md:items-center justify-between gap-4">
         <div className="space-y-1">
           <div className="flex items-center gap-2 flex-wrap">
             <h2 className="font-serif font-bold text-base sm:text-lg text-ink-primary">
@@ -222,7 +222,7 @@ export default function InstitutionDeskPage() {
       )}
 
       {/* Active Portfolio Ledger Table */}
-      <div className="border border-ink-border rounded-lg bg-paper-50 shadow-ledger overflow-hidden">
+      <div className="liquid-glass-card rounded-[22px] shadow-xs overflow-hidden">
         <div className="px-4 sm:px-5 py-3.5 bg-paper-100 border-b border-ink-border flex flex-col sm:flex-row sm:items-center sm:justify-between gap-1">
           <h3 className="font-serif font-bold text-sm text-ink-primary">
             Institutional Fixed Deposit Holdings

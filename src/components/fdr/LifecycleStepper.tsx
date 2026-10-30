@@ -45,7 +45,7 @@ export function LifecycleStepper({ status }: LifecycleStepperProps) {
   const currentIndex = getStepIndex(status);
 
   return (
-    <div className="w-full py-3.5 px-3 sm:px-6 bg-paper-100 border border-ink-border rounded-lg overflow-hidden">
+    <div className="w-full py-4 px-3 sm:px-6 liquid-glass-card rounded-[22px] overflow-hidden shadow-xs">
       <div className="flex items-center justify-between relative max-w-full">
         {/* Background Connecting Line */}
         <div className="absolute left-4 right-4 top-1/2 -translate-y-1/2 h-0.5 bg-ink-border z-0" />

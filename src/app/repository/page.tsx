@@ -163,9 +163,9 @@ export default function RepositoryPage() {
   const isAuditor = currentRole === "AUDITOR";
 
   return (
-    <div className="p-3 sm:p-6 space-y-4 sm:space-y-6 max-w-full">
+    <div className="space-y-5 sm:space-y-6 max-w-full">
       {/* Top Header Bar */}
-      <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3 border-b border-ink-border pb-4">
+      <div className="liquid-glass-card rounded-[22px] p-4.5 sm:p-5 shadow-xs flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3">
         <div>
           <h2 className="font-serif font-bold text-lg sm:text-xl text-ink-primary tracking-tight">
             Central Statutory Deposit Repository
@@ -197,7 +197,7 @@ export default function RepositoryPage() {
       </div>
 
       {/* Filter Bar */}
-      <div className="p-3.5 sm:p-4 bg-paper-50 border border-ink-border rounded-lg shadow-ledger space-y-3">
+      <div className="p-3.5 sm:p-4 liquid-glass-card rounded-[20px] shadow-xs space-y-3">
         <div className="flex flex-col md:flex-row md:items-center gap-3">
           <div className="relative flex-1">
             <Search className="w-4 h-4 text-ink-muted absolute left-3 top-1/2 -translate-y-1/2" />
@@ -275,7 +275,7 @@ export default function RepositoryPage() {
       </div>
 
       {/* Main Ledger View: Stacked Cards on Mobile (< 768px), Table on Desktop (>= 768px) */}
-      <div className="border border-ink-border rounded-lg bg-paper-50 shadow-ledger overflow-hidden">
+      <div className="liquid-glass-card rounded-[22px] overflow-hidden shadow-xs">
         {loading ? (
           <div className="p-8 text-center text-xs font-mono text-ink-muted animate-pulse">
             Loading sovereign repository records...

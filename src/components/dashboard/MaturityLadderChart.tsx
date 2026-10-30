@@ -64,7 +64,7 @@ export function MaturityLadderChart({ data }: MaturityLadderChartProps) {
   };
 
   return (
-    <div className="p-3 sm:p-4 bg-paper-50 border border-ink-border rounded-lg shadow-ledger space-y-3">
+    <div className="p-4 sm:p-5 liquid-glass-card rounded-[22px] shadow-xs space-y-3">
       <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-1">
         <div>
           <h3 className="font-serif font-bold text-sm text-ink-primary">

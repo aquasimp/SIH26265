@@ -50,9 +50,9 @@ export default function AuditTrailPage() {
   });
 
   return (
-    <div className="p-3 sm:p-6 space-y-4 sm:space-y-6 max-w-6xl mx-auto">
+    <div className="space-y-5 sm:space-y-6 max-w-6xl mx-auto">
       {/* Page Header */}
-      <div className="border-b border-ink-border pb-4 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
+      <div className="liquid-glass-card rounded-[22px] p-4.5 sm:p-5 shadow-xs flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
         <div>
           <h2 className="font-serif font-bold text-lg sm:text-xl text-ink-primary tracking-tight">
             Tamper-Evident SHA-256 Cryptographic Audit Ledger
@@ -73,7 +73,7 @@ export default function AuditTrailPage() {
       {/* Cryptographic Integrity Status Card */}
       {integrity && (
         <div
-          className={`p-4 rounded border flex flex-col sm:flex-row sm:items-center justify-between gap-3 text-xs ${
+          className={`p-4.5 rounded-[20px] liquid-glass-card flex flex-col sm:flex-row sm:items-center justify-between gap-3 text-xs ${
             integrity.isValid
               ? "bg-botanical-subtle border-botanical/30 text-botanical"
               : "bg-red-50 border-red-300 text-red-700"
@@ -116,7 +116,7 @@ export default function AuditTrailPage() {
       </div>
 
       {/* Audit Blocks Timeline */}
-      <div className="border border-ink-border rounded bg-paper-50 shadow-ledger overflow-hidden">
+      <div className="liquid-glass-card rounded-[22px] shadow-xs overflow-hidden">
         <div className="px-5 py-3.5 bg-paper-100 border-b border-ink-border flex items-center justify-between">
           <h3 className="font-serif font-bold text-sm text-ink-primary">
             Sequential Block Ledger History

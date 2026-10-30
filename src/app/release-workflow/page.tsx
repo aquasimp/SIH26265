@@ -117,9 +117,9 @@ export default function ReleaseWorkflowPage() {
   const canApprove = currentRole === "BUREAU_HEAD";
 
   return (
-    <div className="p-3 sm:p-6 space-y-4 sm:space-y-6 max-w-6xl mx-auto">
+    <div className="space-y-5 sm:space-y-6 max-w-6xl mx-auto">
       {/* Page Header */}
-      <div className="border-b border-ink-border pb-4">
+      <div className="liquid-glass-card rounded-[22px] p-4.5 sm:p-5 shadow-xs">
         <h2 className="font-serif font-bold text-lg sm:text-xl text-ink-primary tracking-tight">
           Statutory Deposit Discharge & Release Gateway
         </h2>
@@ -129,7 +129,7 @@ export default function ReleaseWorkflowPage() {
       </div>
 
       {/* Release Protocol Info Card */}
-      <div className="p-3.5 sm:p-4 bg-paper-50 border border-ink-border rounded-lg shadow-ledger flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 text-xs font-mono">
+      <div className="p-3.5 sm:p-4.5 liquid-glass-card rounded-[20px] shadow-xs flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 text-xs font-mono">
         <div className="flex items-center gap-3">
           <KeyRound className="w-5 h-5 text-saffron shrink-0" />
           <div>
@@ -163,7 +163,7 @@ export default function ReleaseWorkflowPage() {
       </div>
 
       {/* Main Release Queue */}
-      <div className="border border-ink-border rounded-lg bg-paper-50 shadow-ledger overflow-hidden">
+      <div className="liquid-glass-card rounded-[22px] shadow-xs overflow-hidden">
         <div className="px-4 sm:px-5 py-3.5 bg-paper-100 border-b border-ink-border flex flex-col sm:flex-row sm:items-center sm:justify-between gap-1">
           <h3 className="font-serif font-bold text-sm text-ink-primary">
             Active Deposit Discharge Requests
@@ -478,7 +478,7 @@ export default function ReleaseWorkflowPage() {
       {/* RO Recommendation Modal */}
       {recommendingFdr && (
         <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/40 backdrop-blur-xs p-3 sm:p-4">
-          <div className="w-full max-w-md bg-paper-50 border border-ink-border rounded-lg shadow-ledger-elevated p-4 sm:p-5 space-y-4 max-h-[90dvh] overflow-y-auto">
+          <div className="w-full max-w-md liquid-glass-card rounded-[24px] shadow-2xl p-4 sm:p-5 space-y-4 max-h-[90dvh] overflow-y-auto">
             <h4 className="font-serif font-bold text-sm text-ink-primary">
               Regional Officer — Discharge Recommendation Note
             </h4>
@@ -523,7 +523,7 @@ export default function ReleaseWorkflowPage() {
       {/* Bureau Head Final Approval Modal */}
       {approvingFdr && (
         <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/40 backdrop-blur-xs p-3 sm:p-4">
-          <div className="w-full max-w-md bg-paper-50 border border-ink-border rounded-lg shadow-ledger-elevated p-4 sm:p-5 space-y-4 max-h-[90dvh] overflow-y-auto">
+          <div className="w-full max-w-md liquid-glass-card rounded-[24px] shadow-2xl p-4 sm:p-5 space-y-4 max-h-[90dvh] overflow-y-auto">
             <h4 className="font-serif font-bold text-sm text-ink-primary">
               Bureau Head — Competent Authority Formal Discharge Sanction
             </h4>

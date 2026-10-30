@@ -179,9 +179,9 @@ export function AttentionQueueTable({
   });
 
   return (
-    <div className="border border-ink-border rounded-lg bg-paper-50 shadow-ledger overflow-hidden">
+    <div className="liquid-glass-card rounded-[22px] overflow-hidden shadow-xs">
       {/* Header Bar */}
-      <div className="px-4 sm:px-5 py-3.5 bg-paper-100 border-b border-ink-border flex flex-col sm:flex-row sm:items-center sm:justify-between gap-1.5">
+      <div className="px-4 sm:px-5 py-3.5 border-b border-ink-border flex flex-col sm:flex-row sm:items-center sm:justify-between gap-1.5">
         <div>
           <h3 className="font-serif font-bold text-sm text-ink-primary tracking-tight">
             {title}

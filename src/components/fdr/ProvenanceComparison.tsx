@@ -63,9 +63,9 @@ export function ProvenanceComparison({
   ];
 
   return (
-    <div className="border border-ink-border rounded-lg bg-paper-50 overflow-hidden shadow-ledger">
+    <div className="liquid-glass-card rounded-[22px] overflow-hidden shadow-xs">
       {/* Table Header with Mock Banner */}
-      <div className="p-3 sm:p-4 bg-paper-100 border-b border-ink-border flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3">
+      <div className="p-3.5 sm:p-4.5 border-b border-ink-border glass-well flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3">
         <div>
           <h4 className="font-serif font-bold text-xs sm:text-sm text-ink-primary">
             Dual-Source Provenance Verification Matrix

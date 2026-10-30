@@ -70,9 +70,9 @@ export default function SettingsPage() {
   const isBureauHead = currentRole === "BUREAU_HEAD";
 
   return (
-    <div className="p-3 sm:p-6 space-y-4 sm:space-y-6 max-w-5xl mx-auto">
+    <div className="space-y-5 sm:space-y-6 max-w-5xl mx-auto">
       {/* Page Header */}
-      <div className="border-b border-ink-border pb-4 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
+      <div className="liquid-glass-card rounded-[22px] p-4.5 sm:p-5 shadow-xs flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
         <div>
           <h2 className="font-serif font-bold text-lg sm:text-xl text-ink-primary tracking-tight">
             Regulatory Policy Configuration & Thresholds
@@ -106,7 +106,7 @@ export default function SettingsPage() {
       )}
 
       {/* Section 1: Validity Reminder Intervals */}
-      <div className="p-5 bg-paper-50 border border-ink-border rounded shadow-ledger space-y-4">
+      <div className="p-5 sm:p-6 liquid-glass-card rounded-[22px] shadow-xs space-y-4">
         <div className="border-b border-ink-border pb-2.5">
           <h3 className="font-serif font-bold text-sm text-ink-primary">
             1. Maturity Reminder Schedule (Days Prior to Lapsing)
@@ -130,7 +130,7 @@ export default function SettingsPage() {
       </div>
 
       {/* Section 2: Escalation Idle Thresholds */}
-      <div className="p-5 bg-paper-50 border border-ink-border rounded shadow-ledger space-y-4">
+      <div className="p-5 sm:p-6 liquid-glass-card rounded-[22px] shadow-xs space-y-4">
         <div className="border-b border-ink-border pb-2.5">
           <h3 className="font-serif font-bold text-sm text-ink-primary">
             2. Inaction & Idle Alert Auto-Escalation Thresholds
@@ -192,7 +192,7 @@ export default function SettingsPage() {
       </div>
 
       {/* Section 3: Statutory Deposit Slabs by Discipline */}
-      <div className="p-5 bg-paper-50 border border-ink-border rounded shadow-ledger space-y-4">
+      <div className="p-5 sm:p-6 liquid-glass-card rounded-[22px] shadow-xs space-y-4">
         <div className="border-b border-ink-border pb-2.5">
           <h3 className="font-serif font-bold text-sm text-ink-primary">
             3. Statutory Security Deposit Norms by Technical Discipline

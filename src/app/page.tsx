@@ -57,9 +57,9 @@ export default function DashboardPage() {
   }, []);
 
   return (
-    <div className="p-3 sm:p-6 space-y-4 sm:space-y-6 max-w-full">
+    <div className="space-y-5 sm:space-y-6 max-w-full">
       {/* Top Banner / Treasury Status Summary */}
-      <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3 border-b border-ink-border pb-4">
+      <div className="liquid-glass-card rounded-[22px] p-4.5 sm:p-5 shadow-xs flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3">
         <div>
           <h2 className="font-serif font-bold text-lg sm:text-xl text-ink-primary tracking-tight">
             Treasury Command Console

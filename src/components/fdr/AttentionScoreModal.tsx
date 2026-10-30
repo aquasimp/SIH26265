@@ -21,8 +21,8 @@ export function AttentionScoreModal({
 
   return (
     <div className="fixed inset-0 z-50 flex items-end sm:items-center justify-center bg-black/50 backdrop-blur-xs p-0 sm:p-4">
-      <div className="w-full max-w-lg bg-paper-50 border border-ink-border rounded-t-2xl sm:rounded-lg shadow-ledger-elevated overflow-hidden max-h-[92dvh] flex flex-col animate-in fade-in zoom-in-95 duration-100">
-        <div className="flex items-center justify-between px-4 sm:px-5 py-3.5 border-b border-ink-border bg-paper-100 shrink-0">
+      <div className="w-full max-w-lg liquid-glass-card rounded-t-[28px] sm:rounded-[24px] shadow-2xl overflow-hidden max-h-[92dvh] flex flex-col animate-glass-in">
+        <div className="flex items-center justify-between px-4 sm:px-5 py-3.5 border-b border-ink-border glass-well shrink-0">
           <div className="flex items-center gap-2">
             <Calculator className="w-4 h-4 text-saffron shrink-0" />
             <h3 className="font-serif font-bold text-xs sm:text-sm text-ink-primary">
@@ -40,7 +40,7 @@ export function AttentionScoreModal({
 
         <div className="p-4 sm:p-5 space-y-4 text-xs overflow-y-auto">
           {/* Transparent Formula Callout */}
-          <div className="p-3 bg-paper-100 border border-ink-border rounded font-mono text-[11px] space-y-1">
+          <div className="p-3.5 glass-well rounded-xl font-mono text-[11px] space-y-1">
             <div className="text-ink-muted uppercase tracking-wider text-[10px]">
               Mathematical Prioritization Formula (Deterministic)
             </div>
@@ -116,7 +116,7 @@ export function AttentionScoreModal({
           </div>
 
           {/* Total & Risk Tier Summary */}
-          <div className="p-3.5 bg-paper-200 rounded border border-ink-border flex items-center justify-between">
+          <div className="p-3.5 glass-well rounded-xl flex items-center justify-between">
             <div>
               <span className="text-[10px] uppercase font-mono text-ink-muted">
                 Net Priority Index

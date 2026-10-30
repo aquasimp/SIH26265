@@ -103,7 +103,7 @@ export function GlassFolderGrid({
   return (
     <section
       aria-label="Sovereign Regulatory Dossiers"
-      className={`relative w-full rounded-2xl bg-paper-50/80 border border-ink-border p-4 sm:p-6 shadow-ledger ${className}`}
+      className={`relative w-full rounded-[24px] liquid-glass-card p-4 sm:p-6 shadow-xs ${className}`}
     >
       {/* Shared SVG clip-path definitions in objectBoundingBox coordinates */}
       <FolderSilhouetteSvg />
