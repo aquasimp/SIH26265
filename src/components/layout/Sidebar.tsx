@@ -31,7 +31,7 @@ export function Sidebar() {
   ];
 
   return (
-    <aside className="w-56 shrink-0 border-r border-ink-border bg-paper-50 min-h-[calc(100vh-68px)] p-3 flex flex-col justify-between">
+    <aside className="hidden md:flex w-56 shrink-0 border-r border-ink-border bg-paper-50 min-h-[calc(100vh-68px)] p-3 flex-col justify-between">
       <div className="space-y-1">
         <div className="px-3 py-1 text-[11px] font-mono uppercase tracking-wider text-ink-muted">
           Navigation

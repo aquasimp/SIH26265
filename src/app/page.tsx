@@ -1,6 +1,7 @@
 "use client";
 
 import React, { useState, useEffect } from "react";
+import { GlassFolderGrid } from "@/components/dashboard/GlassFolderGrid";
 import { KpiCounterCard } from "@/components/dashboard/KpiCounterCard";
 import { MaturityLadderChart } from "@/components/dashboard/MaturityLadderChart";
 import { AttentionQueueTable } from "@/components/dashboard/AttentionQueueTable";
@@ -19,6 +20,7 @@ export default function DashboardPage() {
   const [metrics, setMetrics] = useState<any>(null);
   const [maturityLadder, setMaturityLadder] = useState<any[]>([]);
   const [priorityFdrs, setPriorityFdrs] = useState<FdrInstrument[]>([]);
+  const [allFdrs, setAllFdrs] = useState<FdrInstrument[]>([]);
   const [loading, setLoading] = useState(true);
   const [selectedRegion, setSelectedRegion] = useState("ALL");
 
@@ -34,11 +36,12 @@ export default function DashboardPage() {
       })
       .catch(console.error);
 
-    // Fetch top priority FDRs
+    // Fetch top priority FDRs and complete dataset for dossier folders
     fetch("/api/fdrs")
       .then((res) => res.json())
       .then((data) => {
         if (data.success) {
+          setAllFdrs(data.data);
           // Sort descending by attention score
           const sorted = [...data.data].sort(
             (a, b) => (b.attentionScore || 0) - (a.attentionScore || 0)
@@ -70,6 +73,9 @@ export default function DashboardPage() {
           </span>
         </div>
       </div>
+
+      {/* Glass Folder Cards (Sovereign Regulatory Dossiers) */}
+      <GlassFolderGrid instruments={allFdrs} />
 
       {/* KPI Counters Strip */}
       {metrics ? (
