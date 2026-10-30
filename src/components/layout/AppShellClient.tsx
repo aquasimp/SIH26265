@@ -10,7 +10,7 @@ export function AppShellClient({ children }: { children: React.ReactNode }) {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   return (
-    <div className="min-h-screen w-full bg-[#F5F8FC] text-[#162033] font-sans antialiased">
+    <div className="min-h-screen w-full bg-[#F5F8FC] dark:bg-[#0B0F17] text-[#162033] dark:text-[#F8FAFC] font-sans antialiased transition-colors duration-200">
       {/* 1. Left Fixed Enterprise Navigation Sidebar */}
       <LeftGlassRail
         mobileOpen={mobileMenuOpen}

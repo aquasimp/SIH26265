@@ -155,19 +155,19 @@ export function LeftGlassRail({ mobileOpen = false, onCloseMobile }: LeftGlassRa
   ];
 
   const content = (
-    <div className="flex flex-col justify-between h-full w-full select-none bg-white">
+    <div className="flex flex-col justify-between h-full w-full select-none bg-white dark:bg-slate-900 transition-colors">
       {/* Brand & Seal Header */}
       <div>
-        <div className="flex items-center justify-between px-5 py-4 border-b border-slate-100">
+        <div className="flex items-center justify-between px-5 py-4 border-b border-slate-100 dark:border-slate-800 dark:border-slate-800">
           <Link href="/" className="flex items-center gap-3 group">
             <div className="h-9 w-8 flex items-center justify-center shrink-0">
               <AshokaEmblem size={28} />
             </div>
             <div className="min-w-0">
-              <div className="font-bold tracking-tight text-[13px] text-slate-900 uppercase font-sans leading-tight">
+              <div className="font-bold tracking-tight text-[13px] text-slate-900 dark:text-white uppercase font-sans leading-tight">
                 AICTE | FDR MANAGEMENT
               </div>
-              <div className="text-[11px] font-medium text-slate-500 truncate">
+              <div className="text-[11px] font-medium text-slate-500 dark:text-slate-400 truncate">
                 Regulation Bureau
               </div>
             </div>
@@ -209,8 +209,8 @@ export function LeftGlassRail({ mobileOpen = false, onCloseMobile }: LeftGlassRa
                     onClick={onCloseMobile}
                     className={`flex items-center justify-between px-3 py-2 rounded-xl text-[13px] transition-all group ${
                       isActive
-                        ? "bg-blue-50 text-blue-600 font-semibold shadow-2xs"
-                        : "text-slate-700 hover:text-slate-900 hover:bg-slate-50 font-normal"
+                        ? "bg-blue-50 dark:bg-blue-950/60 text-blue-600 dark:text-blue-400 font-semibold shadow-2xs"
+                        : "text-slate-700 dark:text-slate-300 hover:text-slate-900 dark:hover:text-white hover:bg-slate-50 dark:hover:bg-slate-800/60 font-normal"
                     }`}
                   >
                     <div className="flex items-center gap-2.5 min-w-0">
@@ -238,11 +238,11 @@ export function LeftGlassRail({ mobileOpen = false, onCloseMobile }: LeftGlassRa
       </div>
 
       {/* System Status Footer */}
-      <div className="p-3 border-t border-slate-100 bg-white">
+      <div className="p-3 border-t border-slate-100 dark:border-slate-800 bg-white dark:bg-slate-900">
         <button
           type="button"
           onClick={() => setShowStatusModal(true)}
-          className="w-full flex items-center justify-between p-2.5 rounded-xl border border-slate-200/80 bg-slate-50/70 hover:bg-slate-100/80 transition-colors text-left cursor-pointer"
+          className="w-full flex items-center justify-between p-2.5 rounded-xl border border-slate-200/80 dark:border-slate-800 bg-slate-50/70 dark:bg-slate-800/60 hover:bg-slate-100/80 dark:hover:bg-slate-800 transition-colors text-left cursor-pointer"
         >
           <div className="flex items-center gap-2 min-w-0">
             <span className="relative flex h-2 w-2 shrink-0">
@@ -250,10 +250,10 @@ export function LeftGlassRail({ mobileOpen = false, onCloseMobile }: LeftGlassRa
               <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-500"></span>
             </span>
             <div className="min-w-0">
-              <div className="text-[11.5px] font-bold text-slate-800 leading-none">
+              <div className="text-[11.5px] font-bold text-slate-800 dark:text-slate-200 leading-none">
                 System Status
               </div>
-              <div className="text-[10px] text-slate-500 truncate mt-0.5">
+              <div className="text-[10px] text-slate-500 dark:text-slate-400 truncate mt-0.5">
                 Prototype mode · Sample data
               </div>
             </div>
@@ -265,8 +265,8 @@ export function LeftGlassRail({ mobileOpen = false, onCloseMobile }: LeftGlassRa
       {/* Prototype Info Modal */}
       {showStatusModal && (
         <div className="fixed inset-0 z-50 bg-slate-900/40 backdrop-blur-xs flex items-center justify-center p-4">
-          <div className="bg-white rounded-2xl border border-slate-200 p-5 max-w-md w-full shadow-xl space-y-3">
-            <div className="flex items-center justify-between pb-2 border-b border-slate-100">
+          <div className="bg-white dark:bg-slate-900 rounded-2xl border border-slate-200 dark:border-slate-800 p-5 max-w-md w-full shadow-xl space-y-3 text-slate-900 dark:text-white">
+            <div className="flex items-center justify-between pb-2 border-b border-slate-100 dark:border-slate-800">
               <div className="flex items-center gap-2">
                 <span className="h-2.5 w-2.5 rounded-full bg-emerald-500"></span>
                 <h4 className="font-bold text-sm text-slate-900">

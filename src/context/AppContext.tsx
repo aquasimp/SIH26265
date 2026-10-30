@@ -87,12 +87,34 @@ export function AppProvider({ children }: { children: React.ReactNode }) {
   const [isDemoModalOpen, setIsDemoModalOpen] = useState<boolean>(false);
   const [isMobileNavOpen, setIsMobileNavOpen] = useState<boolean>(false);
 
-  // Sync dark mode class on document
+  // Initialize dark mode from localStorage or system preference on client mount
   useEffect(() => {
-    if (isDarkMode) {
-      document.documentElement.classList.add("dark");
-    } else {
-      document.documentElement.classList.remove("dark");
+    try {
+      const stored = localStorage.getItem("fdr_dark_mode");
+      if (stored !== null) {
+        setIsDarkMode(stored === "1");
+      } else if (typeof window !== "undefined" && window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)").matches) {
+        setIsDarkMode(true);
+      }
+    } catch {
+      // Ignore in SSR
+    }
+  }, []);
+
+  // Sync dark mode class on document and persist
+  useEffect(() => {
+    if (typeof document !== "undefined") {
+      if (isDarkMode) {
+        document.documentElement.classList.add("dark");
+        try {
+          localStorage.setItem("fdr_dark_mode", "1");
+        } catch {}
+      } else {
+        document.documentElement.classList.remove("dark");
+        try {
+          localStorage.setItem("fdr_dark_mode", "0");
+        } catch {}
+      }
     }
   }, [isDarkMode]);
 

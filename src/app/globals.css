@@ -407,3 +407,171 @@ body {
     size: A4 landscape;
   }
 }
+
+
+/* =========================================================================
+   UNIVERSAL ENTERPRISE DARK MODE SYSTEM (FDRVault Precision Theme)
+   ========================================================================= */
+.dark {
+  color-scheme: dark;
+}
+
+.dark body {
+  background-color: #0b0f17 !important;
+  color: #f8fafc !important;
+}
+
+/* Card & Surface Overrides */
+.dark .bg-white {
+  background-color: #111827 !important;
+}
+
+.dark .bg-\[\#F5F8FC\] {
+  background-color: #0b0f17 !important;
+}
+
+/* Neutral Backgrounds */
+.dark .bg-slate-50,
+.dark .bg-slate-50\/70,
+.dark .bg-slate-50\/80 {
+  background-color: #172033 !important;
+}
+
+.dark .bg-slate-100 {
+  background-color: #1e293b !important;
+}
+
+.dark .hover\:bg-slate-50:hover,
+.dark .hover\:bg-slate-50\/70:hover,
+.dark .hover\:bg-slate-50\/80:hover {
+  background-color: #1d283f !important;
+}
+
+.dark .hover\:bg-slate-100:hover,
+.dark .hover\:bg-slate-100\/80:hover {
+  background-color: #24324d !important;
+}
+
+/* Borders */
+.dark .border-slate-100,
+.dark .border-slate-200,
+.dark .border-slate-200\/80,
+.dark .border-slate-200\/90,
+.dark .border-slate-300 {
+  border-color: rgba(255, 255, 255, 0.08) !important;
+}
+
+.dark .hover\:border-slate-300:hover {
+  border-color: rgba(255, 255, 255, 0.2) !important;
+}
+
+.dark .divide-slate-100 > :not([hidden]) ~ :not([hidden]),
+.dark .divide-slate-200 > :not([hidden]) ~ :not([hidden]) {
+  border-color: rgba(255, 255, 255, 0.08) !important;
+}
+
+/* Typography */
+.dark .text-slate-900,
+.dark .text-\[\#162033\] {
+  color: #f8fafc !important;
+}
+
+.dark .text-slate-800 {
+  color: #f1f5f9 !important;
+}
+
+.dark .text-slate-700 {
+  color: #cbd5e1 !important;
+}
+
+.dark .text-slate-600 {
+  color: #94a3b8 !important;
+}
+
+.dark .text-slate-500 {
+  color: #94a3b8 !important;
+}
+
+.dark .text-slate-400 {
+  color: #64748b !important;
+}
+
+/* Accent Pills & Containers */
+.dark .bg-blue-50 {
+  background-color: rgba(39, 115, 225, 0.16) !important;
+}
+.dark .border-blue-100,
+.dark .border-blue-200,
+.dark .border-blue-200\/60,
+.dark .border-blue-200\/70 {
+  border-color: rgba(39, 115, 225, 0.35) !important;
+}
+.dark .text-blue-600,
+.dark .text-blue-700 {
+  color: #60a5fa !important;
+}
+
+.dark .bg-amber-50 {
+  background-color: rgba(245, 158, 11, 0.16) !important;
+}
+.dark .border-amber-100,
+.dark .border-amber-200,
+.dark .border-amber-200\/60,
+.dark .border-amber-200\/70 {
+  border-color: rgba(245, 158, 11, 0.35) !important;
+}
+.dark .text-amber-600,
+.dark .text-amber-700 {
+  color: #fbbf24 !important;
+}
+
+.dark .bg-emerald-50 {
+  background-color: rgba(16, 185, 129, 0.16) !important;
+}
+.dark .border-emerald-100,
+.dark .border-emerald-200,
+.dark .border-emerald-200\/60,
+.dark .border-emerald-200\/70 {
+  border-color: rgba(16, 185, 129, 0.35) !important;
+}
+.dark .text-emerald-600,
+.dark .text-emerald-700 {
+  color: #34d399 !important;
+}
+
+.dark .bg-red-50 {
+  background-color: rgba(239, 68, 68, 0.16) !important;
+}
+.dark .border-red-100,
+.dark .border-red-200 {
+  border-color: rgba(239, 68, 68, 0.35) !important;
+}
+.dark .text-red-600,
+.dark .text-red-700 {
+  color: #f87171 !important;
+}
+
+/* Modals & Dropdowns */
+.dark .shadow-xl,
+.dark .shadow-2xl {
+  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.6), 0 8px 10px -6px rgba(0, 0, 0, 0.6) !important;
+}
+
+/* Form Inputs & Tables */
+.dark input,
+.dark select,
+.dark textarea {
+  background-color: #172033 !important;
+  color: #f8fafc !important;
+  border-color: rgba(255, 255, 255, 0.12) !important;
+}
+
+.dark th {
+  background-color: #172033 !important;
+  color: #94a3b8 !important;
+  border-color: rgba(255, 255, 255, 0.08) !important;
+}
+
+.dark tr:hover td {
+  background-color: rgba(255, 255, 255, 0.02) !important;
+}

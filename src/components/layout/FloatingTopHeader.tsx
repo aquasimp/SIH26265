@@ -75,7 +75,7 @@ export function FloatingTopHeader({ onOpenMobileMenu }: FloatingTopHeaderProps) 
   ];
 
   return (
-    <header className="sticky top-0 z-20 w-full bg-white border-b border-slate-200/90 px-4 sm:px-6 py-2.5 flex items-center justify-between gap-4 shadow-2xs select-none">
+    <header className="sticky top-0 z-20 w-full bg-white dark:bg-slate-900 border-b border-slate-200/90 dark:border-slate-800 px-4 sm:px-6 py-2.5 flex items-center justify-between gap-4 shadow-2xs select-none transition-colors">
       {/* Left: Mobile Toggle + Emblem + Portal Title */}
       <div className="flex items-center gap-3 shrink-0">
         <button
@@ -107,7 +107,7 @@ export function FloatingTopHeader({ onOpenMobileMenu }: FloatingTopHeaderProps) 
         <button
           type="button"
           onClick={() => setIsCmdOpen(true)}
-          className="w-full bg-[#F5F8FC] border border-slate-200 hover:border-slate-300 rounded-full px-4 py-2 text-xs text-slate-400 hover:text-slate-600 flex items-center justify-between transition-all cursor-pointer"
+          className="w-full bg-[#F5F8FC] dark:bg-slate-800/90 border border-slate-200 dark:border-slate-700 hover:border-slate-300 dark:hover:border-slate-600 rounded-full px-4 py-2 text-xs text-slate-400 hover:text-slate-600 dark:hover:text-slate-300 flex items-center justify-between transition-all cursor-pointer"
           title="Search institution, FDR number or bank... (Ctrl K)"
         >
           <div className="flex items-center gap-2.5 min-w-0">
@@ -180,27 +180,42 @@ export function FloatingTopHeader({ onOpenMobileMenu }: FloatingTopHeaderProps) 
         </div>
 
         {/* Bilingual Switch (EN | हिन्दी) */}
-        <div className="flex items-center text-xs font-semibold text-slate-600 bg-slate-50 border border-slate-200/90 rounded-lg px-2 py-1">
+        <div className="flex items-center text-xs font-semibold text-slate-600 dark:text-slate-300 bg-slate-50 dark:bg-slate-800 border border-slate-200/90 dark:border-slate-700 rounded-lg px-2 py-1">
           <button
             type="button"
             onClick={() => setLanguage("en")}
             className={`px-1 cursor-pointer transition-colors ${
-              language === "en" ? "text-blue-600 font-bold" : "text-slate-400 hover:text-slate-700"
+              language === "en" ? "text-blue-600 dark:text-blue-400 font-bold" : "text-slate-400 hover:text-slate-700 dark:hover:text-slate-200"
             }`}
           >
             EN
           </button>
-          <span className="text-slate-300">|</span>
+          <span className="text-slate-300 dark:text-slate-600">|</span>
           <button
             type="button"
             onClick={() => setLanguage("hi")}
             className={`px-1 cursor-pointer transition-colors ${
-              language === "hi" ? "text-blue-600 font-bold" : "text-slate-400 hover:text-slate-700"
+              language === "hi" ? "text-blue-600 dark:text-blue-400 font-bold" : "text-slate-400 hover:text-slate-700 dark:hover:text-slate-200"
             }`}
           >
             हिन्दी
           </button>
         </div>
+
+        {/* Dark Mode Toggle Button */}
+        <button
+          type="button"
+          onClick={toggleDarkMode}
+          className="p-2 rounded-xl text-slate-500 hover:text-slate-900 dark:text-slate-400 dark:hover:text-amber-300 hover:bg-slate-100 dark:hover:bg-slate-800 border border-transparent hover:border-slate-200 dark:hover:border-slate-700 transition-all cursor-pointer"
+          aria-label={isDarkMode ? "Switch to light mode" : "Switch to dark mode"}
+          title={isDarkMode ? "Switch to light mode" : "Switch to dark mode"}
+        >
+          {isDarkMode ? (
+            <Sun className="h-[18px] w-[18px] text-amber-400 animate-in spin-in-180 duration-300" />
+          ) : (
+            <Moon className="h-[18px] w-[18px] text-slate-600 hover:text-blue-600 transition-colors" />
+          )}
+        </button>
 
         {/* User Profile & Role Switcher */}
         <div className="relative">
