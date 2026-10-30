@@ -114,7 +114,7 @@ export function FloatingTopHeader({ onOpenMobileMenu }: FloatingTopHeaderProps) 
           {notificationsOpen && (
             <>
               <div className="fixed inset-0 z-30" onClick={() => setNotificationsOpen(false)} />
-              <div className="absolute right-0 mt-1.5 w-72 sm:w-80 bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-2xl shadow-xl z-40 py-2 animate-glass-in">
+              <div className="absolute right-0 mt-1.5 w-72 sm:w-80 max-w-[calc(100vw-24px)] bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-2xl shadow-xl z-40 py-2 animate-glass-in">
                 <div className="px-3.5 py-1.5 text-[10px] font-mono uppercase tracking-wider text-slate-400 font-bold border-b border-slate-100 dark:border-slate-800 flex items-center justify-between">
                   <span>Deficiency Alerts (2 Active)</span>
                   <span className="text-rose-600 font-bold">APH Clause 7.8</span>
@@ -204,7 +204,7 @@ export function FloatingTopHeader({ onOpenMobileMenu }: FloatingTopHeaderProps) 
                 className="fixed inset-0 z-30"
                 onClick={() => setIsRoleDropdownOpen(false)}
               />
-              <div className="absolute right-0 mt-1.5 w-64 bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-2xl shadow-xl z-40 py-1.5 overflow-hidden animate-glass-in">
+              <div className="absolute right-0 mt-1.5 w-64 max-w-[calc(100vw-24px)] bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-2xl shadow-xl z-40 py-1.5 overflow-hidden animate-glass-in">
                 <div className="px-3 py-1.5 text-[10px] font-mono uppercase tracking-wider text-slate-400 border-b border-slate-100 dark:border-slate-800 font-bold">
                   Active Signatory & Role Switcher
                 </div>

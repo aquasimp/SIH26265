@@ -59,7 +59,7 @@ export function BlueprintHeaderSection({
               className="fixed inset-0 z-30"
               onClick={() => setDropdownOpen(false)}
             />
-            <div className="absolute right-0 top-full mt-1.5 w-80 sm:w-96 bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-2xl shadow-xl z-40 py-2 animate-glass-in">
+            <div className="absolute right-0 top-full mt-1.5 w-80 sm:w-96 max-w-[calc(100vw-24px)] bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-2xl shadow-xl z-40 py-2 animate-glass-in">
               <div className="px-3 py-1.5 text-[10px] font-mono uppercase tracking-wider text-slate-400 border-b border-slate-100 dark:border-slate-800 font-bold">
                 Registered Institutional Dossiers
               </div>

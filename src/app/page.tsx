@@ -115,7 +115,7 @@ export default function TreasuryHomePage() {
                 className="fixed inset-0 z-30"
                 onClick={() => setRegionDropdownOpen(false)}
               />
-              <div className="absolute right-0 top-full mt-1.5 w-80 bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-2xl shadow-xl z-40 py-2 animate-glass-in">
+              <div className="absolute right-0 top-full mt-1.5 w-80 max-w-[calc(100vw-24px)] bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-2xl shadow-xl z-40 py-2 animate-glass-in">
                 <div className="px-3.5 py-1.5 text-[10px] font-mono uppercase tracking-wider text-slate-400 font-bold border-b border-slate-100 dark:border-slate-800">
                   Regional Jurisdiction
                 </div>

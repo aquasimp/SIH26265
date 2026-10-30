@@ -5,6 +5,7 @@ import { LeftGlassRail } from "./LeftGlassRail";
 import { FloatingTopHeader } from "./FloatingTopHeader";
 import { SyntheticBanner } from "./SyntheticBanner";
 import { CommandPalette } from "./CommandPalette";
+import { MobileBottomBar } from "./MobileBottomBar";
 import { DemoScenarioPlayer } from "@/components/demo/DemoScenarioPlayer";
 
 export function AppShellClient({ children }: { children: React.ReactNode }) {
@@ -27,10 +28,13 @@ export function AppShellClient({ children }: { children: React.ReactNode }) {
         <FloatingTopHeader onOpenMobileMenu={() => setMobileMenuOpen(true)} />
 
         {/* Page Content Viewport */}
-        <main className="flex-1 w-full min-w-0 animate-glass-in pb-16 lg:pb-4">
+        <main className="flex-1 w-full min-w-0 animate-glass-in pb-20 lg:pb-4">
           {children}
         </main>
       </div>
+
+      {/* 3. Mobile Thumb Bottom Bar (< 1024px) */}
+      <MobileBottomBar onOpenMenu={() => setMobileMenuOpen(true)} />
 
       {/* Global Modals */}
       <CommandPalette />

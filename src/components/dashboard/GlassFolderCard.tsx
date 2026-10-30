@@ -333,7 +333,7 @@ export const GlassFolderCard = React.forwardRef<HTMLButtonElement, GlassFolderCa
         {/* Content Row: Bottom-Left Title & Monospace Subtitle; Bottom-Right Squircle Button */}
         <div className="relative z-10 flex items-end justify-between gap-1.5">
           <div className="flex flex-col gap-0.5 min-w-0">
-            <h3 className="font-bold text-[18px] sm:text-[19px] lg:text-[20px] tracking-tight text-ink-primary leading-tight whitespace-nowrap">
+            <h3 className="font-bold text-[17px] sm:text-[19px] lg:text-[20px] tracking-tight text-ink-primary leading-tight truncate sm:whitespace-nowrap">
               {title}
             </h3>
             <div className="flex items-center gap-1.5 font-mono text-[11px] sm:text-[11.5px] text-ink-muted">
