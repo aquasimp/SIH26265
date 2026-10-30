@@ -109,10 +109,10 @@ export const DEMO_USERS: Record<UserRole, UserSession> = {
   },
   REGIONAL_OFFICER: {
     id: "usr-ro-west",
-    name: "Rajesh Kumar Verma",
+    name: "Shri R.K. Verma (RO - 04)",
     role: "REGIONAL_OFFICER",
-    designation: "Regional Officer",
-    department: "Western Regional Office (WRO)",
+    designation: "Regional Scrutiny Officer",
+    department: "Regional Scrutiny Cell, RO - 04",
     region: "Western",
   },
   BUREAU_HEAD: {

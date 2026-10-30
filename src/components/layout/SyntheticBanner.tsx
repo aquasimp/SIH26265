@@ -1,11 +1,14 @@
 "use client";
 
-import React from "react";
-import { ShieldAlert } from "lucide-react";
+import React, { useState } from "react";
+import { ShieldAlert, X } from "lucide-react";
 import { useApp } from "@/context/AppContext";
 
 export function SyntheticBanner() {
   const { t } = useApp();
+  const [dismissed, setDismissed] = useState(true); // Closed by default to match clean screenshot
+
+  if (dismissed) return null;
 
   return (
     <aside
@@ -21,10 +24,16 @@ export function SyntheticBanner() {
           {t("syntheticBanner")}
         </span>
       </div>
-      <div className="hidden lg:flex items-center gap-3.5 text-[10.5px] text-ink-muted shrink-0 font-medium">
-        <span>ISO-20022 / CBS PARALLEL</span>
-        <span>•</span>
-        <span>SHA-256 LEDGER VALIDATED</span>
+      <div className="flex items-center gap-3 text-[10.5px] text-ink-muted shrink-0 font-medium">
+        <span className="hidden lg:inline">ISO-20022 / CBS PARALLEL • SHA-256 LEDGER VALIDATED</span>
+        <button
+          type="button"
+          onClick={() => setDismissed(true)}
+          className="p-1 rounded hover:bg-black/10 dark:hover:bg-white/10 text-ink-muted hover:text-ink-primary"
+          title="Dismiss banner"
+        >
+          <X className="w-3.5 h-3.5" />
+        </button>
       </div>
     </aside>
   );

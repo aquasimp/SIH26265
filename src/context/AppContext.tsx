@@ -80,7 +80,7 @@ const DICTIONARY: Record<string, Record<Language, string>> = {
 const AppContext = createContext<AppContextType | undefined>(undefined);
 
 export function AppProvider({ children }: { children: React.ReactNode }) {
-  const [currentRole, setCurrentRole] = useState<UserRole>("SCRUTINY_OFFICER");
+  const [currentRole, setCurrentRole] = useState<UserRole>("REGIONAL_OFFICER");
   const [language, setLanguage] = useState<Language>("en");
   const [isDarkMode, setIsDarkMode] = useState<boolean>(false);
   const [isCmdOpen, setIsCmdOpen] = useState<boolean>(false);

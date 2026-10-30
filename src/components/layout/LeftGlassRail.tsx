@@ -7,15 +7,16 @@ import { useApp } from "@/context/AppContext";
 import { AshokaEmblem } from "@/components/brand/AshokaEmblem";
 import {
   LayoutDashboard,
-  Layers,
+  FileText,
   ScanLine,
-  Building,
-  KeyRound,
-  ShieldCheck,
-  TrendingUp,
-  Sliders,
+  Fingerprint,
+  Compass,
+  UserCheck,
+  GitMerge,
+  AlertTriangle,
+  Binary,
+  BarChart2,
   X,
-  Sparkles,
 } from "lucide-react";
 
 export interface LeftGlassRailProps {
@@ -25,62 +26,77 @@ export interface LeftGlassRailProps {
 
 export function LeftGlassRail({ mobileOpen = false, onCloseMobile }: LeftGlassRailProps) {
   const pathname = usePathname();
-  const { t, language, setIsDemoModalOpen } = useApp();
+  const { language } = useApp();
 
   const navItems = [
     {
-      label: t("dashboard"),
+      label: "Dashboard",
       href: "/",
       icon: LayoutDashboard,
       badge: null,
       badgeClass: "",
     },
     {
-      label: t("repository"),
+      label: "Institutional Dossiers",
       href: "/repository",
-      icon: Layers,
-      badge: "140",
-      badgeClass: "glass-well text-ink-secondary font-mono font-semibold px-2 py-0.5 rounded text-[10px]",
+      icon: FileText,
+      badge: "4,820",
+      badgeClass: "bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-400 font-mono font-semibold px-2 py-0.5 rounded-full text-[10.5px]",
     },
     {
-      label: t("intake"),
+      label: "Scrutiny Workbench",
       href: "/intake",
       icon: ScanLine,
-      badge: "OCR",
-      badgeClass: "bg-saffron/15 text-saffron border border-saffron/25 font-mono font-bold px-1.5 py-0.5 rounded text-[10px]",
+      badge: "LIVE",
+      badgeClass: "bg-rose-100 dark:bg-rose-950/60 text-rose-600 dark:text-rose-400 font-bold px-2 py-0.5 rounded-full text-[9.5px]",
+      hasPulseDot: true,
     },
     {
-      label: t("institutionPortal"),
-      href: "/institution",
-      icon: Building,
-      badge: "60",
-      badgeClass: "glass-well text-ink-muted font-mono px-2 py-0.5 rounded text-[10px]",
-    },
-    {
-      label: t("releaseWorkflow"),
-      href: "/release-workflow",
-      icon: KeyRound,
-      badge: "HARD GATE",
-      badgeClass: "bg-red-500/15 text-red-700 dark:text-red-400 border border-red-500/25 font-bold px-1.5 py-0.5 rounded text-[9.5px]",
-    },
-    {
-      label: t("auditTrail"),
+      label: "Forensic Analysis",
       href: "/audit-trail",
-      icon: ShieldCheck,
-      badge: "SHA-256",
-      badgeClass: "bg-emerald-500/15 text-emerald-700 dark:text-emerald-400 border border-emerald-500/25 font-mono font-bold px-1.5 py-0.5 rounded text-[9.5px]",
-    },
-    {
-      label: t("metrics"),
-      href: "/metrics",
-      icon: TrendingUp,
+      icon: Fingerprint,
       badge: null,
       badgeClass: "",
     },
     {
-      label: t("settings"),
-      href: "/settings",
-      icon: Sliders,
+      label: "Blueprint Analysis",
+      href: "/blueprint-analysis",
+      icon: Compass,
+      badge: null,
+      badgeClass: "",
+    },
+    {
+      label: "Faculty Verification",
+      href: "/institution",
+      icon: UserCheck,
+      badge: null,
+      badgeClass: "",
+    },
+    {
+      label: "Authority Bridge",
+      href: "/release-workflow",
+      icon: GitMerge,
+      badge: null,
+      badgeClass: "",
+    },
+    {
+      label: "Deficiency Notices",
+      href: "/deficiency-notices",
+      icon: AlertTriangle,
+      badge: "2",
+      badgeClass: "bg-amber-100 dark:bg-amber-950/60 text-amber-800 dark:text-amber-300 font-bold px-2 py-0.5 rounded-full text-[10.5px]",
+    },
+    {
+      label: "Audit Ledger",
+      href: "/audit-trail",
+      icon: Binary,
+      badge: null,
+      badgeClass: "",
+    },
+    {
+      label: "Reports & Analytics",
+      href: "/metrics",
+      icon: BarChart2,
       badge: null,
       badgeClass: "",
     },
@@ -90,22 +106,17 @@ export function LeftGlassRail({ mobileOpen = false, onCloseMobile }: LeftGlassRa
     <div className="flex flex-col justify-between h-full w-full select-none">
       {/* Brand & Seal Header */}
       <div className="space-y-4">
-        <div className="flex items-center justify-between pb-3.5 border-b border-ink-border">
+        <div className="flex items-center justify-between pb-3.5 border-b border-slate-100 dark:border-slate-800">
           <Link href="/" className="flex items-center gap-3 group">
             <div className="h-10 w-9 flex items-center justify-center shrink-0 group-hover:scale-105 transition-transform">
               <AshokaEmblem size={28} />
             </div>
             <div className="min-w-0">
-              <div className="flex items-center gap-1.5 leading-none">
-                <span className="font-extrabold tracking-tight text-sm text-ink-primary font-serif">
-                  AICTE
-                </span>
-                <span className="text-[10px] px-1.5 py-0.5 rounded font-mono font-bold bg-saffron/15 text-saffron border border-saffron/25">
-                  SIH26265
-                </span>
+              <div className="font-extrabold tracking-tight text-sm text-slate-900 dark:text-white uppercase font-sans leading-none">
+                AICTE SCRUTINY
               </div>
-              <div className="text-[11px] font-medium text-ink-muted truncate mt-1">
-                Central Treasury Portal
+              <div className="text-[10px] font-bold text-slate-400 dark:text-slate-500 uppercase tracking-wider mt-1">
+                REGULATION BUREAU • APH - 26
               </div>
             </div>
           </Link>
@@ -113,17 +124,12 @@ export function LeftGlassRail({ mobileOpen = false, onCloseMobile }: LeftGlassRa
           {mobileOpen && (
             <button
               onClick={onCloseMobile}
-              className="lg:hidden p-1.5 rounded-lg glass-well text-ink-muted hover:text-ink-primary"
+              className="lg:hidden p-1.5 rounded-lg text-slate-500 hover:text-slate-900"
               aria-label="Close menu"
             >
               <X className="w-5 h-5" />
             </button>
           )}
-        </div>
-
-        {/* Section Label */}
-        <div className="px-2 text-[10px] font-mono uppercase tracking-wider text-ink-muted font-bold">
-          {language === "hi" ? "विनियामक मॉड्यूल" : "Treasury Navigation"}
         </div>
 
         {/* Navigation List */}
@@ -137,25 +143,26 @@ export function LeftGlassRail({ mobileOpen = false, onCloseMobile }: LeftGlassRa
 
             return (
               <Link
-                key={item.href}
+                key={item.label}
                 href={item.href}
                 onClick={onCloseMobile}
-                className={`flex items-center justify-between px-3 py-2.5 rounded-xl text-xs transition-all ${
-                  isActive
-                    ? "bg-slate-900 text-white dark:bg-slate-800 dark:text-white font-semibold shadow-xs"
-                    : "text-ink-secondary hover:text-ink-primary hover:bg-black/5 dark:hover:bg-white/5"
-                }`}
+                className={`flex items-center justify-between px-3 py-2 rounded-xl text-xs transition-all ${isActive
+                    ? "bg-[#EEF5FF] dark:bg-blue-950/40 text-[#2563EB] dark:text-blue-300 font-semibold border border-[#BFDBFE] dark:border-blue-800/70 shadow-2xs"
+                    : "text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white hover:bg-slate-100/70 dark:hover:bg-slate-800/50"
+                  }`}
               >
                 <div className="flex items-center gap-3 min-w-0">
                   <Icon
-                    className={`w-4 h-4 shrink-0 ${
-                      isActive ? "text-amber-400" : "text-ink-muted"
-                    }`}
+                    className={`w-4 h-4 shrink-0 ${isActive ? "text-[#2563EB] dark:text-blue-400" : "text-slate-400 dark:text-slate-500"
+                      }`}
                   />
                   <span className="truncate">{item.label}</span>
                 </div>
                 {item.badge && (
-                  <span className={`shrink-0 ${item.badgeClass}`}>
+                  <span className={`shrink-0 flex items-center gap-1 ${item.badgeClass}`}>
+                    {item.hasPulseDot && (
+                      <span className="w-1.5 h-1.5 rounded-full bg-rose-500 animate-pulse" />
+                    )}
                     {item.badge}
                   </span>
                 )}
@@ -165,29 +172,25 @@ export function LeftGlassRail({ mobileOpen = false, onCloseMobile }: LeftGlassRa
         </nav>
       </div>
 
-      {/* Guided Pitch Trigger & Statutory Custody Card */}
-      <div className="space-y-2.5 pt-4 border-t border-ink-border">
-        <button
-          type="button"
-          onClick={() => {
-            setIsDemoModalOpen(true);
-            onCloseMobile?.();
-          }}
-          className="w-full btn-liquid-primary py-2 px-3 rounded-xl text-xs font-semibold flex items-center justify-center gap-2 cursor-pointer shadow-xs"
-        >
-          <Sparkles className="w-3.5 h-3.5 text-amber-400 animate-pulse" />
-          <span>{language === "hi" ? "लाइव डेमो परिदृश्य" : "Live Demo Scenario"}</span>
-        </button>
-
-        <div className="p-3 glass-well rounded-xl text-[11px] space-y-1 text-ink-muted">
-          <div className="font-semibold text-ink-primary font-serif flex items-center justify-between">
-            <span>Regulation Bureau</span>
-            <span className="text-[9.5px] font-mono px-1 rounded bg-black/5 dark:bg-white/10">HQ Delhi</span>
+      {/* System Status Card (DPI Bridge Simulated, 6/6 Connected) */}
+      <div className="pt-3 border-t border-slate-100 dark:border-slate-800">
+        <div className="rounded-2xl p-3.5 bg-slate-50 dark:bg-slate-800/60 border border-slate-200/90 dark:border-slate-800 text-[11px] space-y-1.5">
+          <div className="flex items-center justify-between text-[10px] font-bold tracking-wider uppercase text-slate-500 dark:text-slate-400">
+            <span>SYSTEM STATUS</span>
+            <span className="flex items-center gap-1.5 text-emerald-600 dark:text-emerald-400 font-semibold normal-case">
+              <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse" />
+              Online
+            </span>
           </div>
-          <div>APH Statutory Deposit Norms</div>
-          <div className="font-mono text-[10px] text-emerald-600 dark:text-emerald-400 font-bold flex items-center gap-1.5 pt-0.5">
-            <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-ping" />
-            <span>LEDGER SYNCHRONIZED</span>
+          <div className="font-semibold text-xs text-slate-800 dark:text-slate-200">
+            DPI Bridge (Simulated)
+          </div>
+          <div className="font-bold text-xs text-emerald-600 dark:text-emerald-400">
+            6/6 Connected
+          </div>
+          <div className="flex items-center justify-between text-[10px] text-slate-400 font-medium pt-1 border-t border-slate-200/60 dark:border-slate-700/60">
+            <span>Last Sync 2 mins ago</span>
+            <span className="font-mono">v4.2.0</span>
           </div>
         </div>
       </div>
@@ -196,8 +199,8 @@ export function LeftGlassRail({ mobileOpen = false, onCloseMobile }: LeftGlassRa
 
   return (
     <>
-      {/* Desktop Fixed Floating Liquid Glass Rail */}
-      <aside className="hidden lg:flex fixed top-4 bottom-4 left-4 w-[280px] z-40 liquid-glass-card rounded-[24px] p-4.5 overflow-y-auto no-scrollbar shadow-md">
+      {/* Desktop Fixed Floating Rail */}
+      <aside className="hidden lg:flex fixed top-4 bottom-4 left-4 w-[280px] z-40 bg-white/95 dark:bg-slate-900/95 backdrop-blur-md border border-slate-200/90 dark:border-slate-800 rounded-2xl p-4.5 overflow-y-auto no-scrollbar shadow-sm">
         {content}
       </aside>
 
@@ -209,7 +212,7 @@ export function LeftGlassRail({ mobileOpen = false, onCloseMobile }: LeftGlassRa
             onClick={onCloseMobile}
             aria-hidden="true"
           />
-          <div className="relative w-80 max-w-[85vw] h-full liquid-glass-card p-4.5 flex flex-col z-10 shadow-2xl overflow-y-auto">
+          <div className="relative w-80 max-w-[85vw] h-full bg-white dark:bg-slate-900 p-4.5 flex flex-col z-10 shadow-2xl overflow-y-auto">
             {content}
           </div>
         </div>
@@ -219,4 +222,3 @@ export function LeftGlassRail({ mobileOpen = false, onCloseMobile }: LeftGlassRa
 }
 
 export default LeftGlassRail;
-
