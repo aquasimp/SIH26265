@@ -13,6 +13,7 @@ export async function GET(req: NextRequest) {
     integrity,
     count: logs.length,
     data: logs,
+    logs: logs,
   });
 }
 

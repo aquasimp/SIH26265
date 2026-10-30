@@ -9,13 +9,13 @@ import {
   LayoutDashboard,
   FileText,
   ScanLine,
-  Fingerprint,
   Compass,
-  UserCheck,
+  Building2,
   GitMerge,
   AlertTriangle,
-  Binary,
+  Fingerprint,
   BarChart2,
+  Sliders,
   X,
 } from "lucide-react";
 
@@ -52,23 +52,16 @@ export function LeftGlassRail({ mobileOpen = false, onCloseMobile }: LeftGlassRa
       hasPulseDot: true,
     },
     {
-      label: "Forensic Analysis",
-      href: "/audit-trail",
-      icon: Fingerprint,
-      badge: null,
-      badgeClass: "",
-    },
-    {
       label: "Blueprint Analysis",
       href: "/blueprint-analysis",
       icon: Compass,
-      badge: null,
-      badgeClass: "",
+      badge: "APH-7",
+      badgeClass: "bg-sky-100 dark:bg-sky-950/60 text-sky-700 dark:text-sky-300 font-bold px-2 py-0.5 rounded-full text-[9.5px]",
     },
     {
-      label: "Faculty Verification",
+      label: "Institution Desk",
       href: "/institution",
-      icon: UserCheck,
+      icon: Building2,
       badge: null,
       badgeClass: "",
     },
@@ -89,14 +82,21 @@ export function LeftGlassRail({ mobileOpen = false, onCloseMobile }: LeftGlassRa
     {
       label: "Audit Ledger",
       href: "/audit-trail",
-      icon: Binary,
-      badge: null,
-      badgeClass: "",
+      icon: Fingerprint,
+      badge: "SHA-256",
+      badgeClass: "bg-emerald-100 dark:bg-emerald-950/60 text-emerald-800 dark:text-emerald-300 font-bold px-2 py-0.5 rounded-full text-[9.5px]",
     },
     {
       label: "Reports & Analytics",
       href: "/metrics",
       icon: BarChart2,
+      badge: null,
+      badgeClass: "",
+    },
+    {
+      label: "Policy Settings",
+      href: "/settings",
+      icon: Sliders,
       badge: null,
       badgeClass: "",
     },
@@ -138,7 +138,7 @@ export function LeftGlassRail({ mobileOpen = false, onCloseMobile }: LeftGlassRa
             const Icon = item.icon;
             const isActive =
               item.href === "/"
-                ? pathname === "/"
+                ? pathname === "/" || pathname === "/dashboard"
                 : pathname.startsWith(item.href);
 
             return (

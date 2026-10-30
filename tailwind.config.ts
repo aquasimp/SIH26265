@@ -25,13 +25,13 @@ const config: Config = {
           subtle: "var(--ink-subtle)",
         },
         saffron: {
-          DEFAULT: "var(--saffron-primary)",
-          hover: "var(--saffron-hover)",
+          DEFAULT: "#C25E00",
+          hover: "#A04A00",
           subtle: "var(--saffron-subtle)",
         },
         botanical: {
-          DEFAULT: "var(--botanical-primary)",
-          hover: "var(--botanical-hover)",
+          DEFAULT: "#15803D",
+          hover: "#166534",
           subtle: "var(--botanical-subtle)",
         },
         status: {
