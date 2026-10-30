@@ -1,0 +1,113 @@
+@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700;800&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --font-serif: 'Cinzel', serif;
+  --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --font-mono: 'JetBrains Mono', monospace;
+
+  /* Warm Paper Palette (Calm, Dense, Sovereign Treasury) */
+  --paper-50: #FFFFFF;
+  --paper-100: #FAF8F5;
+  --paper-200: #F3EFEA;
+  --paper-300: #E8E2D8;
+  --paper-400: #DDD5C7;
+
+  /* Ink Text */
+  --ink-primary: #1A1A1E;
+  --ink-secondary: #484852;
+  --ink-muted: #747480;
+  --ink-border: #E0DDD5;
+  --ink-subtle: #ECE8E0;
+
+  /* Restrained Sovereign Saffron & Botanical Green */
+  --saffron-primary: #B85300;
+  --saffron-hover: #9E4500;
+  --saffron-subtle: #FDF3E7;
+
+  --botanical-primary: #185E2E;
+  --botanical-hover: #134C24;
+  --botanical-subtle: #EAF4EE;
+
+  /* Semantic Status */
+  --status-verified: #185E2E;
+  --status-verified-bg: #EAF4EE;
+  --status-pending: #8C5B00;
+  --status-pending-bg: #FCF4E6;
+  --status-warning: #944000;
+  --status-warning-bg: #FEEFE6;
+  --status-danger: #991B1B;
+  --status-danger-bg: #FEF2F2;
+}
+
+.dark {
+  --paper-50: #131417;
+  --paper-100: #18191E;
+  --paper-200: #202228;
+  --paper-300: #2C2E37;
+  --paper-400: #393C47;
+
+  --ink-primary: #F3F4F6;
+  --ink-secondary: #D1D5DB;
+  --ink-muted: #9CA3AF;
+  --ink-border: #2C2E37;
+  --ink-subtle: #202228;
+
+  --saffron-primary: #E0731A;
+  --saffron-hover: #F2862E;
+  --saffron-subtle: #331F0F;
+
+  --botanical-primary: #2BA055;
+  --botanical-hover: #36B864;
+  --botanical-subtle: #11281A;
+
+  --status-verified: #34D399;
+  --status-verified-bg: #064E3B;
+  --status-pending: #FBBF24;
+  --status-pending-bg: #451A03;
+  --status-warning: #FB923C;
+  --status-warning-bg: #431407;
+  --status-danger: #F87171;
+  --status-danger-bg: #450A0A;
+}
+
+body {
+  background-color: var(--paper-100);
+  color: var(--ink-primary);
+  font-family: var(--font-sans);
+  font-feature-settings: "tnum" 1, "cv02" 1, "cv03" 1, "cv04" 1;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Custom Scrollbars for High-Density Ledger Tables */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: var(--paper-100);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--paper-300);
+  border-radius: 3px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--ink-muted);
+}
+
+/* Animation Utilities respecting reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  *, ::before, ::after {
+    animation-delay: -1ms !important;
+    animation-duration: 1ms !important;
+    animation-iteration-count: 1 !important;
+    background-attachment: initial !important;
+    scroll-behavior: auto !important;
+    transition-duration: 0s !important;
+    transition-delay: 0s !important;
+  }
+}
