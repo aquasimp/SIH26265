@@ -20,24 +20,25 @@ export function AttentionScoreModal({
   if (!isOpen) return null;
 
   return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/40 backdrop-blur-xs p-4">
-      <div className="w-full max-w-lg bg-paper-50 border border-ink-border rounded shadow-ledger-elevated overflow-hidden animate-in fade-in zoom-in-95 duration-100">
-        <div className="flex items-center justify-between px-5 py-3.5 border-b border-ink-border bg-paper-100">
+    <div className="fixed inset-0 z-50 flex items-end sm:items-center justify-center bg-black/50 backdrop-blur-xs p-0 sm:p-4">
+      <div className="w-full max-w-lg bg-paper-50 border border-ink-border rounded-t-2xl sm:rounded-lg shadow-ledger-elevated overflow-hidden max-h-[92dvh] flex flex-col animate-in fade-in zoom-in-95 duration-100">
+        <div className="flex items-center justify-between px-4 sm:px-5 py-3.5 border-b border-ink-border bg-paper-100 shrink-0">
           <div className="flex items-center gap-2">
-            <Calculator className="w-4 h-4 text-saffron" />
-            <h3 className="font-serif font-bold text-sm text-ink-primary">
+            <Calculator className="w-4 h-4 text-saffron shrink-0" />
+            <h3 className="font-serif font-bold text-xs sm:text-sm text-ink-primary">
               Attention Score Calculation — {fdrNumber}
             </h3>
           </div>
           <button
             onClick={onClose}
-            className="p-1 text-ink-muted hover:text-ink-primary"
+            className="w-11 h-11 flex items-center justify-center text-ink-muted hover:text-ink-primary rounded-lg"
+            aria-label="Close calculation modal"
           >
             <X className="w-4 h-4" />
           </button>
         </div>
 
-        <div className="p-5 space-y-4 text-xs">
+        <div className="p-4 sm:p-5 space-y-4 text-xs overflow-y-auto">
           {/* Transparent Formula Callout */}
           <div className="p-3 bg-paper-100 border border-ink-border rounded font-mono text-[11px] space-y-1">
             <div className="text-ink-muted uppercase tracking-wider text-[10px]">

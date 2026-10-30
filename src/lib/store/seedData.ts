@@ -2,6 +2,7 @@ import { Institution, FdrInstrument, FdrStatus, VerificationStatus, EscalationTi
 import { DiscrepancyFlag } from "@/types/discrepancy";
 import { AuditLogEntry } from "@/types/audit";
 import { calculateBlockHash, GENESIS_HASH } from "../hashChain";
+import { calculateAttentionScore } from "../rules/attentionScore";
 
 // Deterministic seed data generator
 export function generateSeedData(): {
@@ -668,7 +669,19 @@ export function generateSeedData(): {
     }
   }
 
-  // Update institution aggregations
+  // Update institution aggregations and populate FDR institution details
+  const instMap = new Map(institutions.map((i) => [i.id, i]));
+  fdrs.forEach((fdr) => {
+    const inst = instMap.get(fdr.institutionId);
+    if (inst) {
+      fdr.institutionName = inst.name;
+      fdr.institutionAicteId = inst.aicteId;
+      fdr.institutionRegion = inst.region;
+    }
+    // Calculate deterministic attention score dynamically
+    fdr.attentionScore = calculateAttentionScore(fdr).totalScore;
+  });
+
   institutions.forEach((inst) => {
     const matching = fdrs.filter((f) => f.institutionId === inst.id);
     inst.fdrCount = matching.length;

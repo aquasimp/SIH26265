@@ -178,11 +178,28 @@ export function getFdrs(filters: FdrFilterParams = {}): FdrInstrument[] {
     });
   }
 
-  return results;
+  const instMap = new Map(store.institutions.map((i) => [i.id, i]));
+  return results.map((fdr) => {
+    const inst = instMap.get(fdr.institutionId);
+    return {
+      ...fdr,
+      institutionName: fdr.institutionName || inst?.name,
+      institutionAicteId: fdr.institutionAicteId || inst?.aicteId,
+      institutionRegion: fdr.institutionRegion || inst?.region,
+    };
+  });
 }
 
 export function getFdrById(id: string): FdrInstrument | undefined {
-  return store.fdrs.find((f) => f.id === id);
+  const fdr = store.fdrs.find((f) => f.id === id);
+  if (!fdr) return undefined;
+  const inst = store.institutions.find((i) => i.id === fdr.institutionId);
+  return {
+    ...fdr,
+    institutionName: fdr.institutionName || inst?.name,
+    institutionAicteId: fdr.institutionAicteId || inst?.aicteId,
+    institutionRegion: fdr.institutionRegion || inst?.region,
+  };
 }
 
 // ----------------------------------------------------------------------------

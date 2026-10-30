@@ -85,6 +85,9 @@ export interface ReleaseRequest {
 export interface FdrInstrument {
   id: string;
   institutionId: string;
+  institutionName?: string;
+  institutionAicteId?: string;
+  institutionRegion?: string;
   fdrNumber: string;
   bankName: string;
   branchName: string;
