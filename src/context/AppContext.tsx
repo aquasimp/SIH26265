@@ -18,6 +18,8 @@ interface AppContextType {
   setIsCmdOpen: (open: boolean) => void;
   isDemoModalOpen: boolean;
   setIsDemoModalOpen: (open: boolean) => void;
+  isMobileNavOpen: boolean;
+  setIsMobileNavOpen: (open: boolean) => void;
 }
 
 const DICTIONARY: Record<string, Record<Language, string>> = {
@@ -83,6 +85,7 @@ export function AppProvider({ children }: { children: React.ReactNode }) {
   const [isDarkMode, setIsDarkMode] = useState<boolean>(false);
   const [isCmdOpen, setIsCmdOpen] = useState<boolean>(false);
   const [isDemoModalOpen, setIsDemoModalOpen] = useState<boolean>(false);
+  const [isMobileNavOpen, setIsMobileNavOpen] = useState<boolean>(false);
 
   // Sync dark mode class on document
   useEffect(() => {
@@ -137,6 +140,8 @@ export function AppProvider({ children }: { children: React.ReactNode }) {
         setIsCmdOpen,
         isDemoModalOpen,
         setIsDemoModalOpen,
+        isMobileNavOpen,
+        setIsMobileNavOpen,
       }}
     >
       {children}

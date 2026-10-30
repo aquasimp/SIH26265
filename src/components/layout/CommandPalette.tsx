@@ -36,21 +36,22 @@ export function CommandPalette() {
   if (!isCmdOpen) return null;
 
   return (
-    <div className="fixed inset-0 z-50 flex items-start justify-center pt-20 bg-black/40 backdrop-blur-sm p-4">
-      <div className="w-full max-w-xl bg-paper-50 border border-ink-border rounded shadow-ledger-elevated overflow-hidden animate-in fade-in zoom-in-95 duration-100">
-        <div className="flex items-center gap-3 px-4 py-3 border-b border-ink-border">
-          <Search className="w-4 h-4 text-ink-muted shrink-0" />
+    <div className="fixed inset-0 z-50 flex items-start justify-center pt-8 sm:pt-20 bg-black/50 backdrop-blur-sm p-2 sm:p-4">
+      <div className="w-full max-w-xl bg-paper-50 border border-ink-border rounded-xl sm:rounded shadow-ledger-elevated overflow-hidden animate-in fade-in zoom-in-95 duration-100 flex flex-col max-h-[85dvh]">
+        <div className="flex items-center gap-2 sm:gap-3 px-3 sm:px-4 py-2 sm:py-3 border-b border-ink-border shrink-0">
+          <Search className="w-4 h-4 text-ink-muted shrink-0 ml-1" />
           <input
             type="text"
             autoFocus
             value={query}
             onChange={(e) => setQuery(e.target.value)}
             placeholder="Search FDR number, bank name, IFSC, college..."
-            className="w-full bg-transparent text-sm text-ink-primary placeholder:text-ink-muted focus:outline-none"
+            className="w-full bg-transparent text-base sm:text-sm text-ink-primary placeholder:text-ink-muted focus:outline-none py-1"
           />
           <button
             onClick={() => setIsCmdOpen(false)}
-            className="p-1 text-ink-muted hover:text-ink-primary"
+            className="w-10 h-10 flex items-center justify-center text-ink-muted hover:text-ink-primary shrink-0 rounded-md"
+            aria-label="Close command search"
           >
             <X className="w-4 h-4" />
           </button>
@@ -65,7 +66,7 @@ export function CommandPalette() {
                   setIsCmdOpen(false);
                   router.push(`/repository/${fdr.id}`);
                 }}
-                className="w-full text-left p-2.5 rounded hover:bg-paper-200 transition-colors flex items-center justify-between text-xs"
+                className="w-full text-left p-2.5 rounded hover:bg-paper-200 transition-colors flex items-center justify-between text-xs min-h-[44px]"
               >
                 <div>
                   <div className="font-mono font-semibold text-ink-primary flex items-center gap-2">
